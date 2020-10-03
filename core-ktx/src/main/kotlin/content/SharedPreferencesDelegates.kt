@@ -10,7 +10,10 @@ import kotlin.reflect.KProperty
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `false`.
  */
-fun SharedPreferences.boolean(key: String? = null, default: () -> Boolean = { false }): ReadWriteProperty<Any, Boolean> {
+fun SharedPreferences.boolean(
+    key: String? = null,
+    default: () -> Boolean = { false }
+): ReadWriteProperty<Any, Boolean> {
     return delegate(key, default, SharedPreferences::getBoolean, SharedPreferences.Editor::putBoolean)
 }
 

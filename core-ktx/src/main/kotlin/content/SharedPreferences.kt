@@ -10,4 +10,3 @@ inline fun SharedPreferences.Editor.remove(vararg keys: String): SharedPreferenc
     }
     return this
 }
-

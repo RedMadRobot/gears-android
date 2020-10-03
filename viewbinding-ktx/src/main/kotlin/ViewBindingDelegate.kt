@@ -47,9 +47,10 @@ internal class ViewBindingDelegate<VB : ViewBinding> constructor(
     private val handler = Handler(Looper.getMainLooper())
 
     init {
-        fragment.viewLifecycleOwnerLiveData.observe(fragment, Observer {
-            it.lifecycle.addObserver(this)
-        })
+        fragment.viewLifecycleOwnerLiveData.observe(
+            fragment,
+            Observer { it.lifecycle.addObserver(this) }
+        )
     }
 
     override fun getValue(thisRef: Any?, property: KProperty<*>): VB = binding ?: obtainBinding()

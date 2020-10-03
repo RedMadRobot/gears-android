@@ -128,9 +128,9 @@ private fun Class<out ViewBinding>.getInflateMethod(): Method {
         declaredMethods.find { method ->
             val parameterTypes = method.parameterTypes
             method.name == "inflate" &&
-                    parameterTypes[0] == LayoutInflater::class.java &&
-                    parameterTypes.getOrNull(1) == ViewGroup::class.java &&
-                    (parameterTypes.size == 2 || parameterTypes[2] == Boolean::class.javaPrimitiveType)
+                parameterTypes[0] == LayoutInflater::class.java &&
+                parameterTypes.getOrNull(1) == ViewGroup::class.java &&
+                (parameterTypes.size == 2 || parameterTypes[2] == Boolean::class.javaPrimitiveType)
         } ?: error("Method ${this.simpleName}.inflate(LayoutInflater, ViewGroup[, boolean]) not found.")
     }
 }

@@ -22,7 +22,8 @@ inline fun View.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(con
  * @see ContextCompat.getColorStateList
  */
 @ColorInt
-inline fun View.getColorStateList(@ColorRes resId: Int): ColorStateList? = ContextCompat.getColorStateList(context, resId)
+inline fun View.getColorStateList(@ColorRes resId: Int): ColorStateList? =
+    ContextCompat.getColorStateList(context, resId)
 
 /**
  * Returns a dimension value associated with given [resId] in pixels.
@@ -67,4 +68,6 @@ inline fun View.getString(@StringRes resId: Int): String = resources.getString(r
  * substituting the [formatArgs] as defined in [String.format].
  * @see Resources.getString
  */
-inline fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String = resources.getString(resId, *formatArgs)
+@Suppress("SpreadOperator") // Doesn't affect performance
+inline fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
+    resources.getString(resId, *formatArgs)

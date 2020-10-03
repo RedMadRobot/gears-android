@@ -1,4 +1,4 @@
-# fragment-args-ktx <GitLab path="android-research/knowledge/tree/master/libs/extensions/fragment-args-ktx"/>
+# fragment-args-ktx <GitLab path="rmr_android/ktx/tree/master/fragment-args-ktx"/>
 [![License](https://img.shields.io/badge/license-MIT-green)][license]
 
 Delegates for safe dealing with fragments' arguments.

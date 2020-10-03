@@ -1,3 +1,6 @@
+import com.redmadrobot.build.dependencies.androidx
+import com.redmadrobot.build.dependencies.assertj
+
 plugins {
     id("redmadrobot.android-library")
     id("redmadrobot.publish")

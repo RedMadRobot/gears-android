@@ -1,3 +1,5 @@
+import com.redmadrobot.build.dependencies.androidx
+
 plugins {
     id("redmadrobot.android-library")
     id("redmadrobot.publish")

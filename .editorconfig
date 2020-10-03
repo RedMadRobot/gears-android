@@ -14,6 +14,7 @@ ij_visual_guides = 100
 ij_continuation_indent_size = 8
 ij_smart_tabs = false
 ij_wrap_on_typing = false
+ij_any_keep_indents_on_empty_lines = false
 
 ## Formatter Control
 ij_formatter_tags_enabled = true
@@ -22,6 +23,7 @@ ij_formatter_off_tag = @formatter:off
 
 [{*.kt, *.kts}]
 ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
+ij_continuation_indent_size = 4 # To match ktlint settings
 
 ## Wrapping and Braces
 # Keep when reformatting
@@ -113,26 +115,66 @@ ij_kotlin_keep_blank_lines_in_declarations = 1
 ij_kotlin_keep_blank_lines_in_code = 1
 ij_kotlin_keep_blank_lines_before_right_brace = 0
 # Minimum Blank Lines
-ij_kotlin_blank_lines_after_class_header = 1
+ij_kotlin_blank_lines_after_class_header = 0
 ij_kotlin_blank_lines_around_block_when_branches = 1
+ij_kotlin_blank_lines_before_declaration_with_comment_or_annotation_on_separate_line = 1
 
 ## Imports
 ij_kotlin_name_count_to_use_star_import = 5
 ij_kotlin_name_count_to_use_star_import_for_members = 3
 ij_kotlin_import_nested_classes = false
 
+## Other
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+
 ## Code generation
 ij_kotlin_line_comment_at_first_column = true
 ij_kotlin_line_comment_add_space = false
 ij_kotlin_block_comment_at_first_column = true
 
+[**/res/**.xml]
+ij_continuation_indent_size = 4
+
+## Other
+ij_xml_keep_line_breaks = false
+ij_xml_keep_line_breaks_in_text = true
+ij_xml_keep_blank_lines = 2
+ij_xml_attribute_wrap = normal
+ij_xml_text_wrap = normal
+ij_xml_align_text = false
+ij_xml_align_attributes = false
+ij_xml_keep_whitespaces = false
+# Spaces
+ij_xml_space_around_equals_in_attribute = false
+ij_xml_space_after_tag_name = false
+ij_xml_space_inside_empty_tag = true
+# CDATA
+ij_xml_keep_whitespaces_around_cdata = preserve
+ij_xml_keep_whitespaces_inside_cdata = false
+
+## Code Generation
+ij_xml_line_comment_at_first_column = true
+ij_xml_block_comment_at_first_column = true
+
+## Android
+ij_xml_use_custom_settings = true
+
 [*.md]
 trim_trailing_whitespace = false
 
-[*.yml]
+[{*.yaml,*.yml}]
 indent_size = 2
+ij_yaml_spaces_within_brackets = false
 ij_yaml_keep_indents_on_empty_lines = false
 ij_yaml_keep_line_breaks = true
 
+[{*.bash, *.sh, *.zsh}]
+indent_size = 2
+tab_width = 2
+
 [*.bat]
 end_of_line = crlf
+
+[*.properties]
+ij_properties_keep_blank_lines = true

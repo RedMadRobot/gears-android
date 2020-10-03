@@ -5,8 +5,8 @@ set -e
 # Gradle
 cp ../gradle.properties .
 cp ../gradlew.* .
-cp -r ../gradle ./gradle
+cp -r ../gradle .
 
 # Static analyzers + Codestyle
 cp ../../.editorconfig .
-cp -r ../../config/detekt ./config/detekt
+cp -r ../../config/detekt ./config/

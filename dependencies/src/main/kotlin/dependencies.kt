@@ -7,7 +7,7 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 internal object Versions {
-    const val androidGradlePlugin = "4.0.0"
+    const val androidGradlePlugin = "4.0.1"
 }
 
 object androidx {

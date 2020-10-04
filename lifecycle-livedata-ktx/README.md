@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:lifecycle-livedata-ktx:0.1")
+    implementation("com.redmadrobot.extensions:lifecycle-livedata-ktx:2.2.0-0")
 }
 ```
 

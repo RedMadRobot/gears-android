@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:fragment-args-ktx:1.0-rc1")
+    implementation("com.redmadrobot.extensions:fragment-args-ktx:1.2.5-0")
 }
 ```
 

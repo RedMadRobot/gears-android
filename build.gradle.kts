@@ -9,4 +9,8 @@ plugins {
 
 subprojects {
     group = "com.redmadrobot.extensions"
+
+    kotlinCompile {
+        kotlinOptions.freeCompilerArgs += listOf("-module-name", "redmadrobot.${project.name}")
+    }
 }

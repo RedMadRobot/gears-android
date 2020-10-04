@@ -7,7 +7,7 @@ import org.junit.Rule
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 
-class TransformationsTest {
+internal class TransformationsTest {
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()

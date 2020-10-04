@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.observe
 import java.util.*
 
 /**
@@ -16,13 +15,13 @@ import java.util.*
  * Events queue can be used to show messages or errors to a user once.
  * @see Event
  */
-class EventQueue {
+public class EventQueue {
 
     private val liveData = MutableLiveData<Queue<Event>>()
 
     /** Adds given [event] to the queue. */
     @MainThread
-    fun offerEvent(event: Event) {
+    public fun offerEvent(event: Event) {
         val queue = liveData.value ?: LinkedList()
         queue.add(event)
         liveData.value = queue
@@ -33,7 +32,7 @@ class EventQueue {
      * Events will be consumed by specified function [onEvent].
      * @see LiveData.observe
      */
-    fun observe(lifecycleOwner: LifecycleOwner, onEvent: (Event) -> Unit) {
+    public fun observe(lifecycleOwner: LifecycleOwner, onEvent: (Event) -> Unit) {
         liveData.observe(lifecycleOwner) { consumeEvents(it, onEvent) }
     }
 
@@ -42,7 +41,7 @@ class EventQueue {
      * Events will be consumed by specified function [onEvent].
      * @see LiveData.observeForever
      */
-    fun observeForever(onEvent: (Event) -> Unit) {
+    public fun observeForever(onEvent: (Event) -> Unit) {
         liveData.observeForever { consumeEvents(it, onEvent) }
     }
 
@@ -52,14 +51,14 @@ class EventQueue {
 }
 
 /** Marker interface for entities that can be put to the [EventQueue]. */
-interface Event
+public interface Event
 
 /**
  * Shorter way to observe [LiveData] changes in a fragment using view lifecycle owner.
  * @see LiveData.observe
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun Fragment.observe(eventQueue: EventQueue, noinline onEvent: (Event) -> Unit) {
+public inline fun Fragment.observe(eventQueue: EventQueue, noinline onEvent: (Event) -> Unit) {
     eventQueue.observe(viewLifecycleOwner, onEvent)
 }
 
@@ -68,6 +67,6 @@ inline fun Fragment.observe(eventQueue: EventQueue, noinline onEvent: (Event) ->
  * @see LiveData.observe
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun ComponentActivity.observe(eventQueue: EventQueue, noinline onEvent: (Event) -> Unit) {
+public inline fun ComponentActivity.observe(eventQueue: EventQueue, noinline onEvent: (Event) -> Unit) {
     eventQueue.observe(this, onEvent)
 }

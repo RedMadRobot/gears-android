@@ -8,6 +8,6 @@ import androidx.core.graphics.drawable.DrawableCompat.setTint
 import androidx.core.graphics.drawable.DrawableCompat.wrap
 
 /** Returns wrapped this drawable with specified [tint]. */
-inline fun Drawable.withTint(@ColorInt tint: Int): Drawable {
+public inline fun Drawable.withTint(@ColorInt tint: Int): Drawable {
     return wrap(this).mutate().also { setTint(it, tint) }
 }

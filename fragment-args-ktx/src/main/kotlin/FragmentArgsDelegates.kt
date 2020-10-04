@@ -17,7 +17,7 @@ import kotlin.properties.ReadWriteProperty
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `false`.
  */
-fun Bundle?.boolean(key: String? = null, default: () -> Boolean = { false }): ReadWriteProperty<Fragment, Boolean> {
+public fun Bundle?.boolean(key: String? = null, default: () -> Boolean = { false }): ReadWriteProperty<Fragment, Boolean> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getBoolean(propertyKey, default()) },
@@ -31,7 +31,7 @@ fun Bundle?.boolean(key: String? = null, default: () -> Boolean = { false }): Re
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.booleanArray(
+public fun Bundle?.booleanArray(
     key: String? = null,
     default: () -> BooleanArray = { booleanArrayOf() }
 ): ReadWriteProperty<Fragment, BooleanArray> {
@@ -48,7 +48,7 @@ fun Bundle?.booleanArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.booleanArrayNullable(
+public fun Bundle?.booleanArrayNullable(
     key: String? = null,
     default: () -> BooleanArray? = { null }
 ): ReadWriteProperty<Fragment, BooleanArray?> {
@@ -65,7 +65,7 @@ fun Bundle?.booleanArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadWriteProperty<Fragment, Byte> {
+public fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadWriteProperty<Fragment, Byte> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getByte(propertyKey, default()) },
@@ -79,7 +79,7 @@ fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadWritePro
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.byteArray(
+public fun Bundle?.byteArray(
     key: String? = null,
     default: () -> ByteArray = { byteArrayOf() }
 ): ReadWriteProperty<Fragment, ByteArray> {
@@ -96,7 +96,7 @@ fun Bundle?.byteArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.byteArrayNullable(
+public fun Bundle?.byteArrayNullable(
     key: String? = null,
     default: () -> ByteArray? = { null }
 ): ReadWriteProperty<Fragment, ByteArray?> {
@@ -113,7 +113,7 @@ fun Bundle?.byteArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' }): ReadWriteProperty<Fragment, Char> {
+public fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' }): ReadWriteProperty<Fragment, Char> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getChar(propertyKey, default()) },
@@ -127,7 +127,7 @@ fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' }): ReadW
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.charArray(
+public fun Bundle?.charArray(
     key: String? = null,
     default: () -> CharArray = { charArrayOf() }
 ): ReadWriteProperty<Fragment, CharArray> {
@@ -144,7 +144,7 @@ fun Bundle?.charArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.charArrayNullable(
+public fun Bundle?.charArrayNullable(
     key: String? = null,
     default: () -> CharArray? = { null }
 ): ReadWriteProperty<Fragment, CharArray?> {
@@ -161,7 +161,7 @@ fun Bundle?.charArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty char sequence.
  */
-fun Bundle?.charSequence(
+public fun Bundle?.charSequence(
     key: String? = null,
     default: () -> CharSequence = { "" }
 ): ReadWriteProperty<Fragment, CharSequence> {
@@ -178,7 +178,7 @@ fun Bundle?.charSequence(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.charSequenceNullable(
+public fun Bundle?.charSequenceNullable(
     key: String? = null,
     default: () -> CharSequence? = { null }
 ): ReadWriteProperty<Fragment, CharSequence?> {
@@ -195,7 +195,7 @@ fun Bundle?.charSequenceNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.charSequenceArray(
+public fun Bundle?.charSequenceArray(
     key: String? = null,
     default: () -> Array<CharSequence> = { arrayOf() }
 ): ReadWriteProperty<Fragment, Array<CharSequence>> {
@@ -212,7 +212,7 @@ fun Bundle?.charSequenceArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.charSequenceArrayNullable(
+public fun Bundle?.charSequenceArrayNullable(
     key: String? = null,
     default: () -> Array<CharSequence>? = { null }
 ): ReadWriteProperty<Fragment, Array<CharSequence>?> {
@@ -229,7 +229,7 @@ fun Bundle?.charSequenceArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
  */
-fun Bundle?.charSequenceList(
+public fun Bundle?.charSequenceList(
     key: String? = null,
     default: () -> List<CharSequence> = ::emptyList
 ): ReadWriteProperty<Fragment, List<CharSequence>> {
@@ -246,7 +246,7 @@ fun Bundle?.charSequenceList(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.charSequenceListNullable(
+public fun Bundle?.charSequenceListNullable(
     key: String? = null,
     default: () -> List<CharSequence>? = { null }
 ): ReadWriteProperty<Fragment, List<CharSequence>?> {
@@ -263,7 +263,7 @@ fun Bundle?.charSequenceListNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
  */
-fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }): ReadWriteProperty<Fragment, Double> {
+public fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }): ReadWriteProperty<Fragment, Double> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getDouble(propertyKey, default()) },
@@ -277,7 +277,7 @@ fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }): ReadWr
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.doubleArray(
+public fun Bundle?.doubleArray(
     key: String? = null,
     default: () -> DoubleArray = { doubleArrayOf() }
 ): ReadWriteProperty<Fragment, DoubleArray> {
@@ -294,7 +294,7 @@ fun Bundle?.doubleArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.doubleArrayNullable(
+public fun Bundle?.doubleArrayNullable(
     key: String? = null,
     default: () -> DoubleArray? = { null }
 ): ReadWriteProperty<Fragment, DoubleArray?> {
@@ -311,7 +311,7 @@ fun Bundle?.doubleArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
  */
-fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Fragment, Float> {
+public fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Fragment, Float> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getFloat(propertyKey, default()) },
@@ -325,7 +325,7 @@ fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): ReadWrite
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.floatArray(
+public fun Bundle?.floatArray(
     key: String? = null,
     default: () -> FloatArray = { floatArrayOf() }
 ): ReadWriteProperty<Fragment, FloatArray> {
@@ -342,7 +342,7 @@ fun Bundle?.floatArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.floatArrayNullable(
+public fun Bundle?.floatArrayNullable(
     key: String? = null,
     default: () -> FloatArray? = { null }
 ): ReadWriteProperty<Fragment, FloatArray?> {
@@ -359,7 +359,7 @@ fun Bundle?.floatArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Fragment, Int> {
+public fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Fragment, Int> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getInt(propertyKey, default()) },
@@ -373,7 +373,7 @@ fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWritePrope
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.intArray(
+public fun Bundle?.intArray(
     key: String? = null,
     default: () -> IntArray = { intArrayOf() }
 ): ReadWriteProperty<Fragment, IntArray> {
@@ -390,7 +390,7 @@ fun Bundle?.intArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.intArrayNullable(
+public fun Bundle?.intArrayNullable(
     key: String? = null,
     default: () -> IntArray? = { null }
 ): ReadWriteProperty<Fragment, IntArray?> {
@@ -407,7 +407,7 @@ fun Bundle?.intArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
  */
-fun Bundle?.intList(
+public fun Bundle?.intList(
     key: String? = null,
     default: () -> List<Int> = ::emptyList
 ): ReadWriteProperty<Fragment, List<Int>> {
@@ -424,7 +424,7 @@ fun Bundle?.intList(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.intListNullable(
+public fun Bundle?.intListNullable(
     key: String? = null,
     default: () -> ArrayList<Int>? = { null }
 ): ReadWriteProperty<Fragment, ArrayList<Int>?> {
@@ -441,7 +441,7 @@ fun Bundle?.intListNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Fragment, Long> {
+public fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Fragment, Long> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getLong(propertyKey, default()) },
@@ -455,7 +455,7 @@ fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadWritePro
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.longArray(
+public fun Bundle?.longArray(
     key: String? = null,
     default: () -> LongArray = { longArrayOf() }
 ): ReadWriteProperty<Fragment, LongArray> {
@@ -472,7 +472,7 @@ fun Bundle?.longArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.longArrayNullable(
+public fun Bundle?.longArrayNullable(
     key: String? = null,
     default: () -> LongArray? = { null }
 ): ReadWriteProperty<Fragment, LongArray?> {
@@ -489,7 +489,7 @@ fun Bundle?.longArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is undefined.
  */
-fun <T : Parcelable> Bundle?.parcelable(
+public fun <T : Parcelable> Bundle?.parcelable(
     key: String? = null,
     default: () -> T = ::noDefaultValue
 ): ReadWriteProperty<Fragment, T> {
@@ -507,7 +507,7 @@ fun <T : Parcelable> Bundle?.parcelable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun <T : Parcelable> Bundle?.parcelableNullable(
+public fun <T : Parcelable> Bundle?.parcelableNullable(
     key: String? = null,
     default: () -> T? = { null }
 ): ReadWriteProperty<Fragment, T?> {
@@ -525,7 +525,7 @@ fun <T : Parcelable> Bundle?.parcelableNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun <T : Parcelable> Bundle?.sparseParcelableArray(
+public fun <T : Parcelable> Bundle?.sparseParcelableArray(
     key: String? = null,
     default: () -> SparseArray<T> = { SparseArray() }
 ): ReadWriteProperty<Fragment, SparseArray<T>> {
@@ -542,7 +542,7 @@ fun <T : Parcelable> Bundle?.sparseParcelableArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
+public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
     key: String? = null,
     default: () -> SparseArray<T>? = { null }
 ): ReadWriteProperty<Fragment, SparseArray<T>?> {
@@ -559,7 +559,7 @@ fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
  */
-fun <T : Parcelable> Bundle?.parcelableList(
+public fun <T : Parcelable> Bundle?.parcelableList(
     key: String? = null,
     default: () -> List<T> = ::emptyList
 ): ReadWriteProperty<Fragment, List<T>> {
@@ -576,7 +576,7 @@ fun <T : Parcelable> Bundle?.parcelableList(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun <T : Parcelable> Bundle?.parcelableListNullable(
+public fun <T : Parcelable> Bundle?.parcelableListNullable(
     key: String? = null,
     default: () -> List<T>? = { null }
 ): ReadWriteProperty<Fragment, List<T>?> {
@@ -593,7 +593,7 @@ fun <T : Parcelable> Bundle?.parcelableListNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is undefined.
  */
-fun <T : Serializable> Bundle?.serializable(
+public fun <T : Serializable> Bundle?.serializable(
     key: String? = null,
     default: () -> T = ::noDefaultValue
 ): ReadWriteProperty<Fragment, T> {
@@ -611,7 +611,7 @@ fun <T : Serializable> Bundle?.serializable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun <T : Serializable> Bundle?.serializableNullable(
+public fun <T : Serializable> Bundle?.serializableNullable(
     key: String? = null,
     default: () -> T? = { null }
 ): ReadWriteProperty<Fragment, T?> {
@@ -629,7 +629,7 @@ fun <T : Serializable> Bundle?.serializableNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
  */
-fun <T : Serializable> Bundle?.serializableList(
+public fun <T : Serializable> Bundle?.serializableList(
     key: String? = null,
     default: () -> List<T> = ::emptyList
 ): ReadWriteProperty<Fragment, List<T>> {
@@ -647,7 +647,7 @@ fun <T : Serializable> Bundle?.serializableList(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun <T : Serializable> Bundle?.serializableListNullable(
+public fun <T : Serializable> Bundle?.serializableListNullable(
     key: String? = null,
     default: () -> List<T>? = { null }
 ): ReadWriteProperty<Fragment, List<T>?> {
@@ -665,7 +665,7 @@ fun <T : Serializable> Bundle?.serializableListNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): ReadWriteProperty<Fragment, Short> {
+public fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): ReadWriteProperty<Fragment, Short> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getShort(propertyKey, default()) },
@@ -679,7 +679,7 @@ fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): ReadWriteP
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.shortArray(
+public fun Bundle?.shortArray(
     key: String? = null,
     default: () -> ShortArray = { shortArrayOf() }
 ): ReadWriteProperty<Fragment, ShortArray> {
@@ -696,7 +696,7 @@ fun Bundle?.shortArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.shortArrayNullable(
+public fun Bundle?.shortArrayNullable(
     key: String? = null,
     default: () -> ShortArray? = { null }
 ): ReadWriteProperty<Fragment, ShortArray?> {
@@ -713,7 +713,7 @@ fun Bundle?.shortArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty string.
  */
-fun Bundle?.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Fragment, String> {
+public fun Bundle?.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Fragment, String> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getString(propertyKey, default()) },
@@ -727,7 +727,7 @@ fun Bundle?.string(key: String? = null, default: () -> String = { "" }): ReadWri
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.stringNullable(
+public fun Bundle?.stringNullable(
     key: String? = null,
     default: () -> String? = { null }
 ): ReadWriteProperty<Fragment, String?> {
@@ -744,7 +744,7 @@ fun Bundle?.stringNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
  */
-fun Bundle?.stringArray(
+public fun Bundle?.stringArray(
     key: String? = null,
     default: () -> Array<String> = ::emptyArray
 ): ReadWriteProperty<Fragment, Array<String>> {
@@ -761,7 +761,7 @@ fun Bundle?.stringArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.stringArrayNullable(
+public fun Bundle?.stringArrayNullable(
     key: String? = null,
     default: () -> Array<String>? = { null }
 ): ReadWriteProperty<Fragment, Array<String>?> {
@@ -778,7 +778,7 @@ fun Bundle?.stringArrayNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
  */
-fun Bundle?.stringList(
+public fun Bundle?.stringList(
     key: String? = null,
     default: () -> List<String> = ::emptyList
 ): ReadWriteProperty<Fragment, List<String>> {
@@ -795,7 +795,7 @@ fun Bundle?.stringList(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun Bundle?.stringListNullable(
+public fun Bundle?.stringListNullable(
     key: String? = null,
     default: () -> List<String>? = { null }
 ): ReadWriteProperty<Fragment, List<String>?> {

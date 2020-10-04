@@ -5,7 +5,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Rule
 import kotlin.test.Test
 
-class EventQueueTest {
+internal class EventQueueTest {
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()

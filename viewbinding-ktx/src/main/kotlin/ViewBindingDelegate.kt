@@ -32,7 +32,7 @@ import kotlin.reflect.KProperty
  * ```
  * Accessing `binding` before `onViewCreated` or after `onViewDestroy` throws [IllegalStateException].
  */
-inline fun <reified VB : ViewBinding> Fragment.viewBinding(): ReadOnlyProperty<Any?, VB> {
+public inline fun <reified VB : ViewBinding> Fragment.viewBinding(): ReadOnlyProperty<Any?, VB> {
     return ViewBindingDelegate(this, VB::class)
 }
 
@@ -40,17 +40,16 @@ inline fun <reified VB : ViewBinding> Fragment.viewBinding(): ReadOnlyProperty<A
 @PublishedApi
 internal class ViewBindingDelegate<VB : ViewBinding> constructor(
     private val fragment: Fragment,
-    private val viewBindingClass: KClass<VB>
+    private val viewBindingClass: KClass<VB>,
 ) : ReadOnlyProperty<Any?, VB>, LifecycleEventObserver {
 
     private var binding: VB? = null
     private val handler = Handler(Looper.getMainLooper())
 
     init {
-        fragment.viewLifecycleOwnerLiveData.observe(
-            fragment,
-            Observer { it.lifecycle.addObserver(this) }
-        )
+        fragment.viewLifecycleOwnerLiveData.observe(fragment) {
+            it.lifecycle.addObserver(this)
+        }
     }
 
     override fun getValue(thisRef: Any?, property: KProperty<*>): VB = binding ?: obtainBinding()

@@ -32,7 +32,7 @@ import kotlin.reflect.KClass
  *        for the root view in the XML. By default is `true`.
  * @return Inflated ViewBinding.
  */
-inline fun <reified VB : ViewBinding> ViewGroup.inflateViewBinding(
+public inline fun <reified VB : ViewBinding> ViewGroup.inflateViewBinding(
     context: Context = this.context,
     attachToRoot: Boolean = true
 ): VB {
@@ -60,7 +60,7 @@ inline fun <reified VB : ViewBinding> ViewGroup.inflateViewBinding(
  *        for the root view in the XML. By default is `true` if `root` is not null.
  * @return Inflated ViewBinding.
  */
-inline fun <reified VB : ViewBinding> Context.inflateViewBinding(
+public inline fun <reified VB : ViewBinding> Context.inflateViewBinding(
     root: ViewGroup? = null,
     attachToRoot: Boolean = root != null
 ): VB {
@@ -94,7 +94,7 @@ inline fun <reified VB : ViewBinding> Context.inflateViewBinding(
  *        for the root view in the XML. By default is `true` if `root` is not null.
  * @return Inflated ViewBinding.
  */
-inline fun <reified VB : ViewBinding> LayoutInflater.inflateViewBinding(
+public inline fun <reified VB : ViewBinding> LayoutInflater.inflateViewBinding(
     root: ViewGroup? = null,
     attachToRoot: Boolean = root != null
 ): VB {
@@ -154,7 +154,7 @@ private fun Class<out ViewBinding>.getInflateMethod(): Method {
  *  }
  * ```
  */
-inline fun <reified VB : ViewBinding> View.getBinding(): VB = VB::class.bind(this)
+public inline fun <reified VB : ViewBinding> View.getBinding(): VB = VB::class.bind(this)
 
 /**
  * Dynamically calls method `bind` on ViewBinding class.

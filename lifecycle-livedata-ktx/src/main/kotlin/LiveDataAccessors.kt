@@ -10,13 +10,13 @@ import kotlin.reflect.KProperty
  * @see requireValue
  */
 @Suppress("NOTHING_TO_INLINE")
-inline operator fun <T : Any> LiveData<T>.getValue(thisRef: Any?, property: KProperty<*>): T = requireValue()
+public inline operator fun <T : Any> LiveData<T>.getValue(thisRef: Any?, property: KProperty<*>): T = requireValue()
 
 /**
  * Stores the value in this [LiveData].
  * @see LiveData.setValue
  */
 @Suppress("NOTHING_TO_INLINE")
-inline operator fun <T : Any> MutableLiveData<T>.setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+public inline operator fun <T : Any> MutableLiveData<T>.setValue(thisRef: Any?, property: KProperty<*>, value: T) {
     this.value = value
 }

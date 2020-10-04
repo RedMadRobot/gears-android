@@ -15,21 +15,20 @@ import androidx.core.content.ContextCompat
  * @see ContextCompat.getColor
  */
 @ColorInt
-inline fun View.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(context, resId)
+public fun View.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(context, resId)
 
 /**
  * Returns a color state list associated with given [resId].
  * @see ContextCompat.getColorStateList
  */
-@ColorInt
-inline fun View.getColorStateList(@ColorRes resId: Int): ColorStateList? =
+public fun View.getColorStateList(@ColorRes resId: Int): ColorStateList? =
     ContextCompat.getColorStateList(context, resId)
 
 /**
  * Returns a dimension value associated with given [resId] in pixels.
  * @see Resources.getDimension
  */
-inline fun View.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
+public fun View.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
 
 /**
  * Returns a drawable associated with given [resId],
@@ -37,7 +36,7 @@ inline fun View.getDimension(@DimenRes resId: Int): Float = resources.getDimensi
  * @see AppCompatResources.getDrawable
  * @see getDrawableWithTint
  */
-inline fun View.getDrawable(@DrawableRes resId: Int): Drawable? = AppCompatResources.getDrawable(context, resId)
+public fun View.getDrawable(@DrawableRes resId: Int): Drawable? = AppCompatResources.getDrawable(context, resId)
 
 /**
  * Returns a drawable associated with given [resId],
@@ -45,7 +44,7 @@ inline fun View.getDrawable(@DrawableRes resId: Int): Drawable? = AppCompatResou
  * @see getDrawable
  * @see getDrawableWithTint
  */
-inline fun View.requireDrawable(@DrawableRes resId: Int): Drawable = requireNotNull(getDrawable(resId))
+public fun View.requireDrawable(@DrawableRes resId: Int): Drawable = requireNotNull(getDrawable(resId))
 
 /**
  * Returns a drawable associated with given [resId] and tinted with specified [tint] color,
@@ -53,7 +52,7 @@ inline fun View.requireDrawable(@DrawableRes resId: Int): Drawable = requireNotN
  * @see getDrawable
  * @see withTint
  */
-inline fun View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
+public fun View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
     return getDrawable(resId)?.withTint(tint)
 }
 
@@ -61,7 +60,7 @@ inline fun View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int
  * Returns a localized string associated with given [resId].
  * @see Resources.getString
  */
-inline fun View.getString(@StringRes resId: Int): String = resources.getString(resId)
+public fun View.getString(@StringRes resId: Int): String = resources.getString(resId)
 
 /**
  * Returns a localized formatted string associated with given [resId],
@@ -69,5 +68,5 @@ inline fun View.getString(@StringRes resId: Int): String = resources.getString(r
  * @see Resources.getString
  */
 @Suppress("SpreadOperator") // Doesn't affect performance
-inline fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
+public fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
     resources.getString(resId, *formatArgs)

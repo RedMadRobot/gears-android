@@ -18,14 +18,13 @@ import androidx.fragment.app.Fragment
  * @see ContextCompat.getColor
  */
 @ColorInt
-inline fun Fragment.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(requireContext(), resId)
+public fun Fragment.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(requireContext(), resId)
 
 /**
  * Returns a color state list associated with given [resId].
  * @see ContextCompat.getColorStateList
  */
-@ColorInt
-inline fun Fragment.getColorStateList(@ColorRes resId: Int): ColorStateList? {
+public fun Fragment.getColorStateList(@ColorRes resId: Int): ColorStateList? {
     return ContextCompat.getColorStateList(requireContext(), resId)
 }
 
@@ -35,7 +34,7 @@ inline fun Fragment.getColorStateList(@ColorRes resId: Int): ColorStateList? {
  * @see AppCompatResources.getDrawable
  * @see getDrawableWithTint
  */
-inline fun Fragment.getDrawable(@DrawableRes resId: Int): Drawable? {
+public fun Fragment.getDrawable(@DrawableRes resId: Int): Drawable? {
     return AppCompatResources.getDrawable(requireContext(), resId)
 }
 
@@ -45,7 +44,7 @@ inline fun Fragment.getDrawable(@DrawableRes resId: Int): Drawable? {
  * @see getDrawable
  * @see getDrawableWithTint
  */
-inline fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
+public fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
     return getDrawable(resId)?.withTint(tint)
 }
 
@@ -53,4 +52,4 @@ inline fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint:
  * Returns a dimension value associated with given [resId] in pixels.
  * @see Resources.getDimension
  */
-inline fun Fragment.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
+public fun Fragment.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)

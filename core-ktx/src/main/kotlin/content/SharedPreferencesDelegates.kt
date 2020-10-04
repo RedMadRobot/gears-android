@@ -10,7 +10,7 @@ import kotlin.reflect.KProperty
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `false`.
  */
-fun SharedPreferences.boolean(
+public fun SharedPreferences.boolean(
     key: String? = null,
     default: () -> Boolean = { false }
 ): ReadWriteProperty<Any, Boolean> {
@@ -23,7 +23,7 @@ fun SharedPreferences.boolean(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
  */
-fun SharedPreferences.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Any, Float> {
+public fun SharedPreferences.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Any, Float> {
     return delegate(key, default, SharedPreferences::getFloat, SharedPreferences.Editor::putFloat)
 }
 
@@ -33,7 +33,7 @@ fun SharedPreferences.float(key: String? = null, default: () -> Float = { 0f }):
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Any, Int> {
+public fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Any, Int> {
     return delegate(key, default, SharedPreferences::getInt, SharedPreferences.Editor::putInt)
 }
 
@@ -43,7 +43,7 @@ fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }): Read
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Any, Long> {
+public fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Any, Long> {
     return delegate(key, default, SharedPreferences::getLong, SharedPreferences.Editor::putLong)
 }
 
@@ -53,7 +53,7 @@ fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0 }): Re
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `""` (empty string).
  */
-fun SharedPreferences.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Any, String> {
+public fun SharedPreferences.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Any, String> {
     return delegate(key, default, SharedPreferences::getString, SharedPreferences.Editor::putString)
 }
 
@@ -63,7 +63,7 @@ fun SharedPreferences.string(key: String? = null, default: () -> String = { "" }
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun SharedPreferences.stringNullable(
+public fun SharedPreferences.stringNullable(
     key: String? = null,
     default: () -> String? = { null }
 ): ReadWriteProperty<Any, String?> {
@@ -76,7 +76,7 @@ fun SharedPreferences.stringNullable(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is empty set.
  */
-fun SharedPreferences.stringSet(
+public fun SharedPreferences.stringSet(
     key: String? = null,
     default: () -> Set<String> = { emptySet() }
 ): ReadWriteProperty<Any, Set<String>> {
@@ -89,7 +89,7 @@ fun SharedPreferences.stringSet(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-fun SharedPreferences.stringSetNullable(
+public fun SharedPreferences.stringSetNullable(
     key: String? = null,
     default: () -> Set<String>? = { null }
 ): ReadWriteProperty<Any, Set<String>?> {

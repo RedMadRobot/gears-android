@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.Rule
 import org.junit.Test
 
-class LiveDataTest {
+internal class LiveDataTest {
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()

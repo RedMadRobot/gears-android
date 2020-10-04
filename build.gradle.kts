@@ -1,3 +1,5 @@
+import com.redmadrobot.build.kotlinCompile
+
 plugins {
     val infrastructureVersion = "0.2-SNAPSHOT"
     id("redmadrobot.android-library") version infrastructureVersion apply false

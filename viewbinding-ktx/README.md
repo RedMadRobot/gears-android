@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:viewbinding-ktx:1.0-rc1")
+    implementation("com.redmadrobot.extensions:viewbinding-ktx:4.0.1-0")
 }
 ```
 

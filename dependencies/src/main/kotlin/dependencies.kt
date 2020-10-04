@@ -13,14 +13,14 @@ internal object Versions {
 object androidx {
     const val activity = "androidx.activity:activity:1.1.0"
     const val annotation = "androidx.annotation:annotation:1.1.0"
-    const val fragment = "androidx.fragment:fragment:1.2.4"
+    const val fragment = "androidx.fragment:fragment:1.2.5"
     const val viewbinding = "androidx.databinding:viewbinding:${Versions.androidGradlePlugin}"
 
-    object appcompat : Group("androidx.appcompat", version = "1.1.0") {
+    object appcompat : Group("androidx.appcompat", version = "1.2.0") {
         val resources by this
     }
 
-    object core : Group("androidx.core", version = "1.3.1") {
+    object core : Group("androidx.core", version = "1.3.2") {
         val ktx by this
     }
 
@@ -37,7 +37,7 @@ object androidx {
 }
 
 object assertj {
-    const val core = "org.assertj:assertj-core:3.16.1"
+    const val core = "org.assertj:assertj-core:3.17.2"
 }
 
 // <editor-fold defaultstate="collapsed" desc="Experimental API">

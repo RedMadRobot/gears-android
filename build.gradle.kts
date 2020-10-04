@@ -4,6 +4,7 @@ plugins {
     id("redmadrobot.publish") version infrastructureVersion apply false
 
     id("redmadrobot.detekt") version infrastructureVersion
+    id("com.github.ben-manes.versions") version "0.33.0"
     id("dependencies")
 }
 

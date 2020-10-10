@@ -1,7 +1,9 @@
-# RMR Android KTX
+# Redmadrobot Android KTX
 [![License](https://img.shields.io/badge/license-MIT-green)][license]
 
 Missing Android KTX extensions.
+
+> :exclamation: It is not replacement of [Android KTX][ktx], it is just additional extensions and delegates that we found useful.
 
 ---
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -16,6 +18,8 @@ Missing Android KTX extensions.
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Modules
+
+Module's pages contain README with detailed description of module.
 
 - [core-ktx] - Extensions in addition to androidx core-ktx
 - [fragment-args-ktx] - Delegates for safe dealing with fragments' arguments
@@ -33,7 +37,7 @@ When first part of version increased, second part should be set to 0.
 com.redmadrobot.extensions:fragment-args-ktx:2.2.0-0
 ```
 - `2.2.0` - version of `androidx.fragment:fragment`
-- `0` - version of extensions. First version for `fragment:2.2.0`
+- `0` - version of extensions. First version of extensions for `fragment:2.2.0`
 
 ## Contribution
 
@@ -44,6 +48,7 @@ For major changes, please open an issue first to discuss what you would like to 
 
 [MIT][license]
 
+[ktx]: https://developer.android.com/kotlin/ktx
 
 [core-ktx]: core-ktx
 [fragment-args-ktx]: fragment-args-ktx

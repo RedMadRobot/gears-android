@@ -608,7 +608,7 @@ style:
   RedundantExplicitType:
     active: true
   RedundantVisibilityModifierRule:
-    active: true
+    active: false # Conflicts with explicit API mode
   ReturnCount:
     active: true
     max: 2

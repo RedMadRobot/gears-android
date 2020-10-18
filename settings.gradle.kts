@@ -2,11 +2,7 @@ pluginManagement {
     repositories {
         google()
         gradlePluginPortal()
-        maven {
-            name = "rmrNexus"
-            setUrl("https://nexus.redmadrobot.com/repository/android/")
-            credentials(PasswordCredentials::class)
-        }
+        maven(url = "https://dl.bintray.com/redmadrobot-opensource/android")
     }
 }
 

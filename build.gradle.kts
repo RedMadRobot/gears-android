@@ -7,7 +7,7 @@ buildscript {
 }
 
 plugins {
-    val infrastructureVersion = "0.2-SNAPSHOT"
+    val infrastructureVersion = "0.2"
     id("redmadrobot.android-library") version infrastructureVersion apply false
     id("redmadrobot.publish") version infrastructureVersion apply false
 

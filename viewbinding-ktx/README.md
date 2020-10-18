@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:viewbinding-ktx:4.0.1-0")
+    implementation("com.redmadrobot.extensions:viewbinding-ktx:4.1.0-0")
 }
 ```
 
@@ -45,7 +45,7 @@ android {
     buildFeatures.viewBinding = true
 }
 
-// Optional: disable synthetics for views
+// Optional: disable synthetics for views, keep only parcelize
 androidExtensions {
     features = ["parcelize"]
 }

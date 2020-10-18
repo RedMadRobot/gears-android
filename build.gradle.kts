@@ -1,11 +1,5 @@
 import com.redmadrobot.build.kotlinCompile
 
-buildscript {
-    configurations.all {
-        resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
-    }
-}
-
 plugins {
     val infrastructureVersion = "0.2"
     id("redmadrobot.android-library") version infrastructureVersion apply false

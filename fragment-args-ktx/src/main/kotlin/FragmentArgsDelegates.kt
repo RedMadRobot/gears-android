@@ -17,11 +17,14 @@ import kotlin.properties.ReadWriteProperty
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `false`.
  */
-public fun Bundle?.boolean(key: String? = null, default: () -> Boolean = { false }): ReadWriteProperty<Fragment, Boolean> {
+public fun Bundle?.boolean(
+    key: String? = null,
+    default: () -> Boolean = { false },
+): ReadWriteProperty<Fragment, Boolean> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getBoolean(propertyKey, default()) },
-        setValue = { propertyKey, value -> putBoolean(propertyKey, value) }
+        setValue = { propertyKey, value -> putBoolean(propertyKey, value) },
     )
 }
 
@@ -33,12 +36,12 @@ public fun Bundle?.boolean(key: String? = null, default: () -> Boolean = { false
  */
 public fun Bundle?.booleanArray(
     key: String? = null,
-    default: () -> BooleanArray = { booleanArrayOf() }
+    default: () -> BooleanArray = { booleanArrayOf() },
 ): ReadWriteProperty<Fragment, BooleanArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getBooleanArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putBooleanArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putBooleanArray(propertyKey, value) },
     )
 }
 
@@ -50,12 +53,12 @@ public fun Bundle?.booleanArray(
  */
 public fun Bundle?.booleanArrayNullable(
     key: String? = null,
-    default: () -> BooleanArray? = { null }
+    default: () -> BooleanArray? = { null },
 ): ReadWriteProperty<Fragment, BooleanArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getBooleanArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putBooleanArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putBooleanArray(propertyKey, value) },
     )
 }
 
@@ -69,7 +72,7 @@ public fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadW
     return delegate(
         key = key,
         getValue = { propertyKey -> getByte(propertyKey, default()) },
-        setValue = Bundle::putByte
+        setValue = Bundle::putByte,
     )
 }
 
@@ -81,12 +84,12 @@ public fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadW
  */
 public fun Bundle?.byteArray(
     key: String? = null,
-    default: () -> ByteArray = { byteArrayOf() }
+    default: () -> ByteArray = { byteArrayOf() },
 ): ReadWriteProperty<Fragment, ByteArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getByteArray(propertyKey) ?: default() },
-        setValue = Bundle::putByteArray
+        setValue = Bundle::putByteArray,
     )
 }
 
@@ -98,12 +101,12 @@ public fun Bundle?.byteArray(
  */
 public fun Bundle?.byteArrayNullable(
     key: String? = null,
-    default: () -> ByteArray? = { null }
+    default: () -> ByteArray? = { null },
 ): ReadWriteProperty<Fragment, ByteArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getByteArray(propertyKey) ?: default() },
-        setValue = Bundle::putByteArray
+        setValue = Bundle::putByteArray,
     )
 }
 
@@ -117,7 +120,7 @@ public fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' })
     return delegate(
         key = key,
         getValue = { propertyKey -> getChar(propertyKey, default()) },
-        setValue = Bundle::putChar
+        setValue = Bundle::putChar,
     )
 }
 
@@ -129,12 +132,12 @@ public fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' })
  */
 public fun Bundle?.charArray(
     key: String? = null,
-    default: () -> CharArray = { charArrayOf() }
+    default: () -> CharArray = { charArrayOf() },
 ): ReadWriteProperty<Fragment, CharArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharArray(propertyKey) ?: default() },
-        setValue = Bundle::putCharArray
+        setValue = Bundle::putCharArray,
     )
 }
 
@@ -146,12 +149,12 @@ public fun Bundle?.charArray(
  */
 public fun Bundle?.charArrayNullable(
     key: String? = null,
-    default: () -> CharArray? = { null }
+    default: () -> CharArray? = { null },
 ): ReadWriteProperty<Fragment, CharArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharArray(propertyKey) ?: default() },
-        setValue = Bundle::putCharArray
+        setValue = Bundle::putCharArray,
     )
 }
 
@@ -163,12 +166,12 @@ public fun Bundle?.charArrayNullable(
  */
 public fun Bundle?.charSequence(
     key: String? = null,
-    default: () -> CharSequence = { "" }
+    default: () -> CharSequence = { "" },
 ): ReadWriteProperty<Fragment, CharSequence> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharSequence(propertyKey, default()) },
-        setValue = Bundle::putCharSequence
+        setValue = Bundle::putCharSequence,
     )
 }
 
@@ -180,12 +183,12 @@ public fun Bundle?.charSequence(
  */
 public fun Bundle?.charSequenceNullable(
     key: String? = null,
-    default: () -> CharSequence? = { null }
+    default: () -> CharSequence? = { null },
 ): ReadWriteProperty<Fragment, CharSequence?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharSequence(propertyKey, default()) },
-        setValue = Bundle::putCharSequence
+        setValue = Bundle::putCharSequence,
     )
 }
 
@@ -197,12 +200,12 @@ public fun Bundle?.charSequenceNullable(
  */
 public fun Bundle?.charSequenceArray(
     key: String? = null,
-    default: () -> Array<CharSequence> = { arrayOf() }
+    default: () -> Array<CharSequence> = { arrayOf() },
 ): ReadWriteProperty<Fragment, Array<CharSequence>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharSequenceArray(propertyKey) ?: default() },
-        setValue = Bundle::putCharSequenceArray
+        setValue = Bundle::putCharSequenceArray,
     )
 }
 
@@ -214,12 +217,12 @@ public fun Bundle?.charSequenceArray(
  */
 public fun Bundle?.charSequenceArrayNullable(
     key: String? = null,
-    default: () -> Array<CharSequence>? = { null }
+    default: () -> Array<CharSequence>? = { null },
 ): ReadWriteProperty<Fragment, Array<CharSequence>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharSequenceArray(propertyKey) ?: default() },
-        setValue = Bundle::putCharSequenceArray
+        setValue = Bundle::putCharSequenceArray,
     )
 }
 
@@ -231,12 +234,12 @@ public fun Bundle?.charSequenceArrayNullable(
  */
 public fun Bundle?.charSequenceList(
     key: String? = null,
-    default: () -> List<CharSequence> = ::emptyList
+    default: () -> List<CharSequence> = ::emptyList,
 ): ReadWriteProperty<Fragment, List<CharSequence>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharSequenceArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putCharSequenceArrayList(propertyKey, ArrayList(value)) }
+        setValue = { propertyKey, value -> putCharSequenceArrayList(propertyKey, ArrayList(value)) },
     )
 }
 
@@ -248,12 +251,12 @@ public fun Bundle?.charSequenceList(
  */
 public fun Bundle?.charSequenceListNullable(
     key: String? = null,
-    default: () -> List<CharSequence>? = { null }
+    default: () -> List<CharSequence>? = { null },
 ): ReadWriteProperty<Fragment, List<CharSequence>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getCharSequenceArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putCharSequenceArrayList(propertyKey, value?.let { ArrayList(it) }) }
+        setValue = { propertyKey, value -> putCharSequenceArrayList(propertyKey, value?.let { ArrayList(it) }) },
     )
 }
 
@@ -267,7 +270,7 @@ public fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }):
     return delegate(
         key = key,
         getValue = { propertyKey -> getDouble(propertyKey, default()) },
-        setValue = { propertyKey, value -> putDouble(propertyKey, value) }
+        setValue = { propertyKey, value -> putDouble(propertyKey, value) },
     )
 }
 
@@ -279,12 +282,12 @@ public fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }):
  */
 public fun Bundle?.doubleArray(
     key: String? = null,
-    default: () -> DoubleArray = { doubleArrayOf() }
+    default: () -> DoubleArray = { doubleArrayOf() },
 ): ReadWriteProperty<Fragment, DoubleArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getDoubleArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putDoubleArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putDoubleArray(propertyKey, value) },
     )
 }
 
@@ -296,12 +299,12 @@ public fun Bundle?.doubleArray(
  */
 public fun Bundle?.doubleArrayNullable(
     key: String? = null,
-    default: () -> DoubleArray? = { null }
+    default: () -> DoubleArray? = { null },
 ): ReadWriteProperty<Fragment, DoubleArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getDoubleArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putDoubleArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putDoubleArray(propertyKey, value) },
     )
 }
 
@@ -315,7 +318,7 @@ public fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): Re
     return delegate(
         key = key,
         getValue = { propertyKey -> getFloat(propertyKey, default()) },
-        setValue = Bundle::putFloat
+        setValue = Bundle::putFloat,
     )
 }
 
@@ -327,12 +330,12 @@ public fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): Re
  */
 public fun Bundle?.floatArray(
     key: String? = null,
-    default: () -> FloatArray = { floatArrayOf() }
+    default: () -> FloatArray = { floatArrayOf() },
 ): ReadWriteProperty<Fragment, FloatArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getFloatArray(propertyKey) ?: default() },
-        setValue = Bundle::putFloatArray
+        setValue = Bundle::putFloatArray,
     )
 }
 
@@ -344,12 +347,12 @@ public fun Bundle?.floatArray(
  */
 public fun Bundle?.floatArrayNullable(
     key: String? = null,
-    default: () -> FloatArray? = { null }
+    default: () -> FloatArray? = { null },
 ): ReadWriteProperty<Fragment, FloatArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getFloatArray(propertyKey) ?: default() },
-        setValue = Bundle::putFloatArray
+        setValue = Bundle::putFloatArray,
     )
 }
 
@@ -363,7 +366,7 @@ public fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWri
     return delegate(
         key = key,
         getValue = { propertyKey -> getInt(propertyKey, default()) },
-        setValue = { propertyKey, value -> putInt(propertyKey, value) }
+        setValue = { propertyKey, value -> putInt(propertyKey, value) },
     )
 }
 
@@ -375,12 +378,12 @@ public fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWri
  */
 public fun Bundle?.intArray(
     key: String? = null,
-    default: () -> IntArray = { intArrayOf() }
+    default: () -> IntArray = { intArrayOf() },
 ): ReadWriteProperty<Fragment, IntArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getIntArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putIntArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putIntArray(propertyKey, value) },
     )
 }
 
@@ -392,12 +395,12 @@ public fun Bundle?.intArray(
  */
 public fun Bundle?.intArrayNullable(
     key: String? = null,
-    default: () -> IntArray? = { null }
+    default: () -> IntArray? = { null },
 ): ReadWriteProperty<Fragment, IntArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getIntArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putIntArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putIntArray(propertyKey, value) },
     )
 }
 
@@ -409,12 +412,12 @@ public fun Bundle?.intArrayNullable(
  */
 public fun Bundle?.intList(
     key: String? = null,
-    default: () -> List<Int> = ::emptyList
+    default: () -> List<Int> = ::emptyList,
 ): ReadWriteProperty<Fragment, List<Int>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getIntegerArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putIntegerArrayList(propertyKey, ArrayList(value)) }
+        setValue = { propertyKey, value -> putIntegerArrayList(propertyKey, ArrayList(value)) },
     )
 }
 
@@ -426,12 +429,12 @@ public fun Bundle?.intList(
  */
 public fun Bundle?.intListNullable(
     key: String? = null,
-    default: () -> ArrayList<Int>? = { null }
+    default: () -> ArrayList<Int>? = { null },
 ): ReadWriteProperty<Fragment, ArrayList<Int>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getIntegerArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putIntegerArrayList(propertyKey, value?.let { ArrayList(it) }) }
+        setValue = { propertyKey, value -> putIntegerArrayList(propertyKey, value?.let { ArrayList(it) }) },
     )
 }
 
@@ -445,7 +448,7 @@ public fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadW
     return delegate(
         key = key,
         getValue = { propertyKey -> getLong(propertyKey, default()) },
-        setValue = { propertyKey, value -> putLong(propertyKey, value) }
+        setValue = { propertyKey, value -> putLong(propertyKey, value) },
     )
 }
 
@@ -457,12 +460,12 @@ public fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadW
  */
 public fun Bundle?.longArray(
     key: String? = null,
-    default: () -> LongArray = { longArrayOf() }
+    default: () -> LongArray = { longArrayOf() },
 ): ReadWriteProperty<Fragment, LongArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getLongArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putLongArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putLongArray(propertyKey, value) },
     )
 }
 
@@ -474,12 +477,12 @@ public fun Bundle?.longArray(
  */
 public fun Bundle?.longArrayNullable(
     key: String? = null,
-    default: () -> LongArray? = { null }
+    default: () -> LongArray? = { null },
 ): ReadWriteProperty<Fragment, LongArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getLongArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putLongArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putLongArray(propertyKey, value) },
     )
 }
 
@@ -491,13 +494,13 @@ public fun Bundle?.longArrayNullable(
  */
 public fun <T : Parcelable> Bundle?.parcelable(
     key: String? = null,
-    default: () -> T = ::noDefaultValue
+    default: () -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
     @Suppress("USELESS_CAST") // Can't infer type without cast (check in kotlin 1.4)
     return delegate(
         key = key,
         getValue = { propertyKey -> (getParcelable(propertyKey) ?: default()) as T },
-        setValue = Bundle::putParcelable
+        setValue = Bundle::putParcelable,
     )
 }
 
@@ -509,13 +512,13 @@ public fun <T : Parcelable> Bundle?.parcelable(
  */
 public fun <T : Parcelable> Bundle?.parcelableNullable(
     key: String? = null,
-    default: () -> T? = { null }
+    default: () -> T? = { null },
 ): ReadWriteProperty<Fragment, T?> {
     @Suppress("USELESS_CAST") // Can't infer type without cast (check in kotlin 1.4)
     return delegate(
         key = key,
         getValue = { propertyKey -> (getParcelable(propertyKey) ?: default()) as T? },
-        setValue = Bundle::putParcelable
+        setValue = Bundle::putParcelable,
     )
 }
 
@@ -527,12 +530,12 @@ public fun <T : Parcelable> Bundle?.parcelableNullable(
  */
 public fun <T : Parcelable> Bundle?.sparseParcelableArray(
     key: String? = null,
-    default: () -> SparseArray<T> = { SparseArray() }
+    default: () -> SparseArray<T> = { SparseArray() },
 ): ReadWriteProperty<Fragment, SparseArray<T>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getSparseParcelableArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) },
     )
 }
 
@@ -544,12 +547,12 @@ public fun <T : Parcelable> Bundle?.sparseParcelableArray(
  */
 public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
     key: String? = null,
-    default: () -> SparseArray<T>? = { null }
+    default: () -> SparseArray<T>? = { null },
 ): ReadWriteProperty<Fragment, SparseArray<T>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getSparseParcelableArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) },
     )
 }
 
@@ -561,12 +564,12 @@ public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
  */
 public fun <T : Parcelable> Bundle?.parcelableList(
     key: String? = null,
-    default: () -> List<T> = ::emptyList
+    default: () -> List<T> = ::emptyList,
 ): ReadWriteProperty<Fragment, List<T>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getParcelableArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, ArrayList(value)) }
+        setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, ArrayList(value)) },
     )
 }
 
@@ -578,12 +581,12 @@ public fun <T : Parcelable> Bundle?.parcelableList(
  */
 public fun <T : Parcelable> Bundle?.parcelableListNullable(
     key: String? = null,
-    default: () -> List<T>? = { null }
+    default: () -> List<T>? = { null },
 ): ReadWriteProperty<Fragment, List<T>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getParcelableArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, value?.let { ArrayList(it) }) }
+        setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, value?.let { ArrayList(it) }) },
     )
 }
 
@@ -595,13 +598,13 @@ public fun <T : Parcelable> Bundle?.parcelableListNullable(
  */
 public fun <T : Serializable> Bundle?.serializable(
     key: String? = null,
-    default: () -> T = ::noDefaultValue
+    default: () -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
         getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as T },
-        setValue = Bundle::putSerializable
+        setValue = Bundle::putSerializable,
     )
 }
 
@@ -613,13 +616,13 @@ public fun <T : Serializable> Bundle?.serializable(
  */
 public fun <T : Serializable> Bundle?.serializableNullable(
     key: String? = null,
-    default: () -> T? = { null }
+    default: () -> T? = { null },
 ): ReadWriteProperty<Fragment, T?> {
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
         getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as T? },
-        setValue = Bundle::putSerializable
+        setValue = Bundle::putSerializable,
     )
 }
 
@@ -631,13 +634,13 @@ public fun <T : Serializable> Bundle?.serializableNullable(
  */
 public fun <T : Serializable> Bundle?.serializableList(
     key: String? = null,
-    default: () -> List<T> = ::emptyList
+    default: () -> List<T> = ::emptyList,
 ): ReadWriteProperty<Fragment, List<T>> {
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
         getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as List<T> },
-        setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) }
+        setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) },
     )
 }
 
@@ -649,13 +652,13 @@ public fun <T : Serializable> Bundle?.serializableList(
  */
 public fun <T : Serializable> Bundle?.serializableListNullable(
     key: String? = null,
-    default: () -> List<T>? = { null }
+    default: () -> List<T>? = { null },
 ): ReadWriteProperty<Fragment, List<T>?> {
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
         getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as List<T>? },
-        setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) }
+        setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) },
     )
 }
 
@@ -669,7 +672,7 @@ public fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): Rea
     return delegate(
         key = key,
         getValue = { propertyKey -> getShort(propertyKey, default()) },
-        setValue = Bundle::putShort
+        setValue = Bundle::putShort,
     )
 }
 
@@ -681,12 +684,12 @@ public fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): Rea
  */
 public fun Bundle?.shortArray(
     key: String? = null,
-    default: () -> ShortArray = { shortArrayOf() }
+    default: () -> ShortArray = { shortArrayOf() },
 ): ReadWriteProperty<Fragment, ShortArray> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getShortArray(propertyKey) ?: default() },
-        setValue = Bundle::putShortArray
+        setValue = Bundle::putShortArray,
     )
 }
 
@@ -698,12 +701,12 @@ public fun Bundle?.shortArray(
  */
 public fun Bundle?.shortArrayNullable(
     key: String? = null,
-    default: () -> ShortArray? = { null }
+    default: () -> ShortArray? = { null },
 ): ReadWriteProperty<Fragment, ShortArray?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getShortArray(propertyKey) ?: default() },
-        setValue = Bundle::putShortArray
+        setValue = Bundle::putShortArray,
     )
 }
 
@@ -717,7 +720,7 @@ public fun Bundle?.string(key: String? = null, default: () -> String = { "" }): 
     return delegate(
         key = key,
         getValue = { propertyKey -> getString(propertyKey, default()) },
-        setValue = { propertyKey, value -> putString(propertyKey, value) }
+        setValue = { propertyKey, value -> putString(propertyKey, value) },
     )
 }
 
@@ -729,12 +732,12 @@ public fun Bundle?.string(key: String? = null, default: () -> String = { "" }): 
  */
 public fun Bundle?.stringNullable(
     key: String? = null,
-    default: () -> String? = { null }
+    default: () -> String? = { null },
 ): ReadWriteProperty<Fragment, String?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getString(propertyKey, default()) },
-        setValue = { propertyKey, value -> putString(propertyKey, value) }
+        setValue = { propertyKey, value -> putString(propertyKey, value) },
     )
 }
 
@@ -746,12 +749,12 @@ public fun Bundle?.stringNullable(
  */
 public fun Bundle?.stringArray(
     key: String? = null,
-    default: () -> Array<String> = ::emptyArray
+    default: () -> Array<String> = ::emptyArray,
 ): ReadWriteProperty<Fragment, Array<String>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getStringArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putStringArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putStringArray(propertyKey, value) },
     )
 }
 
@@ -763,12 +766,12 @@ public fun Bundle?.stringArray(
  */
 public fun Bundle?.stringArrayNullable(
     key: String? = null,
-    default: () -> Array<String>? = { null }
+    default: () -> Array<String>? = { null },
 ): ReadWriteProperty<Fragment, Array<String>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getStringArray(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putStringArray(propertyKey, value) }
+        setValue = { propertyKey, value -> putStringArray(propertyKey, value) },
     )
 }
 
@@ -780,12 +783,12 @@ public fun Bundle?.stringArrayNullable(
  */
 public fun Bundle?.stringList(
     key: String? = null,
-    default: () -> List<String> = ::emptyList
+    default: () -> List<String> = ::emptyList,
 ): ReadWriteProperty<Fragment, List<String>> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getStringArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putStringArrayList(propertyKey, ArrayList(value)) }
+        setValue = { propertyKey, value -> putStringArrayList(propertyKey, ArrayList(value)) },
     )
 }
 
@@ -797,12 +800,12 @@ public fun Bundle?.stringList(
  */
 public fun Bundle?.stringListNullable(
     key: String? = null,
-    default: () -> List<String>? = { null }
+    default: () -> List<String>? = { null },
 ): ReadWriteProperty<Fragment, List<String>?> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getStringArrayList(propertyKey) ?: default() },
-        setValue = { propertyKey, value -> putStringArrayList(propertyKey, value?.let { ArrayList(it) }) }
+        setValue = { propertyKey, value -> putStringArrayList(propertyKey, value?.let { ArrayList(it) }) },
     )
 }
 

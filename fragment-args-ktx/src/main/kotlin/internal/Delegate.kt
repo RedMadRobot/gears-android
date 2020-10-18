@@ -14,7 +14,7 @@ private typealias BundleSetter<T> = Bundle.(propertyKey: String, value: T) -> Un
 internal inline fun <T> Bundle?.delegate(
     key: String?,
     crossinline getValue: BundleGetter<T>,
-    crossinline setValue: BundleSetter<T>
+    crossinline setValue: BundleSetter<T>,
 ): ReadWriteProperty<Fragment, T> {
     return object : ReadWriteProperty<Fragment, T> {
         override fun getValue(thisRef: Fragment, property: KProperty<*>): T {

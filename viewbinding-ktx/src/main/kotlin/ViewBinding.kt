@@ -34,7 +34,7 @@ import kotlin.reflect.KClass
  */
 public inline fun <reified VB : ViewBinding> ViewGroup.inflateViewBinding(
     context: Context = this.context,
-    attachToRoot: Boolean = true
+    attachToRoot: Boolean = true,
 ): VB {
     return VB::class.inflate(LayoutInflater.from(context), this, attachToRoot)
 }
@@ -62,7 +62,7 @@ public inline fun <reified VB : ViewBinding> ViewGroup.inflateViewBinding(
  */
 public inline fun <reified VB : ViewBinding> Context.inflateViewBinding(
     root: ViewGroup? = null,
-    attachToRoot: Boolean = root != null
+    attachToRoot: Boolean = root != null,
 ): VB {
     return VB::class.inflate(LayoutInflater.from(this), root, attachToRoot)
 }
@@ -96,7 +96,7 @@ public inline fun <reified VB : ViewBinding> Context.inflateViewBinding(
  */
 public inline fun <reified VB : ViewBinding> LayoutInflater.inflateViewBinding(
     root: ViewGroup? = null,
-    attachToRoot: Boolean = root != null
+    attachToRoot: Boolean = root != null,
 ): VB {
     return VB::class.inflate(this, root, attachToRoot)
 }
@@ -109,7 +109,7 @@ public inline fun <reified VB : ViewBinding> LayoutInflater.inflateViewBinding(
 internal fun <VB : ViewBinding> KClass<VB>.inflate(
     inflater: LayoutInflater,
     root: ViewGroup?,
-    attachToRoot: Boolean
+    attachToRoot: Boolean,
 ): VB {
     val inflateMethod = java.getInflateMethod()
     @Suppress("UNCHECKED_CAST")

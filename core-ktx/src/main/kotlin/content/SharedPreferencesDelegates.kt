@@ -12,7 +12,7 @@ import kotlin.reflect.KProperty
  */
 public fun SharedPreferences.boolean(
     key: String? = null,
-    default: () -> Boolean = { false }
+    default: () -> Boolean = { false },
 ): ReadWriteProperty<Any, Boolean> {
     return delegate(key, default, SharedPreferences::getBoolean, SharedPreferences.Editor::putBoolean)
 }
@@ -53,7 +53,10 @@ public fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `""` (empty string).
  */
-public fun SharedPreferences.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Any, String> {
+public fun SharedPreferences.string(
+    key: String? = null,
+    default: () -> String = { "" },
+): ReadWriteProperty<Any, String> {
     return delegate(key, default, SharedPreferences::getString, SharedPreferences.Editor::putString)
 }
 
@@ -65,7 +68,7 @@ public fun SharedPreferences.string(key: String? = null, default: () -> String =
  */
 public fun SharedPreferences.stringNullable(
     key: String? = null,
-    default: () -> String? = { null }
+    default: () -> String? = { null },
 ): ReadWriteProperty<Any, String?> {
     return delegate(key, default, SharedPreferences::getString, SharedPreferences.Editor::putString)
 }
@@ -78,7 +81,7 @@ public fun SharedPreferences.stringNullable(
  */
 public fun SharedPreferences.stringSet(
     key: String? = null,
-    default: () -> Set<String> = { emptySet() }
+    default: () -> Set<String> = { emptySet() },
 ): ReadWriteProperty<Any, Set<String>> {
     return delegate(key, default, SharedPreferences::getStringSet, SharedPreferences.Editor::putStringSet)
 }
@@ -91,7 +94,7 @@ public fun SharedPreferences.stringSet(
  */
 public fun SharedPreferences.stringSetNullable(
     key: String? = null,
-    default: () -> Set<String>? = { null }
+    default: () -> Set<String>? = { null },
 ): ReadWriteProperty<Any, Set<String>?> {
     return delegate(key, default, SharedPreferences::getStringSet, SharedPreferences.Editor::putStringSet)
 }
@@ -100,7 +103,7 @@ private inline fun <T> SharedPreferences.delegate(
     key: String?,
     crossinline defaultValue: () -> T,
     crossinline getValue: SharedPreferences.(key: String, defaultValue: T) -> T?,
-    crossinline setValue: SharedPreferences.Editor.(key: String, value: T) -> SharedPreferences.Editor
+    crossinline setValue: SharedPreferences.Editor.(key: String, value: T) -> SharedPreferences.Editor,
 ): ReadWriteProperty<Any, T> {
     return object : ReadWriteProperty<Any, T> {
         override fun getValue(thisRef: Any, property: KProperty<*>): T {

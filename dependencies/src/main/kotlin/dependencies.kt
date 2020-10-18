@@ -6,15 +6,11 @@ import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDepen
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-internal object Versions {
-    const val androidGradlePlugin = "4.0.1"
-}
-
 object androidx {
     const val activity = "androidx.activity:activity:1.1.0"
     const val annotation = "androidx.annotation:annotation:1.1.0"
     const val fragment = "androidx.fragment:fragment:1.2.5"
-    const val viewbinding = "androidx.databinding:viewbinding:${Versions.androidGradlePlugin}"
+    const val viewbinding = "androidx.databinding:viewbinding:4.1.0"
 
     object appcompat : Group("androidx.appcompat", version = "1.2.0") {
         val resources by this

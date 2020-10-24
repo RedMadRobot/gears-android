@@ -18,3 +18,8 @@ subprojects {
         kotlinOptions.freeCompilerArgs += listOf("-module-name", "redmadrobot.${project.name}")
     }
 }
+
+redmadrobot {
+    // TODO: Investigate why default configuration is not valid
+    configsDir.set(file("config"))
+}

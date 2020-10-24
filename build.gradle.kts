@@ -14,6 +14,7 @@ subprojects {
     group = "com.redmadrobot.extensions"
 
     kotlinCompile {
+        // Fix module-name conflicts with Android KTX
         kotlinOptions.freeCompilerArgs += listOf("-module-name", "redmadrobot.${project.name}")
     }
 }

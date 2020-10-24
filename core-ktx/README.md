@@ -65,7 +65,7 @@ class ServerPreferencesStorage(
 For nullable types you can use functions with suffix `Nullable`:
 ```
 string() -> stringNullable()
-stringSet() -> intSetNullable()
+stringSet() -> stringSetNullable()
 ```
 
 Primitive types can't be nullable, so there are no `intNullable()`, `floatNullable()`, etc.

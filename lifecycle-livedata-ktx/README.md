@@ -37,7 +37,7 @@ This library applies next dependencies, so you don't need to apply it manually:
 Also, it depends on:
 - `androidx.activity:activity:1.1.0`
 - `androidx.annotation:annotation:1.1.0`
-- `androidx.fragment:fragment:1.2.4`
+- `androidx.fragment:fragment:1.2.5`
 
 ## Usage
 

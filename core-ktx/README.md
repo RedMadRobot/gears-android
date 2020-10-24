@@ -1,4 +1,4 @@
-# core-ktx <GitLab path="rmr_android/ktx/tree/master/core-ktx"/>
+# core-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/core-ktx"/>
 [![License](https://img.shields.io/badge/license-MIT-green)][license]
 
 Kotlin extensions in addition to androidx core-ktx.

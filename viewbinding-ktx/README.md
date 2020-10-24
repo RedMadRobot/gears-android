@@ -1,4 +1,4 @@
-# viewbinding-ktx <GitLab path="rmr_android/ktx/tree/master/viewbinding-ktx"/>
+# viewbinding-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/viewbinding-ktx"/>
 [![License](https://img.shields.io/badge/license-MIT-green)][license]
 
 A set of Kotlin extensions for dealing with ViewBinding.

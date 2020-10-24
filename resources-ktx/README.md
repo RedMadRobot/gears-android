@@ -1,4 +1,4 @@
-# resources-ktx <GitLab path="rmr_android/ktx/tree/master/resources-ktx"/>
+# resources-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/resources-ktx"/>
 [![License](https://img.shields.io/badge/license-MIT-green)][license]
 
 A set of Kotlin extensions for accessing resources.

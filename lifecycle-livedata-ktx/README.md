@@ -1,4 +1,4 @@
-# lifecycle-livedata-ktx <GitLab path="rmr_android/ktx/tree/master/lifecycle-livedata-ktx"/>
+# lifecycle-livedata-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/lifecycle-livedata-ktx"/>
 [![License](https://img.shields.io/badge/license-MIT-green)][license]
 
 Extended set of extensions for dealing with `LiveData`.

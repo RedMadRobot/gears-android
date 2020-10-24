@@ -21,13 +21,8 @@ A set of Kotlin extensions for dealing with ViewBinding.
 Add the dependency:
 ```groovy
 repositories {
-    maven {
-        url("https://nexus.redmadrobot.com/repository/android/")
-        credentials {
-            username = "android-consumer"
-            password = "**************"
-        }
-    }
+    jcenter()
+    google()
 }
 
 dependencies {

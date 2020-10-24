@@ -23,13 +23,8 @@ Kotlin extensions in addition to androidx core-ktx.
 Add the dependency:
 ```groovy
 repositories {
-    maven {
-        url("https://nexus.redmadrobot.com/repository/android/")
-        credentials {
-            username = "android-consumer"
-            password = "**************"
-        }
-    }
+    jcenter()
+    google()
 }
 
 dependencies {

@@ -19,13 +19,8 @@ A set of Kotlin extensions for accessing resources.
 Add the dependency:
 ```groovy
 repositories {
-    maven {
-        url("https://nexus.redmadrobot.com/repository/android/")
-        credentials {
-            username = "android-consumer"
-            password = "**************"
-        }
-    }
+    jcenter()
+    google()
 }
 
 dependencies {

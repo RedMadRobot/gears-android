@@ -1,5 +1,5 @@
 # Redmadrobot Android KTX
-[![License](https://img.shields.io/badge/license-MIT-green)][license]
+ [![Build Status](https://img.shields.io/github/workflow/status/RedMadRobot/redmadrobot-android-ktx/CI/main?style=flat-square)][ci] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Missing Android KTX extensions.
 
@@ -21,11 +21,11 @@ Missing Android KTX extensions.
 
 Module's pages contain README with detailed description of module.
 
-- [core-ktx] - Extensions in addition to androidx core-ktx
-- [fragment-args-ktx] - Delegates for safe dealing with fragments' arguments
-- [lifecycle-livedata-ktx] - Extended set of extensions for dealing with `LiveData`
-- [resources-ktx] - A set of extensions for accessing resources
-- [viewbinding-ktx] - A set of extensions for dealing with ViewBinding
+- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/core-ktx?style=flat-square&label=core-ktx)][core-ktx] - Extensions in addition to androidx core-ktx
+- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/fragment-args-ktx?style=flat-square&label=fragment-args-ktx)][fragment-args-ktx] - Delegates for safe dealing with fragments' arguments
+- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/lifecycle-livedata-ktx?style=flat-square&label=lifecycle-livedata-ktx)][lifecycle-livedata-ktx] - Extended set of extensions for dealing with `LiveData`
+- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/resources-ktx?style=flat-square&label=resources-ktx)][resources-ktx] - A set of extensions for accessing resources
+- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/viewbinding-ktx?style=flat-square&label=viewbinding-ktx)][viewbinding-ktx] - A set of extensions for dealing with ViewBinding
 
 ## Versioning
 
@@ -55,4 +55,5 @@ For major changes, please open an issue first to discuss what you would like to 
 [lifecycle-livedata-ktx]: lifecycle-livedata-ktx
 [resources-ktx]: resources-ktx
 [viewbinding-ktx]: viewbinding-ktx
+[ci]: https://github.com/RedMadRobot/redmadrobot-android-ktx/actions
 [license]: LICENSE

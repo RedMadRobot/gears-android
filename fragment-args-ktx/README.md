@@ -1,5 +1,5 @@
 # fragment-args-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/fragment-args-ktx"/>
-[![License](https://img.shields.io/badge/license-MIT-green)][license]
+[![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/fragment-args-ktx?style=flat-square)][bintray] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Delegates for safe dealing with fragments' arguments.
 
@@ -99,4 +99,5 @@ All delegates have `default` implementation by default:
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
+[bintray]: https://bintray.com/redmadrobot-opensource/android/fragment-args-ktx
 [license]: https://git.redmadrobot.com/android-research/knowledge/blob/master/LICENSE

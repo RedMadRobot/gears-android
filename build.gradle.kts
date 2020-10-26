@@ -1,7 +1,10 @@
+import com.redmadrobot.build.extension.credentialsExist
+import com.redmadrobot.build.extension.isSnapshotVersion
+import com.redmadrobot.build.extension.rmrBintray
 import com.redmadrobot.build.kotlinCompile
 
 plugins {
-    val infrastructureVersion = "0.2"
+    val infrastructureVersion = "0.3"
     id("redmadrobot.android-library") version infrastructureVersion apply false
     id("redmadrobot.publish") version infrastructureVersion apply false
 
@@ -20,26 +23,12 @@ subprojects {
     }
 }
 
-redmadrobot {
-    // TODO: Investigate why default configuration is not valid
-    configsDir.set(file("config"))
-}
-
-// TODO: Move to gradle-infrastructure
 subprojects {
     apply(plugin = "maven-publish")
 
-    val publishToBintray = "bintrayUsername" in properties && "bintrayPassword" in properties
-    val isSnapshot = version.toString().endsWith("-SNAPSHOT")
-    if (publishToBintray && !isSnapshot) {
-        publishing {
-            repositories {
-                maven {
-                    name = "bintray"
-                    setUrl("https://api.bintray.com/maven/redmadrobot-opensource/android/${project.name}/")
-                    credentials(PasswordCredentials::class)
-                }
-            }
+    publishing {
+        repositories {
+            if (!isSnapshotVersion && credentialsExist("bintray")) rmrBintray(project.name)
         }
     }
 }

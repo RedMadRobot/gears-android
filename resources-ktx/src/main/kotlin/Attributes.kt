@@ -4,6 +4,28 @@ import android.content.Context
 import android.util.TypedValue
 
 import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
+
+/**
+ * Returns the color for the provided [colorAttributeResId] or throws an exception
+ * if the attribute is not set in the current theme.
+ */
+@ColorInt
+public fun Context.resolveColor(@AttrRes colorAttributeResId: Int): Int {
+    return resolveAttributeOrThrow(colorAttributeResId).data
+}
+
+/**
+ * Returns the color for the provided [colorAttributeResId], or the [defaultValue]
+ * if the attribute is not set in the current theme.
+ */
+@ColorInt
+public fun Context.resolveColor(
+    @AttrRes colorAttributeResId: Int,
+    @ColorInt defaultValue: Int,
+): Int {
+    return resolveAttribute(colorAttributeResId)?.data ?: defaultValue
+}
 
 /**
  * Retrieves the value of an attribute in the Context theme.

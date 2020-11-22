@@ -90,4 +90,4 @@ Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
 [bintray]: https://bintray.com/redmadrobot-opensource/android/lifecycle-livedata-ktx
-[license]: https://git.redmadrobot.com/android-research/knowledge/blob/master/LICENSE
+[license]: ../LICENSE

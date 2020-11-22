@@ -4,7 +4,7 @@ import com.redmadrobot.build.extension.rmrBintray
 import com.redmadrobot.build.kotlinCompile
 
 plugins {
-    val infrastructureVersion = "0.3"
+    val infrastructureVersion = "0.4.1"
     id("redmadrobot.android-library") version infrastructureVersion apply false
     id("redmadrobot.publish") version infrastructureVersion apply false
 
@@ -12,6 +12,10 @@ plugins {
     id("com.github.ben-manes.versions") version "0.33.0"
     id("dependencies")
     `maven-publish`
+}
+
+redmadrobot {
+    android.minSdk = 14
 }
 
 subprojects {

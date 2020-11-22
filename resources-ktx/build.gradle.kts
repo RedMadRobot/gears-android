@@ -5,7 +5,7 @@ plugins {
     id("redmadrobot.publish")
 }
 
-version = "1.2.0-0"
+version = "1.2.0-1"
 description = "A set of Kotlin extensions for accessing resources"
 
 dependencies {

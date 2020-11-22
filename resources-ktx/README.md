@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:resources-ktx:1.2.0-0")
+    implementation("com.redmadrobot.extensions:resources-ktx:1.2.0-1")
 }
 ```
 

@@ -1,3 +1,6 @@
 ## Unreleased
 ### Added
-- `getDimensionPixelSize` and `getDimensionPixelOffset` extensions for `View` and `Fragment`
+- **View**, **Fragment**: new extensions `getDimensionPixelSize` and `getDimensionPixelOffset`
+- **Context**: new extensions `resolveAttributeOrThrow` and `resolveAttribute`
+- **Context**: new extensions `resolveColor`
+- **Context**: new extension `resolveResourceId`

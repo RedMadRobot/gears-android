@@ -2,9 +2,18 @@ package com.redmadrobot.extensions.resources
 
 import android.content.Context
 import android.util.TypedValue
-
+import androidx.annotation.AnyRes
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
+
+/**
+ * Returns the resource id for the provided [attributeResId] or `0` if the attribute
+ * is not set in the current theme or not contains resource reference.
+ */
+@AnyRes
+public fun Context.resolveResourceId(@AttrRes attributeResId: Int): Int {
+    return resolveAttribute(attributeResId)?.resourceId ?: 0
+}
 
 /**
  * Returns the color for the provided [colorAttributeResId] or throws an exception

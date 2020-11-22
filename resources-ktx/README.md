@@ -59,6 +59,7 @@ Extensions to resolve attributes:
 - `Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue`
 - `Context.resolveColor(@AttrRes colorAttributeResId: Int): Int`
 - `Context.resolveColor(@AttrRes colorAttributeResId: Int, @ColorInt defaultValue: Int): Int`
+- `Context.resolveResourceId(@AttrRes attributeResId: Int): Int`
 
 Dimension converters for `Context` (the same available for `Resources`):
 - `Context.dpToPx(dp: Int): Int`

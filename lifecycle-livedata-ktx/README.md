@@ -3,6 +3,8 @@
 
 Extended set of extensions for dealing with `LiveData`.
 
+> :information_source: Since Kotlin Coroutines 1.4.0 you can use StateFlow instead of LiveData to hold screen state in this case you don't want this library.
+
 ---
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->

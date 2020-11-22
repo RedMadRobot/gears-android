@@ -54,6 +54,10 @@ Accessors for `Fragment`:
 Extensions for `Drawable`:
 - `Drawable.withTint(@ColorInt tint: Int): Drawable`
 
+Extensions to resolve attributes:
+- `Context.resolveAttribute(@AttrRes attributeResId: Int): TypedValue?`
+- `Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue`
+
 Dimension converters for `Context` (the same available for `Resources`):
 - `Context.dpToPx(dp: Int): Int`
 - `Context.dpToPx(dp: Float): Int`

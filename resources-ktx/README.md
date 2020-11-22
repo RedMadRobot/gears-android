@@ -34,6 +34,8 @@ Accessors for `View`:
 - `View.getColor(@ColorRes resId: Int): Int`
 - `View.getColorStateList(@ColorRes resId: Int): ColorStateList?`
 - `View.getDimension(@DimenRes resId: Int): Float`
+- `View.getDimensionPixelSize(@DimenRes resId: Int): Int`
+- `View.getDimensionPixelOffset(@DimenRes resId: Int): Int`
 - `View.getDrawable(@DrawableRes resId: Int): Drawable?`
 - `View.requireDrawable(@DrawableRes resId: Int): Drawable`
 - `View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable?`
@@ -46,6 +48,8 @@ Accessors for `Fragment`:
 - `Fragment.getDrawable(@DrawableRes resId: Int): Drawable?`
 - `Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable?`
 - `Fragment.getDimension(@DimenRes resId: Int): Float`
+- `Fragment.getDimensionPixelSize(@DimenRes resId: Int): Int`
+- `Fragment.getDimensionPixelOffset(@DimenRes resId: Int): Int`
 
 Extensions for `Drawable`:
 - `Drawable.withTint(@ColorInt tint: Int): Drawable`

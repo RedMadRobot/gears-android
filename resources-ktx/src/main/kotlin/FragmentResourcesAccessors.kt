@@ -53,3 +53,18 @@ public fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint:
  * @see Resources.getDimension
  */
 public fun Fragment.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
+
+/**
+ * Returns a dimension value associated with given [resId] in integer pixels.
+ * A size conversion involves rounding the base value, and ensuring that
+ * a non-zero base value is at least one pixel in size.
+ * @see Resources.getDimensionPixelSize
+ */
+public fun Fragment.getDimensionPixelSize(@DimenRes resId: Int): Int = resources.getDimensionPixelSize(resId)
+
+/**
+ * Returns a dimension value associated with given [resId] in integer pixels.
+ * An offset conversion involves simply truncating the base value to an integer.
+ * @see Resources.getDimensionPixelOffset
+ */
+public fun Fragment.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.getDimensionPixelOffset(resId)

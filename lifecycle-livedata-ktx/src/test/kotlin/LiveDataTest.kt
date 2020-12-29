@@ -1,16 +1,13 @@
 package com.redmadrobot.extensions.lifecycle
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
-import org.junit.Rule
 import org.junit.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
+@ExtendWith(InstantExecutorExtension::class)
 internal class LiveDataTest {
-
-    @get:Rule
-    val taskExecutorRule = InstantTaskExecutorRule()
 
     @Test
     fun `requireValue - should return value`() {

@@ -1,14 +1,11 @@
 package com.redmadrobot.extensions.lifecycle
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Rule
+import org.junit.jupiter.api.extension.ExtendWith
 import kotlin.test.Test
 
+@ExtendWith(InstantExecutorExtension::class)
 internal class EventQueueTest {
-
-    @get:Rule
-    val taskExecutorRule = InstantTaskExecutorRule()
 
     // SUT
     private val eventsQueue = EventQueue()

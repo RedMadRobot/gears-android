@@ -1,5 +1,6 @@
 import com.redmadrobot.build.dependencies.androidx
 import com.redmadrobot.build.dependencies.assertj
+import com.redmadrobot.build.dependencies.junit
 
 plugins {
     id("redmadrobot.android-library")
@@ -15,6 +16,8 @@ dependencies {
     api(androidx.activity)
     api(androidx.annotation)
     api(androidx.fragment)
+    testImplementation(junit.jupiter.api)
     testImplementation(assertj.core)
     testImplementation(androidx.arch_core.testing)
+    testRuntimeOnly(junit.jupiter.engine)
 }

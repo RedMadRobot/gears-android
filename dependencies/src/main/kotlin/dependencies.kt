@@ -1,4 +1,4 @@
-@file:Suppress("ClassName", "ClassNaming")
+@file:Suppress("ClassName")
 
 package com.redmadrobot.build.dependencies
 
@@ -34,6 +34,13 @@ object androidx {
 
 object assertj {
     const val core = "org.assertj:assertj-core:3.17.2"
+}
+
+object junit {
+    object jupiter : Group("org.junit.jupiter", "junit-jupiter", version = "5.7.0") {
+        val api by this
+        val engine by this
+    }
 }
 
 // <editor-fold defaultstate="collapsed" desc="Experimental API">

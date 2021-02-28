@@ -42,6 +42,7 @@ subprojects {
 
     publishing {
         repositories {
+            if (isRunningOnCi) githubPackages("RedMadRobot/redmadrobot-android-ktx")
             if (isReleaseVersion && credentialsExist("ossrh")) ossrh()
         }
     }

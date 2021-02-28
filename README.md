@@ -21,11 +21,11 @@ Missing Android KTX extensions.
 
 Module's pages contain README with detailed description of module.
 
-- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/core-ktx?style=flat-square&label=core-ktx)][core-ktx] - Extensions in addition to androidx core-ktx
-- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/fragment-args-ktx?style=flat-square&label=fragment-args-ktx)][fragment-args-ktx] - Delegates for safe dealing with fragments' arguments
-- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/lifecycle-livedata-ktx?style=flat-square&label=lifecycle-livedata-ktx)][lifecycle-livedata-ktx] - Extended set of extensions for dealing with `LiveData`
-- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/resources-ktx?style=flat-square&label=resources-ktx)][resources-ktx] - A set of extensions for accessing resources
-- [![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/viewbinding-ktx?style=flat-square&label=viewbinding-ktx)][viewbinding-ktx] - A set of extensions for dealing with ViewBinding
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/core-ktx?style=flat-square&label=core-ktx)][core-ktx] - Extensions in addition to androidx core-ktx
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/fragment-args-ktx?style=flat-square&label=fragment-args-ktx)][fragment-args-ktx] - Delegates for safe dealing with fragments' arguments
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/lifecycle-livedata-ktx?style=flat-square&label=lifecycle-livedata-ktx)][lifecycle-livedata-ktx] - Extended set of extensions for dealing with `LiveData`
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/resources-ktx?style=flat-square&label=resources-ktx)][resources-ktx] - A set of extensions for accessing resources
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/viewbinding-ktx?style=flat-square&label=viewbinding-ktx)][viewbinding-ktx] - A set of extensions for dealing with ViewBinding
 
 ## Versioning
 

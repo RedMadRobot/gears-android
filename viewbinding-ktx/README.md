@@ -1,5 +1,5 @@
 # viewbinding-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/viewbinding-ktx"/>
-[![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/viewbinding-ktx?style=flat-square)][bintray] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/viewbinding-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 A set of Kotlin extensions for dealing with ViewBinding.
 
@@ -21,7 +21,7 @@ A set of Kotlin extensions for dealing with ViewBinding.
 Add the dependency:
 ```groovy
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -130,5 +130,5 @@ class TransactionsItem : Item {
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[bintray]: https://bintray.com/redmadrobot-opensource/android/viewbinding-ktx
+[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/viewbinding-ktx
 [license]: ../LICENSE

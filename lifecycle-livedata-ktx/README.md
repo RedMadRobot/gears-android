@@ -1,5 +1,5 @@
 # lifecycle-livedata-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/lifecycle-livedata-ktx"/>
-[![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/lifecycle-livedata-ktx?style=flat-square)][bintray] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/lifecycle-livedata-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Extended set of extensions for dealing with `LiveData`.
 
@@ -23,7 +23,7 @@ Extended set of extensions for dealing with `LiveData`.
 Add the dependency:
 ```groovy
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -91,5 +91,5 @@ MessageEvent(message=C)
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[bintray]: https://bintray.com/redmadrobot-opensource/android/lifecycle-livedata-ktx
+[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/lifecycle-livedata-ktx
 [license]: ../LICENSE

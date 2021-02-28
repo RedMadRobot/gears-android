@@ -1,5 +1,5 @@
 # resources-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/resources-ktx"/>
-[![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/resources-ktx?style=flat-square)][bintray] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/resources-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 A set of Kotlin extensions for accessing resources.
 
@@ -19,7 +19,7 @@ A set of Kotlin extensions for accessing resources.
 Add the dependency:
 ```groovy
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -74,5 +74,5 @@ Dimension converters for `Context` (the same available for `Resources`):
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[bintray]: https://bintray.com/redmadrobot-opensource/android/resources-ktx
+[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/resources-ktx
 [license]: ../LICENSE

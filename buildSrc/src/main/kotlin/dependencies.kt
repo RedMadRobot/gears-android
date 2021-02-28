@@ -20,7 +20,7 @@ object androidx {
         val ktx by this
     }
 
-    object lifecycle : Group("androidx.lifecycle", version = "2.2.0") {
+    object lifecycle : Group("androidx.lifecycle", version = "2.3.0") {
         val common by this
         val livedata_ktx by this
         val livedata_core by this

@@ -28,13 +28,13 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:lifecycle-livedata-ktx:2.2.0-0")
+    implementation("com.redmadrobot.extensions:lifecycle-livedata-ktx:2.3.0-0")
 }
 ```
 
 This library applies next dependencies, so you don't need to apply it manually:
-- `androidx.lifecycle:lifecycle-livedata-ktx:2.2.0`
-- `androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0`
+- `androidx.lifecycle:lifecycle-livedata-ktx:2.3.0`
+- `androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.0`
 
 Also, it depends on:
 - `androidx.activity:activity:1.2.0`

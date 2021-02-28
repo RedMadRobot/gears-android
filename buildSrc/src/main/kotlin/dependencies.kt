@@ -7,9 +7,9 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 object androidx {
-    const val activity = "androidx.activity:activity:1.1.0"
+    const val activity = "androidx.activity:activity:1.2.0"
     const val annotation = "androidx.annotation:annotation:1.1.0"
-    const val fragment = "androidx.fragment:fragment:1.2.5"
+    const val fragment = "androidx.fragment:fragment:1.3.0"
     const val viewbinding = "androidx.databinding:viewbinding:4.1.0"
 
     object appcompat : Group("androidx.appcompat", version = "1.2.0") {
@@ -33,11 +33,11 @@ object androidx {
 }
 
 object assertj {
-    const val core = "org.assertj:assertj-core:3.17.2"
+    const val core = "org.assertj:assertj-core:3.19.0"
 }
 
 object junit {
-    object jupiter : Group("org.junit.jupiter", "junit-jupiter", version = "5.7.0") {
+    object jupiter : Group("org.junit.jupiter", "junit-jupiter", version = "5.7.1") {
         val api by this
         val engine by this
     }

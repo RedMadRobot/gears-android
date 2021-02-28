@@ -28,18 +28,18 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:lifecycle-livedata-ktx:2.2.0-0")
+    implementation("com.redmadrobot.extensions:lifecycle-livedata-ktx:2.3.0-0")
 }
 ```
 
 This library applies next dependencies, so you don't need to apply it manually:
-- `androidx.lifecycle:lifecycle-livedata-ktx:2.2.0`
-- `androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0`
+- `androidx.lifecycle:lifecycle-livedata-ktx:2.3.0`
+- `androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.0`
 
 Also, it depends on:
-- `androidx.activity:activity:1.1.0`
+- `androidx.activity:activity:1.2.0`
 - `androidx.annotation:annotation:1.1.0`
-- `androidx.fragment:fragment:1.2.5`
+- `androidx.fragment:fragment:1.3.0`
 
 ## Usage
 
@@ -54,6 +54,8 @@ Also, it depends on:
 
 To access value in LiveData you can use delegate:
 ```kotlin
+import com.redmadrobot.extensions.lifecycle.provideDelegate
+
 val liveData = MutableLiveData<SomeViewState>(initialState)
 var state: SomeViewState by liveData
 ```

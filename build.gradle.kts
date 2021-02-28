@@ -6,7 +6,6 @@ import com.redmadrobot.build.kotlinCompile
 plugins {
     id("redmadrobot.root-project") version "0.6"
     id("com.github.ben-manes.versions") version "0.36.0"
-    id("dependencies")
     `maven-publish`
 }
 

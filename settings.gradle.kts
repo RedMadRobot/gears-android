@@ -8,7 +8,6 @@ pluginManagement {
 
 rootProject.name = "ktx"
 
-includeBuild("dependencies")
 include(
     "core-ktx",
     "fragment-args-ktx",

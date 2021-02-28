@@ -54,6 +54,8 @@ Also, it depends on:
 
 To access value in LiveData you can use delegate:
 ```kotlin
+import com.redmadrobot.extensions.lifecycle.provideDelegate
+
 val liveData = MutableLiveData<SomeViewState>(initialState)
 var state: SomeViewState by liveData
 ```

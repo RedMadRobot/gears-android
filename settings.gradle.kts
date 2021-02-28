@@ -2,13 +2,19 @@ pluginManagement {
     repositories {
         google()
         gradlePluginPortal()
-        maven(url = "https://dl.bintray.com/redmadrobot-opensource/android")
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.namespace == "redmadrobot") {
+                useModule("com.redmadrobot.build:infrastructure:${requested.version}")
+            }
+        }
     }
 }
 
 rootProject.name = "ktx"
 
-includeBuild("dependencies")
 include(
     "core-ktx",
     "fragment-args-ktx",

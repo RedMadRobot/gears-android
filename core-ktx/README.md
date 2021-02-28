@@ -1,5 +1,5 @@
 # core-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/core-ktx"/>
-[![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/core-ktx?style=flat-square)][bintray] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/core-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Kotlin extensions in addition to androidx core-ktx.
 
@@ -23,7 +23,7 @@ Kotlin extensions in addition to androidx core-ktx.
 Add the dependency:
 ```groovy
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -99,5 +99,5 @@ All delegates have `default` implementation by default:
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[bintray]: https://bintray.com/redmadrobot-opensource/android/core-ktx
+[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/core-ktx
 [license]: ../LICENSE

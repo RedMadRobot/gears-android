@@ -1,5 +1,5 @@
 # fragment-args-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/fragment-args-ktx"/>
-[![Version](https://img.shields.io/bintray/v/redmadrobot-opensource/android/fragment-args-ktx?style=flat-square)][bintray] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/fragment-args-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Delegates for safe dealing with fragments' arguments.
 
@@ -22,7 +22,7 @@ Delegates for safe dealing with fragments' arguments.
 Add the dependency:
 ```groovy
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -99,5 +99,5 @@ All delegates have `default` implementation by default:
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[bintray]: https://bintray.com/redmadrobot-opensource/android/fragment-args-ktx
+[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/fragment-args-ktx
 [license]: ../LICENSE

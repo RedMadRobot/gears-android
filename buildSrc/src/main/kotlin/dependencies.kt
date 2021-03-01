@@ -10,7 +10,7 @@ object androidx {
     const val activity = "androidx.activity:activity:1.2.0"
     const val annotation = "androidx.annotation:annotation:1.1.0"
     const val fragment = "androidx.fragment:fragment:1.3.0"
-    const val viewbinding = "androidx.databinding:viewbinding:4.1.0"
+    const val viewbinding = "androidx.databinding:viewbinding:4.1.2"
 
     object appcompat : Group("androidx.appcompat", version = "1.2.0") {
         val resources by this

@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:fragment-args-ktx:1.2.5-0")
+    implementation("com.redmadrobot.extensions:fragment-args-ktx:1.3.0-0")
 }
 ```
 
@@ -62,7 +62,7 @@ class FragmentWithArgs : Fragment() {
 For nullable types you can use functions with suffix `Nullable`:
 ```
 string() -> stringNullable()
-intArray() -> intArrayNullbale()
+intArray() -> intArrayNullable()
 parcelableList() -> parcelableListNullable()
 ```
 

@@ -56,5 +56,5 @@ For major changes, please open a [discussion][discussions] first to discuss what
 [resources-ktx]: resources-ktx
 [viewbinding-ktx]: viewbinding-ktx
 [ci]: https://github.com/RedMadRobot/redmadrobot-android-ktx/actions
-[descussions]: https://github.com/RedMadRobot/redmadrobot-android-ktx/discussions
+[discussions]: https://github.com/RedMadRobot/redmadrobot-android-ktx/discussions
 [license]: LICENSE

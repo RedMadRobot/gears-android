@@ -42,7 +42,7 @@ com.redmadrobot.extensions:fragment-args-ktx:2.2.0-0
 ## Contribution
 
 Merge requests are welcome.
-For major changes, please open an issue first to discuss what you would like to change.
+For major changes, please open a [discussion][discussions] first to discuss what you would like to change.
 
 ## License
 
@@ -56,4 +56,5 @@ For major changes, please open an issue first to discuss what you would like to 
 [resources-ktx]: resources-ktx
 [viewbinding-ktx]: viewbinding-ktx
 [ci]: https://github.com/RedMadRobot/redmadrobot-android-ktx/actions
+[descussions]: https://github.com/RedMadRobot/redmadrobot-android-ktx/discussions
 [license]: LICENSE

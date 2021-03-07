@@ -1,10 +1,9 @@
 package com.redmadrobot.extensions.viewbinding
 
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Lifecycle.Event.ON_DESTROY
+import androidx.lifecycle.Lifecycle.State.INITIALIZED
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
@@ -44,7 +43,9 @@ internal class ViewBindingDelegate<VB : ViewBinding> constructor(
 ) : ReadOnlyProperty<Any?, VB>, LifecycleEventObserver {
 
     private var binding: VB? = null
-    private val handler = Handler(Looper.getMainLooper())
+
+    private val fragmentViewNotDestroyed: Boolean
+        get() = fragment.viewLifecycleOwner.lifecycle.currentState.isAtLeast(INITIALIZED)
 
     init {
         fragment.viewLifecycleOwnerLiveData.observe(fragment) {
@@ -70,14 +71,15 @@ internal class ViewBindingDelegate<VB : ViewBinding> constructor(
         val view = checkNotNull(fragment.view) {
             "ViewBinding is only valid between onCreateView and onDestroyView."
         }
-        return viewBindingClass.bind(view)
-            .also { binding = it }
+        return viewBindingClass.bind(view).also {
+            binding = it.takeIf { fragmentViewNotDestroyed }
+        }
     }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         if (event == ON_DESTROY) {
             source.lifecycle.removeObserver(this)
-            handler.post { binding = null }
+            binding = null
         }
     }
 }

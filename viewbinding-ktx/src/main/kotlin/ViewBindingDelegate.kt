@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle.Event.ON_DESTROY
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
@@ -51,7 +52,19 @@ internal class ViewBindingDelegate<VB : ViewBinding> constructor(
         }
     }
 
-    override fun getValue(thisRef: Any?, property: KProperty<*>): VB = binding ?: obtainBinding()
+    override fun getValue(thisRef: Any?, property: KProperty<*>): VB {
+        checkFragmentViewNotChanged()
+        return binding ?: obtainBinding()
+    }
+
+    /**
+     * In some cases [Fragment] can change view without triggering [ON_DESTROY] on the old view.
+     * So we should check that bound view is equal to fragment view.
+     */
+    private fun checkFragmentViewNotChanged() {
+        val boundView = binding?.root ?: return
+        if (boundView != fragment.view) binding = null
+    }
 
     private fun obtainBinding(): VB {
         val view = checkNotNull(fragment.view) {
@@ -62,7 +75,7 @@ internal class ViewBindingDelegate<VB : ViewBinding> constructor(
     }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-        if (event == Lifecycle.Event.ON_DESTROY) {
+        if (event == ON_DESTROY) {
             source.lifecycle.removeObserver(this)
             handler.post { binding = null }
         }

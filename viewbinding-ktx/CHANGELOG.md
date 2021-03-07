@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 4.1.2-1 (2021-03-07)
+
 ### Fixed
 
 - Add workaround for the case when fragment view changed without triggering ON_DESTROY

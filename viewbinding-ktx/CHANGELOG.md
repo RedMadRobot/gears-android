@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Fixed
+
+- Fix fragment view lifecycle handling
+
 ## 4.1.2-1 (2021-03-07)
 
 ### Fixed

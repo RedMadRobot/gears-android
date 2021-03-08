@@ -5,6 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Lifecycle.Event.ON_DESTROY
 import androidx.lifecycle.Lifecycle.State.INITIALIZED
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import kotlin.properties.ReadOnlyProperty
@@ -40,46 +41,38 @@ public inline fun <reified VB : ViewBinding> Fragment.viewBinding(): ReadOnlyPro
 internal class ViewBindingDelegate<VB : ViewBinding> constructor(
     private val fragment: Fragment,
     private val viewBindingClass: KClass<VB>,
-) : ReadOnlyProperty<Any?, VB>, LifecycleEventObserver {
+) : ReadOnlyProperty<Any?, VB> {
 
     private var binding: VB? = null
 
-    private val fragmentViewNotDestroyed: Boolean
-        get() = fragment.viewLifecycleOwner.lifecycle.currentState.isAtLeast(INITIALIZED)
-
-    init {
-        fragment.viewLifecycleOwnerLiveData.observe(fragment) {
-            it.lifecycle.addObserver(this)
+    private val bindingCleaner: LifecycleObserver by lazy {
+        object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                if (event == ON_DESTROY) {
+                    binding = null
+                    source.lifecycle.removeObserver(this)
+                }
+            }
         }
     }
 
-    override fun getValue(thisRef: Any?, property: KProperty<*>): VB {
-        checkFragmentViewNotChanged()
-        return binding ?: obtainBinding()
-    }
-
-    /**
-     * In some cases [Fragment] can change view without triggering [ON_DESTROY] on the old view.
-     * So we should check that bound view is equal to fragment view.
-     */
-    private fun checkFragmentViewNotChanged() {
-        val boundView = binding?.root ?: return
-        if (boundView != fragment.view) binding = null
-    }
+    override fun getValue(thisRef: Any?, property: KProperty<*>): VB = binding ?: obtainBinding()
 
     private fun obtainBinding(): VB {
         val view = checkNotNull(fragment.view) {
             "ViewBinding is only valid between onCreateView and onDestroyView."
         }
-        return viewBindingClass.bind(view).also {
-            binding = it.takeIf { fragmentViewNotDestroyed }
-        }
+        return viewBindingClass.bind(view)
+            .also(::saveBindingIfNeed)
     }
 
-    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-        if (event == ON_DESTROY) {
-            source.lifecycle.removeObserver(this)
-            binding = null
+    private fun saveBindingIfNeed(binding: VB) {
+        val lifecycle = fragment.viewLifecycleOwner.lifecycle
+        // Save binding if view is not destroyed
+        if (lifecycle.currentState.isAtLeast(INITIALIZED)) {
+            this.binding = binding
+            // Clean binding on view destroy
+            lifecycle.addObserver(bindingCleaner)
         }
     }
 }

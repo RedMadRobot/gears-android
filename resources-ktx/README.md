@@ -7,9 +7,9 @@ A set of Kotlin extensions for accessing resources.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
 - [Extensions](#extensions)
+  - [Wrapper `Text`](#wrapper-text)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -68,6 +68,31 @@ Dimension converters for `Context` (the same available for `Resources`):
 - `Context.dpToPxPrecisely(dp: Float): Float`
 - `Context.pxToDp(px: Int): Float`
 - `Context.pxToDp(px: Float): Float`
+
+### Wrapper `Text` 
+
+**Text** is a wrapper to make it possible to work with plain `String` and `StringRes` in the same way.
+It may be useful for cases when you want to fallback to `StringRes` if desired string value is `null`.
+
+You can wrap `String` and `StringRes` into `Text` using `Text.Plain(String)` and `Text.Resource(Int)`, accordingly and use method `Text.get(Context)` to retrieve `String`:
+
+```kotlin
+// in some place where we can't access Context
+val errorMessage = exception.message?.let(Text::Plain) ?: Text.Resource(R.string.unknown_error)
+showMessage(errorMessage)
+
+// in Activity, Fragment or View
+fun showMessage(text: Text) {
+    val messageText = text.get(context)
+    //...
+}
+```
+
+There are extensions to work with `Text` like with `StringRes`:
+
+- `Context.getString(text: Text): String`
+- `Fragment.getString(text: Text): String`
+- `View.getString(text: Text): String`
 
 ## Contributing
 

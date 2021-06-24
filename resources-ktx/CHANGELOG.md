@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Added
+
+- Wrapper `Text` to make it possible to work with plain `String` and `StringRes` in the same way.
+
 ## 1.2.0-1
 
 ### Added

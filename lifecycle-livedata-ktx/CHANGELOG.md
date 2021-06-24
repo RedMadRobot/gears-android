@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Added
+
+- Field `EventQueue.events: List<Event>` to get events stored in the queue.
+
 ## 2.3.0-0 (2021-03-01)
 
 ### Dependencies

@@ -19,6 +19,10 @@ public class EventQueue {
 
     private val liveData = MutableLiveData<Queue<Event>>()
 
+    /** Returns immutable list of all events from the queue. */
+    public val events: List<Event>
+        get() = liveData.value?.toList().orEmpty()
+
     /** Adds given [event] to the queue. */
     @MainThread
     public fun offerEvent(event: Event) {

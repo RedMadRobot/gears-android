@@ -37,5 +37,16 @@ internal class EventQueueTest {
         assertThat(events).containsExactly(TestEvent(0), TestEvent(1), TestEvent(2))
     }
 
+    @Test
+    fun `subscribe - when offered events - should return list of all events`() {
+        // When
+        eventsQueue.offerEvent(TestEvent(0))
+        eventsQueue.offerEvent(TestEvent(1))
+        eventsQueue.offerEvent(TestEvent(2))
+
+        // Then
+        assertThat(eventsQueue.events).containsExactly(TestEvent(0), TestEvent(1), TestEvent(2))
+    }
+
     private data class TestEvent(val id: Int) : Event
 }

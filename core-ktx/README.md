@@ -7,13 +7,13 @@ Kotlin extensions in addition to androidx core-ktx.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
 - [Extensions](#extensions)
-    - [SharedPreferences](#sharedpreferences)
-        - [Nullable Types](#nullable-types)
-        - [Argument Key](#argument-key)
-        - [Default Value](#default-value)
+  - [SharedPreferences](#sharedpreferences)
+    - [Nullable Types](#nullable-types)
+    - [Argument Key](#argument-key)
+    - [Default Value](#default-value)
+  - [Keyboard](#keyboard)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -94,6 +94,16 @@ All delegates have `default` implementation by default:
 - String - `""` (empty string)
 - nullable types - `null`
 - String set - empty set
+
+### Keyboard
+
+Extension                             | Description
+------------------------------------- | ------------------------------------------------------------
+`View.isKeyboardVisible: Boolean`     | Returns `true` if keyboard is visible
+`Activity.isKeyboardVisible: Boolean` | Returns `true` if keyboard is visible
+`View.showKeyboard()`                 | Requests focus and shows keyboard for View if it is possible
+`View.hideKeyboard()`                 | Hides keyboard if it is open
+`Activity.hideKeyboard()`             | Hides keyboard if it is open
 
 ## Contributing
 Merge requests are welcome.

@@ -31,7 +31,11 @@ dependencies {
 
 ## Extensions
 
-> Extensions will be listed here
+Extensions for `Fragment`:
+
+- `Fragment.addOnBackPressedCallback(enabled: Boolean = true, onBackPressed: OnBackPressedCallback.() -> Unit)`
+  
+  Create and add a new `OnBackPressedCallback` tied to `Fragment.viewLifecycleOwner` that calls `onBackPressed` in `OnBackPressedCallback.handleOnBackPressed`.
 
 ## Contributing
 

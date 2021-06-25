@@ -517,7 +517,7 @@ public fun <T : Parcelable> Bundle?.parcelableNullable(
     @Suppress("USELESS_CAST") // Can't infer type without cast (check in kotlin 1.4)
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getParcelable(propertyKey) ?: default()) as T? },
+        getValue = { propertyKey -> (getParcelable(propertyKey) ?: default()) as? T },
         setValue = Bundle::putParcelable,
     )
 }
@@ -621,7 +621,7 @@ public fun <T : Serializable> Bundle?.serializableNullable(
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as T? },
+        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as? T },
         setValue = Bundle::putSerializable,
     )
 }
@@ -657,7 +657,7 @@ public fun <T : Serializable> Bundle?.serializableListNullable(
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as List<T>? },
+        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as? List<T> },
         setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) },
     )
 }

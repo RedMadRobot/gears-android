@@ -1,4 +1,5 @@
 import com.redmadrobot.build.dependencies.androidx
+import com.redmadrobot.build.dependencies.jetbrains
 
 plugins {
     id("redmadrobot.android-library")
@@ -13,10 +14,9 @@ android {
 }
 
 dependencies {
+    api(jetbrains.kotlin.stdlib)
     api(androidx.viewbinding)
-
-    // For ViewBindingDelegate
-    api(androidx.fragment)
+    api(androidx.fragment) // For ViewBindingDelegate
     implementation(androidx.lifecycle.common)
     implementation(androidx.lifecycle.livedata_core)
 }

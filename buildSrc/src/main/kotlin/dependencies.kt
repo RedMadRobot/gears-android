@@ -6,6 +6,13 @@ import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDepen
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
+object jetbrains {
+    object kotlin : Group("org.jetbrains.kotlin", version = "1.5.20") {
+        val stdlib by this
+        val test_junit5 by this
+    }
+}
+
 object androidx {
     const val activity = "androidx.activity:activity:1.2.0"
     const val annotation = "androidx.annotation:annotation:1.1.0"
@@ -48,7 +55,7 @@ open class Group(
     group: String,
     name: String = group.substringAfterLast('.'),
     version: String,
-    private val addPrefix: Boolean = true
+    private val addPrefix: Boolean = true,
 ) : ReadOnlyProperty<Any?, String>, DefaultExternalModuleDependency(group, name, version) {
 
     override fun getValue(thisRef: Any?, property: KProperty<*>): String {

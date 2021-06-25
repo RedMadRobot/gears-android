@@ -4,6 +4,12 @@
 /.idea/**
 *.iml
 
+# Keep required plugins
+!.idea/externalDependencies.xml
+
+# Keep detekt plugin config
+!.idea/detekt.xml
+
 ## Gradle
 # Ignore Gradle project-specific cache directory
 .gradle

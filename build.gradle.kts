@@ -1,19 +1,18 @@
-import com.redmadrobot.build.extension.*
-import com.redmadrobot.build.kotlinCompile
+import com.redmadrobot.build.dsl.*
 
 plugins {
-    id("redmadrobot.root-project") version "0.8.1"
-    id("com.github.ben-manes.versions") version "0.36.0"
+    id("redmadrobot.root-project") version "0.10"
+    id("com.github.ben-manes.versions") version "0.39.0"
     `maven-publish`
 }
 
 apply(plugin = "redmadrobot.detekt")
 
 redmadrobot {
-    android.minSdk = 14
+    android.minSdk.set(14)
 
     publishing {
-        signArtifacts = !isRunningOnCi
+        signArtifacts.set(!isRunningOnCi)
         pom {
             setGitHubProject("RedMadRobot/redmadrobot-android-ktx")
 
@@ -33,13 +32,10 @@ subprojects {
 
     kotlinCompile {
         // Fix module-name conflicts with Android KTX
-        kotlinOptions.freeCompilerArgs += listOf("-module-name", "redmadrobot.${project.name}")
+        kotlinOptions.moduleName = "redmadrobot.${project.name}"
     }
-}
 
-subprojects {
     apply(plugin = "maven-publish")
-
     publishing {
         repositories {
             if (isRunningOnCi) githubPackages("RedMadRobot/redmadrobot-android-ktx")

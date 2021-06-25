@@ -7,7 +7,7 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if (requested.id.namespace == "redmadrobot") {
-                useModule("com.redmadrobot.build:infrastructure:${requested.version}")
+                useModule("com.redmadrobot.build:infrastructure-android:${requested.version}")
             }
         }
     }
@@ -20,5 +20,5 @@ include(
     "fragment-args-ktx",
     "lifecycle-livedata-ktx",
     "resources-ktx",
-    "viewbinding-ktx"
+    "viewbinding-ktx",
 )

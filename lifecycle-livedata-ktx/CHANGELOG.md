@@ -1,5 +1,15 @@
 ## Unreleased
 
+## 2.3.1-0 (2021-06-26)
+
+### Dependencies
+
+- kotlin-stdlib-jdk8 1.4.32 -> kotlin-stdlib 1.5.20
+- androidx.lifecycle 2.3.0 -> 2.3.1
+- androidx.activity 1.2.0 -> 1.2.3
+- androidx.annotation 1.1.0 -> 1.2.0
+- androidx.fragment 1.2.0 -> 1.2.5
+
 ### Added
 
 - Field `EventQueue.events: List<Event>` to get events stored in the queue.

@@ -14,8 +14,8 @@ object jetbrains {
 }
 
 object androidx {
-    const val activity = "androidx.activity:activity:1.2.0"
-    const val annotation = "androidx.annotation:annotation:1.1.0"
+    const val activity = "androidx.activity:activity:1.2.3"
+    const val annotation = "androidx.annotation:annotation:1.2.0"
     const val viewbinding = "androidx.databinding:viewbinding:4.1.2"
 
     object appcompat : Group("androidx.appcompat", version = "1.2.0") {
@@ -30,7 +30,7 @@ object androidx {
         val ktx by this
     }
 
-    object lifecycle : Group("androidx.lifecycle", version = "2.3.0") {
+    object lifecycle : Group("androidx.lifecycle", version = "2.3.1") {
         val common by this
         val livedata_ktx by this
         val livedata_core by this
@@ -43,11 +43,11 @@ object androidx {
 }
 
 object assertj {
-    const val core = "org.assertj:assertj-core:3.19.0"
+    const val core = "org.assertj:assertj-core:3.20.2"
 }
 
 object junit {
-    object jupiter : Group("org.junit.jupiter", "junit-jupiter", version = "5.7.1") {
+    object jupiter : Group("org.junit.jupiter", "junit-jupiter", version = "5.7.2") {
         val api by this
         val engine by this
     }

@@ -8,7 +8,7 @@ plugins {
     id("redmadrobot.publish")
 }
 
-version = "2.3.0-0"
+version = "2.3.1-0"
 description = "Extended set of extensions for dealing with LiveData"
 
 dependencies {

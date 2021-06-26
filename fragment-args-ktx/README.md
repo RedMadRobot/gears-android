@@ -20,6 +20,7 @@ Delegates for safe dealing with fragments' arguments.
 ## Installation
 
 Add the dependency:
+
 ```groovy
 repositories {
     mavenCentral()
@@ -27,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:fragment-args-ktx:1.3.0-0")
+    implementation("com.redmadrobot.extensions:fragment-args-ktx:1.3.5-0")
 }
 ```
 

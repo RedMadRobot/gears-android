@@ -16,7 +16,6 @@ object jetbrains {
 object androidx {
     const val activity = "androidx.activity:activity:1.2.0"
     const val annotation = "androidx.annotation:annotation:1.1.0"
-    const val fragment = "androidx.fragment:fragment:1.3.0"
     const val viewbinding = "androidx.databinding:viewbinding:4.1.2"
 
     object appcompat : Group("androidx.appcompat", version = "1.2.0") {
@@ -24,6 +23,10 @@ object androidx {
     }
 
     object core : Group("androidx.core", version = "1.5.0") {
+        val ktx by this
+    }
+
+    object fragment : Group("androidx.fragment", version = "1.3.5") {
         val ktx by this
     }
 

@@ -18,7 +18,7 @@ object androidx {
     const val annotation = "androidx.annotation:annotation:1.2.0"
     const val viewbinding = "androidx.databinding:viewbinding:4.1.2"
 
-    object appcompat : Group("androidx.appcompat", version = "1.2.0") {
+    object appcompat : Group("androidx.appcompat", version = "1.3.0") {
         val resources by this
     }
 

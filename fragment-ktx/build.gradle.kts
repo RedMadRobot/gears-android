@@ -6,7 +6,7 @@ plugins {
     id("redmadrobot.publish")
 }
 
-version = "1.3.0-0"
+version = "1.3.5-0"
 description = "A set of extensions in addition to androidx fragment-ktx"
 
 dependencies {

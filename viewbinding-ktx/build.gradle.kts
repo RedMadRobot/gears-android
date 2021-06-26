@@ -6,7 +6,7 @@ plugins {
     id("redmadrobot.publish")
 }
 
-version = "4.1.2-2"
+version = "4.2.1-0"
 description = "A set of Kotlin extensions for dealing with ViewBinding"
 
 android {

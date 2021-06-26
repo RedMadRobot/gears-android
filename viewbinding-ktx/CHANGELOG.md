@@ -1,5 +1,14 @@
 ## Unreleased
 
+## 4.2.1-0 (2021-06-27)
+
+### Dependencies
+
+- kotlin-stdlib-jdk8 1.4.32 -> kotlin-stdlib 1.5.20
+- androidx.databinding:viewbinding 4.1.2 -> 4.2.1
+- androidx.fragment 1.3.0 -> 1.3.5
+- androidx.lifecycle 2.3.0 -> 2.3.1
+
 ## 4.1.2-2 (2021-03-08)
 
 ### Fixed

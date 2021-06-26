@@ -3,6 +3,9 @@ name: CI
 on:
   push:
     branches: [main]
+    # Release tag format is [module-name]-v[androidx-version]-[ktx-version]
+    # For example: fragment-ktx-v1.3.5-0
+    tags: ['*-ktx-v*-[0-9]+']
   pull_request:
     branches: [main]
 
@@ -36,7 +39,7 @@ jobs:
     name: Publish
     needs: check
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
 
     steps:
       - name: Checkout sources
@@ -47,10 +50,16 @@ jobs:
         with:
           java-version: 8
 
+      - name: Get module name from tag
+        id: get-module-name
+        run: |
+          tag=${GITHUB_REF#refs/tags/}
+          echo "::set-output name=result::${tag/-v*}"
+
       - name: Run Publish
         uses: eskatos/gradle-command-action@v1
         with:
-          arguments: publish --continue
+          arguments: :${{ steps.get-module-name.outputs.result }}:publish
           wrapper-cache-enabled: true
           dependencies-cache-enabled: true
         env:

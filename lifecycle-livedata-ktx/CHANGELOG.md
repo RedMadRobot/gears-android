@@ -1,6 +1,6 @@
 ## Unreleased
 
-## 2.3.1-0 (2021-06-26)
+## [2.3.1-0] (2021-06-26)
 
 ### Dependencies
 
@@ -30,3 +30,6 @@
 ## 2.2.0-0
 
 First release
+
+
+[2.3.1-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/fragment-ktx-v1.3.5-0...lifecycle-livedata-ktx-v2.3.1-0

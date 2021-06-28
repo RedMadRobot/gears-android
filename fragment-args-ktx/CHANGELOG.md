@@ -1,6 +1,6 @@
 ## Unreleased
 
-## 1.3.5-0 (2021-06-26)
+## [1.3.5-0] (2021-06-26)
 
 ### Dependencies
 
@@ -16,3 +16,6 @@
 ## 1.2.5-0
 
 First release
+
+
+[1.3.5-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/core-ktx-v1.5.0-0...fragment-args-ktx-v1.3.5-0

@@ -1,6 +1,6 @@
 ## Unreleased
 
-## 4.2.1-0 (2021-06-27)
+## [4.2.1-0] (2021-06-27)
 
 ### Dependencies
 
@@ -32,3 +32,6 @@
 ## 4.1.0-0
 
 First release
+
+
+[4.2.1-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/resources-ktx-v1.3.0-0...viewbinding-ktx-v4.2.1-0

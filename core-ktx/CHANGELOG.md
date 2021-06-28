@@ -1,6 +1,6 @@
 ## Unreleased
 
-## 1.5.0-0 (2021-06-26)
+## [1.5.0-0] (2021-06-26)
 
 ### Dependencies
 
@@ -16,3 +16,6 @@
 ## 1.3.2-0 (2020-10-26)
 
 First release
+
+
+[1.5.0-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/e6b11af4...core-ktx-v1.5.0-0

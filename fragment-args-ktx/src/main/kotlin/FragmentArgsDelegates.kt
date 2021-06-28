@@ -496,10 +496,9 @@ public fun <T : Parcelable> Bundle?.parcelable(
     key: String? = null,
     default: () -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
-    @Suppress("USELESS_CAST") // Can't infer type without cast (check in kotlin 1.4)
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getParcelable(propertyKey) ?: default()) as T },
+        getValue = { propertyKey -> getParcelable(propertyKey) ?: default() },
         setValue = Bundle::putParcelable,
     )
 }
@@ -514,10 +513,9 @@ public fun <T : Parcelable> Bundle?.parcelableNullable(
     key: String? = null,
     default: () -> T? = { null },
 ): ReadWriteProperty<Fragment, T?> {
-    @Suppress("USELESS_CAST") // Can't infer type without cast (check in kotlin 1.4)
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getParcelable(propertyKey) ?: default()) as? T },
+        getValue = { propertyKey -> getParcelable(propertyKey) ?: default() },
         setValue = Bundle::putParcelable,
     )
 }

@@ -22,7 +22,7 @@ object androidx {
         val resources by this
     }
 
-    object core : Group("androidx.core", version = "1.5.0") {
+    object core : Group("androidx.core", version = "1.6.0") {
         val ktx by this
     }
 

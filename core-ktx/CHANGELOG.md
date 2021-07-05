@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Dependencies
+
+- androidx.core 1.5.0 -> 1.6.0
+
 ## [1.5.0-0] (2021-06-26)
 
 ### Dependencies

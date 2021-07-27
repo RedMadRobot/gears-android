@@ -14,6 +14,7 @@ Kotlin extensions in addition to androidx core-ktx.
     - [Argument Key](#argument-key)
     - [Default Value](#default-value)
   - [Keyboard](#keyboard)
+  - [Canvas](#canvas)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -104,6 +105,12 @@ Extension                             | Description
 `View.showKeyboard()`                 | Requests focus and shows keyboard for View if it is possible
 `View.hideKeyboard()`                 | Hides keyboard if it is open
 `Activity.hideKeyboard()`             | Hides keyboard if it is open
+
+### Canvas
+
+- `Canvas.withClipOut(clipPath: Path, block: Canvas.() -> Unit)`
+- `Canvas.withClipOut(clipRect: Rect, block: Canvas.() -> Unit)`
+- `Canvas.withClipOut(clipRect: RectF, block: Canvas.() -> Unit)`
 
 ## Contributing
 Merge requests are welcome.

@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Added
+
+- **Canvas**: new extensions `withClipOut`
+
 ### Changed
 
 - *Potentially breaking change!*

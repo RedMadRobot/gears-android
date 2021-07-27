@@ -10,6 +10,9 @@
 # Keep detekt plugin config
 !.idea/detekt.xml
 
+# Keep VCS config
+!.idea/vcs.xml
+
 ## Gradle
 # Ignore Gradle project-specific cache directory
 .gradle

@@ -37,5 +37,5 @@
 First release
 
 
-[1.3.6-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/fe55b501...fragment-ktx-v1.3.6-0
+[1.3.6-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/fe55b501...fragment-args-ktx-v1.3.6-0
 [1.3.5-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/core-ktx-v1.5.0-0...fragment-args-ktx-v1.3.5-0

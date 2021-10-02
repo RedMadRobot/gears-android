@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.extensions:fragment-ktx:1.3.5-0")
+    implementation("com.redmadrobot.extensions:fragment-ktx:1.3.6-0")
 }
 ```
 

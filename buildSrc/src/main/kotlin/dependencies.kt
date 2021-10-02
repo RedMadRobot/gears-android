@@ -14,7 +14,7 @@ object jetbrains {
 }
 
 object androidx {
-    const val activity = "androidx.activity:activity:1.2.3"
+    const val activity = "androidx.activity:activity:1.3.1"
     const val annotation = "androidx.annotation:annotation:1.2.0"
     const val viewbinding = "androidx.databinding:viewbinding:4.2.1"
 

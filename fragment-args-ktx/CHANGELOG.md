@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Fixes
+
+- Default value will be evaluated only if given key is not present in the bundle or value associated with the key is `null` (#31)
+
 ## [1.3.5-0] (2021-06-26)
 
 ### Dependencies

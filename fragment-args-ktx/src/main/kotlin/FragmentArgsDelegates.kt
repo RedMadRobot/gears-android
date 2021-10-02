@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.SparseArray
 import androidx.fragment.app.Fragment
+import com.redmadrobot.extensions.fragment.internal.BundleGetter
 import com.redmadrobot.extensions.fragment.internal.delegate
 import java.io.Serializable
 import kotlin.properties.ReadWriteProperty
@@ -23,7 +24,7 @@ public fun Bundle?.boolean(
 ): ReadWriteProperty<Fragment, Boolean> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getBoolean(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getBoolean(it) }, orElse = default) },
         setValue = { propertyKey, value -> putBoolean(propertyKey, value) },
     )
 }
@@ -71,7 +72,7 @@ public fun Bundle?.booleanArrayNullable(
 public fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadWriteProperty<Fragment, Byte> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getByte(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getByte(it) }, orElse = default) },
         setValue = Bundle::putByte,
     )
 }
@@ -119,7 +120,7 @@ public fun Bundle?.byteArrayNullable(
 public fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' }): ReadWriteProperty<Fragment, Char> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getChar(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getChar(it) }, orElse = default) },
         setValue = Bundle::putChar,
     )
 }
@@ -170,7 +171,7 @@ public fun Bundle?.charSequence(
 ): ReadWriteProperty<Fragment, CharSequence> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getCharSequence(propertyKey, default()) },
+        getValue = { propertyKey -> getCharSequence(propertyKey) ?: default() },
         setValue = Bundle::putCharSequence,
     )
 }
@@ -187,7 +188,7 @@ public fun Bundle?.charSequenceNullable(
 ): ReadWriteProperty<Fragment, CharSequence?> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getCharSequence(propertyKey, default()) },
+        getValue = { propertyKey -> getCharSequence(propertyKey) ?: default() },
         setValue = Bundle::putCharSequence,
     )
 }
@@ -269,7 +270,7 @@ public fun Bundle?.charSequenceListNullable(
 public fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }): ReadWriteProperty<Fragment, Double> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getDouble(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getDouble(it) }, orElse = default) },
         setValue = { propertyKey, value -> putDouble(propertyKey, value) },
     )
 }
@@ -317,7 +318,7 @@ public fun Bundle?.doubleArrayNullable(
 public fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Fragment, Float> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getFloat(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getFloat(propertyKey) }, orElse = default) },
         setValue = Bundle::putFloat,
     )
 }
@@ -365,7 +366,7 @@ public fun Bundle?.floatArrayNullable(
 public fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Fragment, Int> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getInt(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getInt(it) }, orElse = default) },
         setValue = { propertyKey, value -> putInt(propertyKey, value) },
     )
 }
@@ -447,7 +448,7 @@ public fun Bundle?.intListNullable(
 public fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Fragment, Long> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getLong(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getLong(it) }, orElse = default) },
         setValue = { propertyKey, value -> putLong(propertyKey, value) },
     )
 }
@@ -669,7 +670,7 @@ public fun <T : Serializable> Bundle?.serializableListNullable(
 public fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): ReadWriteProperty<Fragment, Short> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getShort(propertyKey, default()) },
+        getValue = { propertyKey -> getOrElse(propertyKey, getter = { getShort(it) }, orElse = default) },
         setValue = Bundle::putShort,
     )
 }
@@ -717,7 +718,7 @@ public fun Bundle?.shortArrayNullable(
 public fun Bundle?.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Fragment, String> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getString(propertyKey, default()) },
+        getValue = { propertyKey -> getString(propertyKey) ?: default() },
         setValue = { propertyKey, value -> putString(propertyKey, value) },
     )
 }
@@ -734,7 +735,7 @@ public fun Bundle?.stringNullable(
 ): ReadWriteProperty<Fragment, String?> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getString(propertyKey, default()) },
+        getValue = { propertyKey -> getString(propertyKey) ?: default() },
         setValue = { propertyKey, value -> putString(propertyKey, value) },
     )
 }
@@ -805,6 +806,14 @@ public fun Bundle?.stringListNullable(
         getValue = { propertyKey -> getStringArrayList(propertyKey) ?: default() },
         setValue = { propertyKey, value -> putStringArrayList(propertyKey, value?.let { ArrayList(it) }) },
     )
+}
+
+private inline fun <T> Bundle.getOrElse(
+    key: String,
+    crossinline getter: BundleGetter<T>,
+    crossinline orElse: () -> T,
+): T {
+    return if (containsKey(key)) getter(key) else orElse()
 }
 
 private fun noDefaultValue(): Nothing = error("No default value specified")

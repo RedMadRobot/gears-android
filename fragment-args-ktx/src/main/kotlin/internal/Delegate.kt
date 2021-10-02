@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-private typealias BundleGetter<T> = Bundle.(propertyKey: String) -> T
-private typealias BundleSetter<T> = Bundle.(propertyKey: String, value: T) -> Unit
+internal typealias BundleGetter<T> = Bundle.(propertyKey: String) -> T
+internal typealias BundleSetter<T> = Bundle.(propertyKey: String, value: T) -> Unit
 
 /** Creates a delegate to work with arguments. */
 // Bundle needed to define extension scope.

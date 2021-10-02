@@ -1,5 +1,7 @@
 ## Unreleased
 
+## [1.3.6-0] (2021-10-02)
+
 ### Changes
 
 - **Potentially breaking change!**
@@ -11,6 +13,10 @@
 ### Fixes
 
 - Default value will be evaluated only if given key is not present in the bundle or value associated with the key is `null` (#31)
+
+### Dependencies
+
+- androidx.fragment 1.3.5 -> 1.3.6
 
 ## [1.3.5-0] (2021-06-26)
 
@@ -30,4 +36,5 @@
 First release
 
 
+[1.3.6-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/fe55b501...fragment-ktx-v1.3.6-0
 [1.3.5-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/core-ktx-v1.5.0-0...fragment-args-ktx-v1.3.5-0

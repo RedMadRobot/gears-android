@@ -6,7 +6,7 @@ plugins {
     id("redmadrobot.publish")
 }
 
-version = "1.3.5-0"
+version = "1.3.6-0"
 description = "Delegates for safe dealing with fragments' arguments"
 
 dependencies {

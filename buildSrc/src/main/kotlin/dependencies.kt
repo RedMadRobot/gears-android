@@ -26,7 +26,7 @@ object androidx {
         val ktx by this
     }
 
-    object fragment : Group("androidx.fragment", version = "1.3.5") {
+    object fragment : Group("androidx.fragment", version = "1.3.6") {
         val ktx by this
     }
 

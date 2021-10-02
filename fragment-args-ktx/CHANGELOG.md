@@ -1,5 +1,13 @@
 ## Unreleased
 
+### Changes
+
+- **Potentially breaking change!**
+  Parameter `default` removed from `*Nullable` delegates.
+  1. In case you want to return a non-null value by default, you should use the non-nullable version of delegate,
+  2. If you want to return `null` it is the default behavior,
+  3. If you want to return either `null` or non-null value depending on some condition you should do it in the place where you read the value from the delegate.
+
 ### Fixes
 
 - Default value will be evaluated only if given key is not present in the bundle or value associated with the key is `null` (#31)

@@ -18,6 +18,19 @@ public fun Context.resolveResourceId(@AttrRes attributeResId: Int): Int {
 }
 
 /**
+ * Returns the [Boolean] for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not a boolean value.
+ */
+public fun Context.resolveBoolean(@AttrRes attributeResId: Int): Boolean {
+    val attribute = resolveAttributeOrThrow(attributeResId)
+    require(attribute.type == TYPE_INT_BOOLEAN) {
+        "Attribute ${nameOf(attributeResId)} should contain boolean value" +
+            "but it contains '${attribute.coerceToString()}'"
+    }
+    return attribute.data != 0
+}
+
+/**
  * Returns the color for the provided [attributeResId] or throws an exception
  * if the attribute is not set in the [Context] theme or contains not a color value.
  */

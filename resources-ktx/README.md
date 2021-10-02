@@ -57,6 +57,7 @@ Extensions for `Drawable`:
 Extensions to resolve attributes:
 - `Context.resolveAttribute(@AttrRes attributeResId: Int): TypedValue?`
 - `Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue`
+- `Context.resolveBoolean(@AttrRes attributeResId: Int): Boolean`
 - `Context.resolveColor(@AttrRes attributeResId: Int): Int`
 - `Context.resolveColor(@AttrRes attributeResId: Int, @ColorInt defaultValue: Int): Int`
 - `Context.resolveDimension(@AttrRes attributeResId: Int): Float`

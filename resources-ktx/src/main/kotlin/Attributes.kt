@@ -9,8 +9,8 @@ import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 
 /**
- * Returns the resource id for the provided [attributeResId] or `0` if the attribute
- * is not set in the current theme or not contains resource reference.
+ * Returns the resource id for the provided [attributeResId] or `ID_NULL` (0) if the attribute
+ * is not set in the [Context] theme or not contains resource reference.
  */
 @AnyRes
 public fun Context.resolveResourceId(@AttrRes attributeResId: Int): Int {

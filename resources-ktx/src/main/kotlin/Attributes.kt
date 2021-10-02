@@ -1,6 +1,7 @@
 package com.redmadrobot.extensions.resources
 
 import android.content.Context
+import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.util.TypedValue.*
 import androidx.annotation.AnyRes
@@ -45,6 +46,47 @@ public fun Context.resolveColor(
 private inline fun TypedValue.requireColor(lazyMessage: TypedValue.() -> String): Int {
     require(type in TYPE_FIRST_COLOR_INT..TYPE_LAST_COLOR_INT) { lazyMessage() }
     return data
+}
+
+/**
+ * Returns dimension value multiplied by the appropriate metric for the provided [attributeResId]
+ * or throws an exception if the attribute is not set in the [Context] theme or contains not a dimension value.
+ */
+public fun Context.resolveDimension(@AttrRes attributeResId: Int): Float {
+    return resolveDimension(attributeResId, TypedValue::complexToDimension)
+}
+
+/**
+ * Returns number of pixels for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not a dimension value.
+ *
+ * A size conversion involves rounding the base value,
+ * and ensuring that a non-zero base value is at least one pixel in size.
+ */
+public fun Context.resolveDimensionPixelSize(@AttrRes attributeResId: Int): Int {
+    return resolveDimension(attributeResId, TypedValue::complexToDimensionPixelSize)
+}
+
+/**
+ * Returns number of pixels for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not a dimension value.
+ *
+ * An offset conversion involves simply truncating the base value to an integer.
+ */
+public fun Context.resolveDimensionPixelOffset(@AttrRes attributeResId: Int): Int {
+    return resolveDimension(attributeResId, TypedValue::complexToDimensionPixelOffset)
+}
+
+private inline fun <T : Number> Context.resolveDimension(
+    @AttrRes attributeResId: Int,
+    complexToDimension: (data: Int, metrics: DisplayMetrics) -> T,
+): T {
+    val attribute = resolveAttributeOrThrow(attributeResId)
+    require(attribute.type == TYPE_DIMENSION) {
+        "Attribute ${nameOf(attributeResId)} should contain dimensional value" +
+            "but it contains '${attribute.coerceToString()}'"
+    }
+    return complexToDimension(attribute.data, resources.displayMetrics)
 }
 
 /**

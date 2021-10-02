@@ -59,6 +59,9 @@ Extensions to resolve attributes:
 - `Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue`
 - `Context.resolveColor(@AttrRes attributeResId: Int): Int`
 - `Context.resolveColor(@AttrRes attributeResId: Int, @ColorInt defaultValue: Int): Int`
+- `Context.resolveDimension(@AttrRes attributeResId: Int): Float`
+- `Context.resolveDimensionPixelSize(@AttrRes attributeResId: Int): Int`
+- `Context.resolveDimensionPixelOffset(@AttrRes attributeResId: Int): Int`
 - `Context.resolveResourceId(@AttrRes attributeResId: Int): Int`
 
 Dimension converters for `Context` (the same available for `Resources`):

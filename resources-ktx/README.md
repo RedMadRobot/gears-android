@@ -65,6 +65,7 @@ Extensions to resolve attributes:
 - `Context.resolveDimensionPixelOffset(@AttrRes attributeResId: Int): Int`
 - `Context.resolveFloat(@AttrRes attributeResId: Int): Float`
 - `Context.resolveInt(@AttrRes attributeResId: Int): Int`
+- `Context.resolveString(@AttrRes attributeResId: Int): CharSequence?`
 - `Context.resolveResourceId(@AttrRes attributeResId: Int): Int`
 
 Dimension converters for `Context` (the same available for `Resources`):

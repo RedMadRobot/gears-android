@@ -1,3 +1,5 @@
+@file:Suppress("TooManyFunctions")
+
 package com.redmadrobot.extensions.resources
 
 import android.content.Context
@@ -124,6 +126,19 @@ public fun Context.resolveInt(@AttrRes attributeResId: Int): Int {
         wrongValueTypeMessage(attribute, attributeResId, expectedType = "integer")
     }
     return attribute.data
+}
+
+/**
+ * Returns the [String] value for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not a string value.
+ * May return `null`.
+ */
+public fun Context.resolveString(@AttrRes attributeResId: Int): CharSequence? {
+    val attribute = resolveAttributeOrThrow(attributeResId)
+    require(attribute.type == TYPE_STRING) {
+        wrongValueTypeMessage(attribute, attributeResId, expectedType = "string")
+    }
+    return attribute.string
 }
 
 /**

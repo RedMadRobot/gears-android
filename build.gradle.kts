@@ -28,6 +28,7 @@ redmadrobot {
 }
 
 subprojects {
+    apply(plugin = "redmadrobot.detekt")
     group = "com.redmadrobot.extensions"
 
     kotlinCompile {

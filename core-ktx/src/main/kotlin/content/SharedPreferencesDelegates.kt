@@ -1,3 +1,5 @@
+@file:Suppress("NamedArguments")
+
 package com.redmadrobot.extensions.core.content
 
 import android.content.SharedPreferences

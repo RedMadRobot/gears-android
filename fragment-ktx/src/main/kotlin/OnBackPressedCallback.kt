@@ -32,9 +32,11 @@ import androidx.fragment.app.Fragment
 @MainThread
 public inline fun Fragment.addOnBackPressedCallback(
     enabled: Boolean = true,
-    crossinline onBackPressed: OnBackPressedCallback.() -> Unit
+    crossinline onBackPressed: OnBackPressedCallback.() -> Unit,
 ): OnBackPressedCallback {
     return object : OnBackPressedCallback(enabled) {
-        override fun handleOnBackPressed() = onBackPressed()
+        override fun handleOnBackPressed() {
+            onBackPressed()
+        }
     }.also { requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, it) }
 }

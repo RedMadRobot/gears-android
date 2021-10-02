@@ -200,7 +200,7 @@ public fun Bundle?.charSequenceNullable(
  */
 public fun Bundle?.charSequenceArray(
     key: String? = null,
-    default: () -> Array<CharSequence> = { arrayOf() },
+    default: () -> Array<CharSequence> = { emptyArray() },
 ): ReadWriteProperty<Fragment, Array<CharSequence>> {
     return delegate(
         key = key,

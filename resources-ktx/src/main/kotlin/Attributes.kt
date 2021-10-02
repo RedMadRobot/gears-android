@@ -42,7 +42,8 @@ public fun Context.resolveColor(
  */
 public fun Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue {
     return requireNotNull(resolveAttribute(attributeResId)) {
-        "Attribute ${resources.getResourceName(attributeResId)} required to be set in your app theme."
+        val attributeName: String = resources.getResourceName(attributeResId)
+        "Attribute $attributeName required to be set in your app theme."
     }
 }
 

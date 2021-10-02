@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Added
+
+- **Context**: added type checks to extensions `resolveColor`
+
 ### Dependencies
 
 - androidx.core 1.5.0 -> 1.6.0

@@ -57,8 +57,8 @@ Extensions for `Drawable`:
 Extensions to resolve attributes:
 - `Context.resolveAttribute(@AttrRes attributeResId: Int): TypedValue?`
 - `Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue`
-- `Context.resolveColor(@AttrRes colorAttributeResId: Int): Int`
-- `Context.resolveColor(@AttrRes colorAttributeResId: Int, @ColorInt defaultValue: Int): Int`
+- `Context.resolveColor(@AttrRes attributeResId: Int): Int`
+- `Context.resolveColor(@AttrRes attributeResId: Int, @ColorInt defaultValue: Int): Int`
 - `Context.resolveResourceId(@AttrRes attributeResId: Int): Int`
 
 Dimension converters for `Context` (the same available for `Resources`):

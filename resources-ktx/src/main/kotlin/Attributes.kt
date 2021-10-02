@@ -2,6 +2,7 @@ package com.redmadrobot.extensions.resources
 
 import android.content.Context
 import android.util.TypedValue
+import android.util.TypedValue.*
 import androidx.annotation.AnyRes
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
@@ -16,24 +17,34 @@ public fun Context.resolveResourceId(@AttrRes attributeResId: Int): Int {
 }
 
 /**
- * Returns the color for the provided [colorAttributeResId] or throws an exception
- * if the attribute is not set in the current theme.
+ * Returns the color for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not a color value.
  */
 @ColorInt
-public fun Context.resolveColor(@AttrRes colorAttributeResId: Int): Int {
-    return resolveAttributeOrThrow(colorAttributeResId).data
+public fun Context.resolveColor(@AttrRes attributeResId: Int): Int {
+    return resolveAttributeOrThrow(attributeResId).requireColor {
+        "Attribute ${nameOf(attributeResId)} should contain color value but it contains '${coerceToString()}'"
+    }
 }
 
 /**
- * Returns the color for the provided [colorAttributeResId], or the [defaultValue]
- * if the attribute is not set in the current theme.
+ * Returns the color for the provided [attributeResId], or the [defaultValue]
+ * if the attribute is not set in the [Context] theme or contains not a color value.
  */
 @ColorInt
 public fun Context.resolveColor(
-    @AttrRes colorAttributeResId: Int,
+    @AttrRes attributeResId: Int,
     @ColorInt defaultValue: Int,
 ): Int {
-    return resolveAttribute(colorAttributeResId)?.data ?: defaultValue
+    return resolveAttribute(attributeResId)
+        ?.requireColor { return defaultValue }
+        ?: defaultValue
+}
+
+@ColorInt
+private inline fun TypedValue.requireColor(lazyMessage: TypedValue.() -> String): Int {
+    require(type in TYPE_FIRST_COLOR_INT..TYPE_LAST_COLOR_INT) { lazyMessage() }
+    return data
 }
 
 /**
@@ -42,8 +53,7 @@ public fun Context.resolveColor(
  */
 public fun Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue {
     return requireNotNull(resolveAttribute(attributeResId)) {
-        val attributeName: String = resources.getResourceName(attributeResId)
-        "Attribute $attributeName required to be set in your app theme."
+        "Attribute ${nameOf(attributeResId)} required to be set in your app theme."
     }
 }
 
@@ -54,3 +64,5 @@ public fun Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedV
 public fun Context.resolveAttribute(@AttrRes attributeResId: Int): TypedValue? {
     return TypedValue().takeIf { theme.resolveAttribute(attributeResId, it, true) }
 }
+
+private fun Context.nameOf(@AnyRes resId: Int): String = resources.getResourceName(resId)

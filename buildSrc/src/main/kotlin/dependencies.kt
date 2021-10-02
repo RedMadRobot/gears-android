@@ -7,7 +7,7 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 object jetbrains {
-    object kotlin : Group("org.jetbrains.kotlin", version = "1.5.20") {
+    object kotlin : Group("org.jetbrains.kotlin", version = "1.5.31") {
         val stdlib by this
         val test_junit5 by this
     }

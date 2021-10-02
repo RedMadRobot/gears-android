@@ -17,6 +17,7 @@
 ### Dependencies
 
 - androidx.fragment 1.3.5 -> 1.3.6
+- kotlin-stdlib 1.5.20 -> 1.5.31
 
 ## [1.3.5-0] (2021-06-26)
 

@@ -24,8 +24,7 @@ public fun Context.resolveResourceId(@AttrRes attributeResId: Int): Int {
 public fun Context.resolveBoolean(@AttrRes attributeResId: Int): Boolean {
     val attribute = resolveAttributeOrThrow(attributeResId)
     require(attribute.type == TYPE_INT_BOOLEAN) {
-        "Attribute ${nameOf(attributeResId)} should contain boolean value" +
-            "but it contains '${attribute.coerceToString()}'"
+        wrongValueTypeMessage(attribute, attributeResId, expectedType = "boolean")
     }
     return attribute.data != 0
 }
@@ -37,7 +36,7 @@ public fun Context.resolveBoolean(@AttrRes attributeResId: Int): Boolean {
 @ColorInt
 public fun Context.resolveColor(@AttrRes attributeResId: Int): Int {
     return resolveAttributeOrThrow(attributeResId).requireColor {
-        "Attribute ${nameOf(attributeResId)} should contain color value but it contains '${coerceToString()}'"
+        wrongValueTypeMessage(this, attributeResId, expectedType = "color")
     }
 }
 
@@ -96,8 +95,7 @@ private inline fun <T : Number> Context.resolveDimension(
 ): T {
     val attribute = resolveAttributeOrThrow(attributeResId)
     require(attribute.type == TYPE_DIMENSION) {
-        "Attribute ${nameOf(attributeResId)} should contain dimensional value" +
-            "but it contains '${attribute.coerceToString()}'"
+        wrongValueTypeMessage(attribute, attributeResId, expectedType = "dimensional")
     }
     return complexToDimension(attribute.data, resources.displayMetrics)
 }
@@ -118,6 +116,11 @@ public fun Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedV
  */
 public fun Context.resolveAttribute(@AttrRes attributeResId: Int): TypedValue? {
     return TypedValue().takeIf { theme.resolveAttribute(attributeResId, it, true) }
+}
+
+@Suppress("NullableToStringCall")
+private fun Context.wrongValueTypeMessage(value: TypedValue, attrRes: Int, expectedType: String): String {
+    return "Attribute ${nameOf(attrRes)} should contain $expectedType value but it contains '${value.coerceToString()}'"
 }
 
 private fun Context.nameOf(@AnyRes resId: Int): String = resources.getResourceName(resId)

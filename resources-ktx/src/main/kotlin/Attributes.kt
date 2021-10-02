@@ -101,6 +101,32 @@ private inline fun <T : Number> Context.resolveDimension(
 }
 
 /**
+ * Returns the [Float] value for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not a float value.
+ */
+public fun Context.resolveFloat(@AttrRes attributeResId: Int): Float {
+    val attribute = resolveAttributeOrThrow(attributeResId)
+    require(attribute.type == TYPE_FLOAT) {
+        wrongValueTypeMessage(attribute, attributeResId, expectedType = "float")
+    }
+    return attribute.float
+}
+
+/**
+ * Returns the [Int] value for the provided [attributeResId] or throws an exception
+ * if the attribute is not set in the [Context] theme or contains not an integer value.
+ *
+ * Note that color and boolean are also represented as integer and may be obtained using this function.
+ */
+public fun Context.resolveInt(@AttrRes attributeResId: Int): Int {
+    val attribute = resolveAttributeOrThrow(attributeResId)
+    require(attribute.type in TYPE_FIRST_INT..TYPE_LAST_INT) {
+        wrongValueTypeMessage(attribute, attributeResId, expectedType = "integer")
+    }
+    return attribute.data
+}
+
+/**
  * Retrieves the value of an attribute in the Context theme.
  * Throws an exception if the attribute was not found.
  */

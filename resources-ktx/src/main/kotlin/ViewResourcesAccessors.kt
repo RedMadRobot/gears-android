@@ -82,7 +82,6 @@ public inline fun View.getString(@StringRes resId: Int): String = resources.getS
  * substituting the [formatArgs] as defined in [String.format].
  * @see Resources.getString
  */
-@Suppress("SpreadOperator") // Doesn't affect performance
 public inline fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
     resources.getString(resId, *formatArgs)
 

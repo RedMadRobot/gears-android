@@ -1,6 +1,3 @@
-// Public API
-@file:Suppress("unused")
-
 package com.redmadrobot.extensions.fragment
 
 import androidx.activity.OnBackPressedCallback

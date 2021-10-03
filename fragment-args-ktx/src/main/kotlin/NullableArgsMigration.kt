@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 package com.redmadrobot.extensions.fragment
 
 import android.os.Bundle
@@ -124,7 +122,7 @@ public fun <T : Parcelable> Bundle?.parcelableListNullable(
 /** @see Bundle.serializable */
 @Deprecated("Use 'serializable' instead", ReplaceWith("this.serializable(key, default)"))
 @JvmName("serializableNotNullable")
-public fun <T : java.io.Serializable> Bundle?.serializableNullable(
+public fun <T : Serializable> Bundle?.serializableNullable(
     key: String? = null,
     default: () -> T,
 ): ReadWriteProperty<Fragment, T> = serializable(key, default)

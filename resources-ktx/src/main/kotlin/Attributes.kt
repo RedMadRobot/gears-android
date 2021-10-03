@@ -1,5 +1,3 @@
-@file:Suppress("TooManyFunctions")
-
 package com.redmadrobot.extensions.resources
 
 import android.content.Context

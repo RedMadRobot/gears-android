@@ -1,4 +1,4 @@
-@file:Suppress("TooManyFunctions", "UnusedPrivateMember")
+@file:Suppress("UnusedPrivateMember")
 
 package com.redmadrobot.extensions.fragment
 

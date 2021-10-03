@@ -1,5 +1,5 @@
 // Public API
-@file:Suppress("unused")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package com.redmadrobot.extensions.core.view
 
@@ -12,31 +12,31 @@ import androidx.core.view.WindowInsetsCompat
 
 /** Returns `true` if keyboard is visible. Always returns `false` if View is detached.  */
 @get:RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-public val View.isKeyboardVisible: Boolean
+public inline val View.isKeyboardVisible: Boolean
     get() = ViewCompat.getRootWindowInsets(this)
         ?.isVisible(WindowInsetsCompat.Type.ime()) == true
 
 /** Returns `true` if keyboard is visible. */
 @get:RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-public val Activity.isKeyboardVisible: Boolean
+public inline val Activity.isKeyboardVisible: Boolean
     get() = window.decorView.isKeyboardVisible
 
 /** Requests focus and shows keyboard for [this] view if it is possible. */
 @RequiresApi(Build.VERSION_CODES.KITKAT_WATCH)
-public fun View.showKeyboard() {
+public inline fun View.showKeyboard() {
     ViewCompat.getWindowInsetsController(this)
         ?.show(WindowInsetsCompat.Type.ime())
 }
 
 /** Hides keyboard for [this] view if it is open. */
 @RequiresApi(Build.VERSION_CODES.KITKAT_WATCH)
-public fun View.hideKeyboard() {
+public inline fun View.hideKeyboard() {
     ViewCompat.getWindowInsetsController(this)
         ?.hide(WindowInsetsCompat.Type.ime())
 }
 
 /** Hides keyboard for [this] activity if it is open. */
 @RequiresApi(Build.VERSION_CODES.KITKAT_WATCH)
-public fun Activity.hideKeyboard() {
+public inline fun Activity.hideKeyboard() {
     window.decorView.hideKeyboard()
 }

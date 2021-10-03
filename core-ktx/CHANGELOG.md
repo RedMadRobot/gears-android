@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Fixed
+
+- Added `inline` modifier to Keyboard extensions
+
 ## [1.6.0-0] (2021-07-05)
 
 ### Dependencies

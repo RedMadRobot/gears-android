@@ -1,5 +1,5 @@
 // Public API
-@file:Suppress("unused", "TooManyFunctions")
+@file:Suppress("unused")
 
 package com.redmadrobot.extensions.fragment
 

@@ -1,5 +1,10 @@
 ## Unreleased
 
+### Changed
+
+- *Potentially breaking change!*
+  Removed `default` parameter from `*Nullable` delegates, it will always return null by default.
+
 ### Fixed
 
 - Added `inline` modifier to Keyboard extensions

@@ -96,14 +96,11 @@ public fun SharedPreferences.string(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-public fun SharedPreferences.stringNullable(
-    key: String? = null,
-    default: () -> String? = { null },
-): ReadWriteProperty<Any, String?> {
+public fun SharedPreferences.stringNullable(key: String? = null): ReadWriteProperty<Any, String?> {
     return delegate(
         key = key,
         fakeDefault = null,
-        lazyDefault = default,
+        lazyDefault = { null },
         getValue = SharedPreferences::getString,
         setValue = SharedPreferences.Editor::putString,
     )
@@ -134,14 +131,11 @@ public fun SharedPreferences.stringSet(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-public fun SharedPreferences.stringSetNullable(
-    key: String? = null,
-    default: () -> Set<String>? = { null },
-): ReadWriteProperty<Any, Set<String>?> {
+public fun SharedPreferences.stringSetNullable(key: String? = null): ReadWriteProperty<Any, Set<String>?> {
     return delegate(
         key = key,
         fakeDefault = null,
-        lazyDefault = default,
+        lazyDefault = { null },
         getValue = SharedPreferences::getStringSet,
         setValue = SharedPreferences.Editor::putStringSet,
     )

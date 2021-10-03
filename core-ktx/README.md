@@ -81,7 +81,8 @@ var overrideKey by preferences.boolean("isOverrideKey")
 #### Default Value
 
 If you not assign any value to a property, will be returned default value on property reading.
-You can specify default value with parameter `default`:
+Delegates of nullable types will always return `null` by default.
+You can specify default value for non-nullable types with parameter `default`:
 ```kotlin
 var messagesCount by preferences.int { 1 }
 // or
@@ -92,7 +93,6 @@ All delegates have `default` implementation by default:
 - numeric primitives - `0`
 - boolean - `false`
 - String - `""` (empty string)
-- nullable types - `null`
 - String set - empty set
 
 ### Keyboard

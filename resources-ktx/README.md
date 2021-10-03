@@ -41,6 +41,8 @@ Accessors for `View`:
 - `View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable?`
 - `View.getString(@StringRes resId: Int): String`
 - `View.getString(@StringRes resId: Int, vararg formatArgs: Any): String`
+- `View.getQuantityString(@PluralsRes resId: Int, quantity: Int): String`
+- `View.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String`
 
 Accessors for `Fragment`:
 - `Fragment.getColor(@ColorRes resId: Int): Int`
@@ -50,11 +52,13 @@ Accessors for `Fragment`:
 - `Fragment.getDimension(@DimenRes resId: Int): Float`
 - `Fragment.getDimensionPixelSize(@DimenRes resId: Int): Int`
 - `Fragment.getDimensionPixelOffset(@DimenRes resId: Int): Int`
+- `Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int): String`
+- `Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String`
 
 Extensions for `Drawable`:
 - `Drawable.withTint(@ColorInt tint: Int): Drawable`
 
-Extensions to resolve attributes:
+Extensions to resolve attributes from `Context` theme:
 - `Context.resolveAttribute(@AttrRes attributeResId: Int): TypedValue?`
 - `Context.resolveAttributeOrThrow(@AttrRes attributeResId: Int): TypedValue`
 - `Context.resolveBoolean(@AttrRes attributeResId: Int): Boolean`

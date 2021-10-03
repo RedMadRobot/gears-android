@@ -5,10 +5,7 @@ package com.redmadrobot.extensions.resources
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.annotation.DimenRes
-import androidx.annotation.DrawableRes
+import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -68,3 +65,20 @@ public fun Fragment.getDimensionPixelSize(@DimenRes resId: Int): Int = resources
  * @see Resources.getDimensionPixelOffset
  */
 public fun Fragment.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.getDimensionPixelOffset(resId)
+
+/**
+ * Returns a string associated with given [resId] and pluralized according to [quantity].
+ * @see Resources.getQuantityString
+ */
+public fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int): String {
+    return resources.getQuantityString(resId, quantity)
+}
+
+/**
+ * Returns a formatted string associated with given [resId] and pluralized according to [quantity],
+ * substituting the [formatArgs] as defined in [String.format].
+ * @see Resources.getQuantityString
+ */
+public fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String {
+    return resources.getQuantityString(resId, quantity, *formatArgs)
+}

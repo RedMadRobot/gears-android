@@ -85,3 +85,20 @@ public fun View.getString(@StringRes resId: Int): String = resources.getString(r
 @Suppress("SpreadOperator") // Doesn't affect performance
 public fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
     resources.getString(resId, *formatArgs)
+
+/**
+ * Returns a string associated with given [resId] and pluralized according to [quantity].
+ * @see Resources.getQuantityString
+ */
+public fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int): String {
+    return resources.getQuantityString(resId, quantity)
+}
+
+/**
+ * Returns a formatted string associated with given [resId] and pluralized according to [quantity],
+ * substituting the [formatArgs] as defined in [String.format].
+ * @see Resources.getQuantityString
+ */
+public fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String {
+    return resources.getQuantityString(resId, quantity, *formatArgs)
+}

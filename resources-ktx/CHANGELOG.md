@@ -5,6 +5,8 @@
 - **Context**: added type checks to extensions `resolveColor`
 - **Context**: new extensions `resolveDimension`, `resolveDimensionPixelSize` and `resolveDimensionPixelOffset`
 - **Context**: new extensions `resolveBoolean`, `resolveInt`, `resolveFloat` and `resolveString`
+- **Fragment**: new extensions `getQuantityString`
+- **View**: new extensions `getQuantityString`
 
 ### Dependencies
 

@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.redmadrobot.extensions.resources
 
 import android.content.Context
@@ -37,16 +39,16 @@ public sealed class Text {
  * Unwraps and returns a string for the given [text].
  * @see Text
  */
-public fun Context.getString(text: Text): String = text.get(this)
+public inline fun Context.getString(text: Text): String = text.get(this)
 
 /**
  * Unwraps and returns a string for the given [text].
  * @see Text
  */
-public fun Fragment.getString(text: Text): String = requireContext().getString(text)
+public inline fun Fragment.getString(text: Text): String = requireContext().getString(text)
 
 /**
  * Unwraps and returns a string for the given [text].
  * @see Text
  */
-public fun View.getString(text: Text): String = context.getString(text)
+public inline fun View.getString(text: Text): String = context.getString(text)

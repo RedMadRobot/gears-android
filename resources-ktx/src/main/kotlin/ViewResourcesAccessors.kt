@@ -15,20 +15,20 @@ import androidx.core.content.ContextCompat
  * @see ContextCompat.getColor
  */
 @ColorInt
-public fun View.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(context, resId)
+public inline fun View.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(context, resId)
 
 /**
  * Returns a color state list associated with given [resId].
  * @see ContextCompat.getColorStateList
  */
-public fun View.getColorStateList(@ColorRes resId: Int): ColorStateList? =
+public inline fun View.getColorStateList(@ColorRes resId: Int): ColorStateList? =
     ContextCompat.getColorStateList(context, resId)
 
 /**
  * Returns a dimension value associated with given [resId] in pixels.
  * @see Resources.getDimension
  */
-public fun View.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
+public inline fun View.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
 
 /**
  * Returns a dimension value associated with given [resId] in integer pixels.
@@ -36,14 +36,14 @@ public fun View.getDimension(@DimenRes resId: Int): Float = resources.getDimensi
  * a non-zero base value is at least one pixel in size.
  * @see Resources.getDimensionPixelSize
  */
-public fun View.getDimensionPixelSize(@DimenRes resId: Int): Int = resources.getDimensionPixelSize(resId)
+public inline fun View.getDimensionPixelSize(@DimenRes resId: Int): Int = resources.getDimensionPixelSize(resId)
 
 /**
  * Returns a dimension value associated with given [resId] in integer pixels.
  * An offset conversion involves simply truncating the base value to an integer.
  * @see Resources.getDimensionPixelOffset
  */
-public fun View.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.getDimensionPixelOffset(resId)
+public inline fun View.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.getDimensionPixelOffset(resId)
 
 /**
  * Returns a drawable associated with given [resId],
@@ -51,7 +51,7 @@ public fun View.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.g
  * @see AppCompatResources.getDrawable
  * @see getDrawableWithTint
  */
-public fun View.getDrawable(@DrawableRes resId: Int): Drawable? = AppCompatResources.getDrawable(context, resId)
+public inline fun View.getDrawable(@DrawableRes resId: Int): Drawable? = AppCompatResources.getDrawable(context, resId)
 
 /**
  * Returns a drawable associated with given [resId],
@@ -59,7 +59,7 @@ public fun View.getDrawable(@DrawableRes resId: Int): Drawable? = AppCompatResou
  * @see getDrawable
  * @see getDrawableWithTint
  */
-public fun View.requireDrawable(@DrawableRes resId: Int): Drawable = requireNotNull(getDrawable(resId))
+public inline fun View.requireDrawable(@DrawableRes resId: Int): Drawable = requireNotNull(getDrawable(resId))
 
 /**
  * Returns a drawable associated with given [resId] and tinted with specified [tint] color,
@@ -67,7 +67,7 @@ public fun View.requireDrawable(@DrawableRes resId: Int): Drawable = requireNotN
  * @see getDrawable
  * @see withTint
  */
-public fun View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
+public inline fun View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
     return getDrawable(resId)?.withTint(tint)
 }
 
@@ -75,7 +75,7 @@ public fun View.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int
  * Returns a localized string associated with given [resId].
  * @see Resources.getString
  */
-public fun View.getString(@StringRes resId: Int): String = resources.getString(resId)
+public inline fun View.getString(@StringRes resId: Int): String = resources.getString(resId)
 
 /**
  * Returns a localized formatted string associated with given [resId],
@@ -83,14 +83,14 @@ public fun View.getString(@StringRes resId: Int): String = resources.getString(r
  * @see Resources.getString
  */
 @Suppress("SpreadOperator") // Doesn't affect performance
-public fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
+public inline fun View.getString(@StringRes resId: Int, vararg formatArgs: Any): String =
     resources.getString(resId, *formatArgs)
 
 /**
  * Returns a string associated with given [resId] and pluralized according to [quantity].
  * @see Resources.getQuantityString
  */
-public fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int): String {
+public inline fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int): String {
     return resources.getQuantityString(resId, quantity)
 }
 
@@ -99,6 +99,6 @@ public fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int): String
  * substituting the [formatArgs] as defined in [String.format].
  * @see Resources.getQuantityString
  */
-public fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String {
+public inline fun View.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String {
     return resources.getQuantityString(resId, quantity, *formatArgs)
 }

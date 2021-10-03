@@ -15,13 +15,13 @@ import androidx.fragment.app.Fragment
  * @see ContextCompat.getColor
  */
 @ColorInt
-public fun Fragment.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(requireContext(), resId)
+public inline fun Fragment.getColor(@ColorRes resId: Int): Int = ContextCompat.getColor(requireContext(), resId)
 
 /**
  * Returns a color state list associated with given [resId].
  * @see ContextCompat.getColorStateList
  */
-public fun Fragment.getColorStateList(@ColorRes resId: Int): ColorStateList? {
+public inline fun Fragment.getColorStateList(@ColorRes resId: Int): ColorStateList? {
     return ContextCompat.getColorStateList(requireContext(), resId)
 }
 
@@ -31,7 +31,7 @@ public fun Fragment.getColorStateList(@ColorRes resId: Int): ColorStateList? {
  * @see AppCompatResources.getDrawable
  * @see getDrawableWithTint
  */
-public fun Fragment.getDrawable(@DrawableRes resId: Int): Drawable? {
+public inline fun Fragment.getDrawable(@DrawableRes resId: Int): Drawable? {
     return AppCompatResources.getDrawable(requireContext(), resId)
 }
 
@@ -41,7 +41,7 @@ public fun Fragment.getDrawable(@DrawableRes resId: Int): Drawable? {
  * @see getDrawable
  * @see getDrawableWithTint
  */
-public fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
+public inline fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint: Int): Drawable? {
     return getDrawable(resId)?.withTint(tint)
 }
 
@@ -49,7 +49,7 @@ public fun Fragment.getDrawableWithTint(@DrawableRes resId: Int, @ColorInt tint:
  * Returns a dimension value associated with given [resId] in pixels.
  * @see Resources.getDimension
  */
-public fun Fragment.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
+public inline fun Fragment.getDimension(@DimenRes resId: Int): Float = resources.getDimension(resId)
 
 /**
  * Returns a dimension value associated with given [resId] in integer pixels.
@@ -57,20 +57,20 @@ public fun Fragment.getDimension(@DimenRes resId: Int): Float = resources.getDim
  * a non-zero base value is at least one pixel in size.
  * @see Resources.getDimensionPixelSize
  */
-public fun Fragment.getDimensionPixelSize(@DimenRes resId: Int): Int = resources.getDimensionPixelSize(resId)
+public inline fun Fragment.getDimensionPixelSize(@DimenRes resId: Int): Int = resources.getDimensionPixelSize(resId)
 
 /**
  * Returns a dimension value associated with given [resId] in integer pixels.
  * An offset conversion involves simply truncating the base value to an integer.
  * @see Resources.getDimensionPixelOffset
  */
-public fun Fragment.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.getDimensionPixelOffset(resId)
+public inline fun Fragment.getDimensionPixelOffset(@DimenRes resId: Int): Int = resources.getDimensionPixelOffset(resId)
 
 /**
  * Returns a string associated with given [resId] and pluralized according to [quantity].
  * @see Resources.getQuantityString
  */
-public fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int): String {
+public inline fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int): String {
     return resources.getQuantityString(resId, quantity)
 }
 
@@ -79,6 +79,6 @@ public fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int): St
  * substituting the [formatArgs] as defined in [String.format].
  * @see Resources.getQuantityString
  */
-public fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String {
+public inline fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String {
     return resources.getQuantityString(resId, quantity, *formatArgs)
 }

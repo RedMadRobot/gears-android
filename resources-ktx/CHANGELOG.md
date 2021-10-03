@@ -8,6 +8,10 @@
 - **Fragment**: new extensions `getQuantityString`
 - **View**: new extensions `getQuantityString`
 
+### Fixed
+
+- `Inline` modifier added back to all resource accessors
+
 ### Dependencies
 
 - androidx.core 1.5.0 -> 1.6.0

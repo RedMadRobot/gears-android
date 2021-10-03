@@ -1,5 +1,7 @@
 ## Unreleased
 
+## [1.3.1-0] (2021-10-03)
+
 ### Added
 
 - **Context**: added type checks to extensions `resolveColor`
@@ -14,7 +16,10 @@
 
 ### Dependencies
 
+- androidx.appcompat 1.3.0 -> 1.3.1
 - androidx.core 1.5.0 -> 1.6.0
+- androidx.fragment 1.3.5 -> 1.3.6
+- kotlin-stdlib 1.5.20 -> 1.5.31
 
 ## [1.3.0-0] (2021-06-27)
 
@@ -44,4 +49,5 @@
 First release
 
 
+[1.3.1-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/fragment-ktx-v1.3.6-0...resources-ktx-v1.3.1-0
 [1.3.0-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/lifecycle-livedata-ktx-v2.3.1-0...resources-ktx-v1.3.0-0

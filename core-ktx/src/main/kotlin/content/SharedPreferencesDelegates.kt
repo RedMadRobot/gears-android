@@ -1,5 +1,3 @@
-@file:Suppress("NamedArguments")
-
 package com.redmadrobot.extensions.core.content
 
 import android.content.SharedPreferences
@@ -16,7 +14,13 @@ public fun SharedPreferences.boolean(
     key: String? = null,
     default: () -> Boolean = { false },
 ): ReadWriteProperty<Any, Boolean> {
-    return delegate(key, default, SharedPreferences::getBoolean, SharedPreferences.Editor::putBoolean)
+    return delegate(
+        key = key,
+        fakeDefault = false,
+        lazyDefault = default,
+        getValue = SharedPreferences::getBoolean,
+        setValue = SharedPreferences.Editor::putBoolean,
+    )
 }
 
 /**
@@ -26,7 +30,13 @@ public fun SharedPreferences.boolean(
  * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
  */
 public fun SharedPreferences.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Any, Float> {
-    return delegate(key, default, SharedPreferences::getFloat, SharedPreferences.Editor::putFloat)
+    return delegate(
+        key = key,
+        fakeDefault = 0f,
+        lazyDefault = default,
+        getValue = SharedPreferences::getFloat,
+        setValue = SharedPreferences.Editor::putFloat,
+    )
 }
 
 /**
@@ -36,7 +46,13 @@ public fun SharedPreferences.float(key: String? = null, default: () -> Float = {
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
 public fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Any, Int> {
-    return delegate(key, default, SharedPreferences::getInt, SharedPreferences.Editor::putInt)
+    return delegate(
+        key = key,
+        fakeDefault = 0,
+        lazyDefault = default,
+        getValue = SharedPreferences::getInt,
+        setValue = SharedPreferences.Editor::putInt,
+    )
 }
 
 /**
@@ -46,7 +62,13 @@ public fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
 public fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Any, Long> {
-    return delegate(key, default, SharedPreferences::getLong, SharedPreferences.Editor::putLong)
+    return delegate(
+        key = key,
+        fakeDefault = 0,
+        lazyDefault = default,
+        getValue = SharedPreferences::getLong,
+        setValue = SharedPreferences.Editor::putLong,
+    )
 }
 
 /**
@@ -59,7 +81,13 @@ public fun SharedPreferences.string(
     key: String? = null,
     default: () -> String = { "" },
 ): ReadWriteProperty<Any, String> {
-    return delegate(key, default, SharedPreferences::getString, SharedPreferences.Editor::putString)
+    return delegate(
+        key = key,
+        fakeDefault = "",
+        lazyDefault = default,
+        getValue = SharedPreferences::getString,
+        setValue = SharedPreferences.Editor::putString,
+    )
 }
 
 /**
@@ -72,7 +100,13 @@ public fun SharedPreferences.stringNullable(
     key: String? = null,
     default: () -> String? = { null },
 ): ReadWriteProperty<Any, String?> {
-    return delegate(key, default, SharedPreferences::getString, SharedPreferences.Editor::putString)
+    return delegate(
+        key = key,
+        fakeDefault = null,
+        lazyDefault = default,
+        getValue = SharedPreferences::getString,
+        setValue = SharedPreferences.Editor::putString,
+    )
 }
 
 /**
@@ -85,7 +119,13 @@ public fun SharedPreferences.stringSet(
     key: String? = null,
     default: () -> Set<String> = { emptySet() },
 ): ReadWriteProperty<Any, Set<String>> {
-    return delegate(key, default, SharedPreferences::getStringSet, SharedPreferences.Editor::putStringSet)
+    return delegate(
+        key = key,
+        fakeDefault = emptySet(),
+        lazyDefault = default,
+        getValue = SharedPreferences::getStringSet,
+        setValue = SharedPreferences.Editor::putStringSet,
+    )
 }
 
 /**
@@ -98,20 +138,32 @@ public fun SharedPreferences.stringSetNullable(
     key: String? = null,
     default: () -> Set<String>? = { null },
 ): ReadWriteProperty<Any, Set<String>?> {
-    return delegate(key, default, SharedPreferences::getStringSet, SharedPreferences.Editor::putStringSet)
+    return delegate(
+        key = key,
+        fakeDefault = null,
+        lazyDefault = default,
+        getValue = SharedPreferences::getStringSet,
+        setValue = SharedPreferences.Editor::putStringSet,
+    )
 }
 
 private inline fun <T> SharedPreferences.delegate(
     key: String?,
-    crossinline defaultValue: () -> T,
+    fakeDefault: T,
+    crossinline lazyDefault: () -> T,
     crossinline getValue: SharedPreferences.(key: String, defaultValue: T) -> T?,
     crossinline setValue: SharedPreferences.Editor.(key: String, value: T) -> SharedPreferences.Editor,
 ): ReadWriteProperty<Any, T> {
     return object : ReadWriteProperty<Any, T> {
         override fun getValue(thisRef: Any, property: KProperty<*>): T {
-            // If T is not nullable, defaultValue will never be nullable so we can cast it to T safely
-            @Suppress("UNCHECKED_CAST")
-            return getValue(key ?: property.name, defaultValue()) as T
+            val finalKey = key ?: property.name
+            return if (contains(finalKey)) {
+                // fakeDefault will never be used and value should never be null, so we can cast value to T safely
+                @Suppress("UNCHECKED_CAST")
+                getValue(finalKey, fakeDefault) as T
+            } else {
+                lazyDefault()
+            }
         }
 
         override fun setValue(thisRef: Any, property: KProperty<*>, value: T) {

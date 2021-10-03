@@ -3,6 +3,7 @@
 ### Fixed
 
 - Added `inline` modifier to Keyboard extensions
+- Default value in `SharedPreferences` delegate should not be evaluated before it needed (similar to #31)
 
 ## [1.6.0-0] (2021-07-05)
 

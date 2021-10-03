@@ -33,13 +33,13 @@ dependencies {
 ```
 
 This library applies next dependencies, so you don't need to apply it manually:
-- `androidx.lifecycle:lifecycle-livedata-ktx:2.3.0`
-- `androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.0`
+- `androidx.lifecycle:lifecycle-livedata-ktx:2.3.1`
+- `androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1`
 
 Also, it depends on:
-- `androidx.activity:activity:1.2.0`
-- `androidx.annotation:annotation:1.1.0`
-- `androidx.fragment:fragment:1.3.0`
+- `androidx.activity:activity:1.2.3`
+- `androidx.annotation:annotation:1.2.0`
+- `androidx.fragment:fragment:1.3.5`
 
 ## Usage
 

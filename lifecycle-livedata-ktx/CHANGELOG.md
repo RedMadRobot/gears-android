@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Dependencies
+
+- androidx.activity 1.2.3 -> 1.3.1
+- androidx.fragment 1.3.5 -> 1.3.6
+- kotlin-stdlib 1.5.20 -> 1.5.31
+
 ## [2.3.1-0] (2021-06-26)
 
 ### Dependencies
@@ -8,7 +14,7 @@
 - androidx.lifecycle 2.3.0 -> 2.3.1
 - androidx.activity 1.2.0 -> 1.2.3
 - androidx.annotation 1.1.0 -> 1.2.0
-- androidx.fragment 1.2.0 -> 1.2.5
+- androidx.fragment 1.3.0 -> 1.3.5
 
 ### Added
 

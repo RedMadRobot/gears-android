@@ -8,7 +8,7 @@
 
 ### Changed
 
-- *Potentially breaking change!*
+- **Potentially breaking change!**
   Removed `default` parameter from `*Nullable` delegates, it will always return null by default.
 
 ### Fixed

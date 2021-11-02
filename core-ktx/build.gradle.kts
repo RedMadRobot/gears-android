@@ -6,7 +6,7 @@ plugins {
     id("redmadrobot.publish")
 }
 
-version = "1.6.0-1"
+version = "1.6.0-2"
 description = "Kotlin extensions in addition to androidx core-ktx"
 
 dependencies {

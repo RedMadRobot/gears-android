@@ -13,7 +13,7 @@ import kotlin.reflect.KProperty
 public fun SharedPreferences.boolean(
     key: String? = null,
     default: () -> Boolean = { false },
-): ReadWriteProperty<Any, Boolean> {
+): ReadWriteProperty<Any?, Boolean> {
     return delegate(
         key = key,
         fakeDefault = false,
@@ -29,7 +29,10 @@ public fun SharedPreferences.boolean(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
  */
-public fun SharedPreferences.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Any, Float> {
+public fun SharedPreferences.float(
+    key: String? = null,
+    default: () -> Float = { 0f }
+): ReadWriteProperty<Any?, Float> {
     return delegate(
         key = key,
         fakeDefault = 0f,
@@ -45,7 +48,10 @@ public fun SharedPreferences.float(key: String? = null, default: () -> Float = {
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-public fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Any, Int> {
+public fun SharedPreferences.int(
+    key: String? = null,
+    default: () -> Int = { 0 }
+): ReadWriteProperty<Any?, Int> {
     return delegate(
         key = key,
         fakeDefault = 0,
@@ -61,7 +67,10 @@ public fun SharedPreferences.int(key: String? = null, default: () -> Int = { 0 }
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
  */
-public fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Any, Long> {
+public fun SharedPreferences.long(
+    key: String? = null,
+    default: () -> Long = { 0 }
+): ReadWriteProperty<Any?, Long> {
     return delegate(
         key = key,
         fakeDefault = 0,
@@ -80,7 +89,7 @@ public fun SharedPreferences.long(key: String? = null, default: () -> Long = { 0
 public fun SharedPreferences.string(
     key: String? = null,
     default: () -> String = { "" },
-): ReadWriteProperty<Any, String> {
+): ReadWriteProperty<Any?, String> {
     return delegate(
         key = key,
         fakeDefault = "",
@@ -96,7 +105,7 @@ public fun SharedPreferences.string(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-public fun SharedPreferences.stringNullable(key: String? = null): ReadWriteProperty<Any, String?> {
+public fun SharedPreferences.stringNullable(key: String? = null): ReadWriteProperty<Any?, String?> {
     return delegate(
         key = key,
         fakeDefault = null,
@@ -115,7 +124,7 @@ public fun SharedPreferences.stringNullable(key: String? = null): ReadWritePrope
 public fun SharedPreferences.stringSet(
     key: String? = null,
     default: () -> Set<String> = { emptySet() },
-): ReadWriteProperty<Any, Set<String>> {
+): ReadWriteProperty<Any?, Set<String>> {
     return delegate(
         key = key,
         fakeDefault = emptySet(),
@@ -131,7 +140,7 @@ public fun SharedPreferences.stringSet(
  * If the key is `null`, uses name of the property as the key.
  * Returns result of [default] function if there is no argument for the given key. Default value is `null`.
  */
-public fun SharedPreferences.stringSetNullable(key: String? = null): ReadWriteProperty<Any, Set<String>?> {
+public fun SharedPreferences.stringSetNullable(key: String? = null): ReadWriteProperty<Any?, Set<String>?> {
     return delegate(
         key = key,
         fakeDefault = null,
@@ -147,9 +156,9 @@ private inline fun <T> SharedPreferences.delegate(
     crossinline lazyDefault: () -> T,
     crossinline getValue: SharedPreferences.(key: String, defaultValue: T) -> T?,
     crossinline setValue: SharedPreferences.Editor.(key: String, value: T) -> SharedPreferences.Editor,
-): ReadWriteProperty<Any, T> {
-    return object : ReadWriteProperty<Any, T> {
-        override fun getValue(thisRef: Any, property: KProperty<*>): T {
+): ReadWriteProperty<Any?, T> {
+    return object : ReadWriteProperty<Any?, T> {
+        override fun getValue(thisRef: Any?, property: KProperty<*>): T {
             val finalKey = key ?: property.name
             return if (contains(finalKey)) {
                 // fakeDefault will never be used and value should never be null, so we can cast value to T safely
@@ -160,7 +169,7 @@ private inline fun <T> SharedPreferences.delegate(
             }
         }
 
-        override fun setValue(thisRef: Any, property: KProperty<*>, value: T) {
+        override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
             edit().setValue(key ?: property.name, value).apply()
         }
     }

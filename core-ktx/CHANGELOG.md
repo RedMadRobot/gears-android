@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Fixed
+
+- **SharedPreferences delegates**: added ability to use delegate in local and top-level properties
+
 ## [1.6.0-1] (2021-10-03)
 
 ### Added

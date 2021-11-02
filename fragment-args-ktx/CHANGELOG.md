@@ -1,5 +1,13 @@
 ## Unreleased
 
+### Changes
+
+- **Breaking change!**
+  Removed `default` parameters implementation from delegates to prevent mistakes when a value was not written before reading (#37).\
+  `IllegalStateException` will be thrown by default if you're trying to read a value that wasn't written before.
+  If you need to return the default value instead, specify the `default` parameter manually.
+- Added parameter `key: String` to `default` lambda. 
+
 ## [1.3.6-0] (2021-10-02)
 
 ### Changes

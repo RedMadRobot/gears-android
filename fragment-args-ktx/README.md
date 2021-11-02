@@ -87,13 +87,7 @@ val index by arguments.int { 1 }
 val index by arguments.int(default = { 1 })
 ```
 
-All delegates of non-nullable types have `default` implementation by default:
-- numeric primitives - `0`
-- boolean - `false`
-- String and CharSequence - `""` (empty string)
-- non-nullable arrays - empty array
-- non-nullable lists - empty list
-- Serializable and Parcelable - throw `IllegalStateException("No default value specified")`
+> If you've not implemented `default` parameter, reading a value that wasn't written before will throw `IllegalStateException`.
 
 ## Contributing
 Merge requests are welcome.

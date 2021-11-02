@@ -12,7 +12,7 @@ import kotlin.properties.ReadWriteProperty
 @JvmName("booleanArrayNotNullable")
 public fun Bundle?.booleanArrayNullable(
     key: String? = null,
-    default: () -> BooleanArray,
+    default: (key: String) -> BooleanArray,
 ): ReadWriteProperty<Fragment, BooleanArray> = booleanArray(key, default)
 
 /** @see Bundle.byteArray */
@@ -20,7 +20,7 @@ public fun Bundle?.booleanArrayNullable(
 @JvmName("byteArrayNotNullable")
 public fun Bundle?.byteArrayNullable(
     key: String? = null,
-    default: () -> ByteArray,
+    default: (key: String) -> ByteArray,
 ): ReadWriteProperty<Fragment, ByteArray> = byteArray(key, default)
 
 /** @see Bundle.charArray */
@@ -28,7 +28,7 @@ public fun Bundle?.byteArrayNullable(
 @JvmName("charArrayNotNullable")
 public fun Bundle?.charArrayNullable(
     key: String? = null,
-    default: () -> CharArray,
+    default: (key: String) -> CharArray,
 ): ReadWriteProperty<Fragment, CharArray> = charArray(key, default)
 
 /** @see Bundle.charSequence */
@@ -36,7 +36,7 @@ public fun Bundle?.charArrayNullable(
 @JvmName("charSequenceNotNullable")
 public fun Bundle?.charSequenceNullable(
     key: String? = null,
-    default: () -> CharSequence,
+    default: (key: String) -> CharSequence,
 ): ReadWriteProperty<Fragment, CharSequence> = charSequence(key, default)
 
 /** @see Bundle.charSequenceArray */
@@ -44,7 +44,7 @@ public fun Bundle?.charSequenceNullable(
 @JvmName("charSequenceArrayNotNullable")
 public fun Bundle?.charSequenceArrayNullable(
     key: String? = null,
-    default: () -> Array<CharSequence>,
+    default: (key: String) -> Array<CharSequence>,
 ): ReadWriteProperty<Fragment, Array<CharSequence>> = charSequenceArray(key, default)
 
 /** @see Bundle.charSequenceList */
@@ -52,7 +52,7 @@ public fun Bundle?.charSequenceArrayNullable(
 @JvmName("charSequenceListNotNullable")
 public fun Bundle?.charSequenceListNullable(
     key: String? = null,
-    default: () -> List<CharSequence>,
+    default: (key: String) -> List<CharSequence>,
 ): ReadWriteProperty<Fragment, List<CharSequence>> = charSequenceList(key, default)
 
 /** @see Bundle.doubleArray */
@@ -60,7 +60,7 @@ public fun Bundle?.charSequenceListNullable(
 @JvmName("doubleArrayNotNullable")
 public fun Bundle?.doubleArrayNullable(
     key: String? = null,
-    default: () -> DoubleArray,
+    default: (key: String) -> DoubleArray,
 ): ReadWriteProperty<Fragment, DoubleArray> = doubleArray(key, default)
 
 /** @see Bundle.floatArray */
@@ -68,7 +68,7 @@ public fun Bundle?.doubleArrayNullable(
 @JvmName("floatArrayNotNullable")
 public fun Bundle?.floatArrayNullable(
     key: String? = null,
-    default: () -> FloatArray,
+    default: (key: String) -> FloatArray,
 ): ReadWriteProperty<Fragment, FloatArray> = floatArray(key, default)
 
 /** @see Bundle.intArray */
@@ -76,7 +76,7 @@ public fun Bundle?.floatArrayNullable(
 @JvmName("intArrayNotNullable")
 public fun Bundle?.intArrayNullable(
     key: String? = null,
-    default: () -> IntArray,
+    default: (key: String) -> IntArray,
 ): ReadWriteProperty<Fragment, IntArray> = intArray(key, default)
 
 /** @see Bundle.intList */
@@ -84,7 +84,7 @@ public fun Bundle?.intArrayNullable(
 @JvmName("intListNotNullable")
 public fun Bundle?.intListNullable(
     key: String? = null,
-    default: () -> List<Int>,
+    default: (key: String) -> List<Int>,
 ): ReadWriteProperty<Fragment, List<Int>> = intList(key, default)
 
 /** @see Bundle.longArray */
@@ -92,7 +92,7 @@ public fun Bundle?.intListNullable(
 @JvmName("longArrayNotNullable")
 public fun Bundle?.longArrayNullable(
     key: String? = null,
-    default: () -> LongArray,
+    default: (key: String) -> LongArray,
 ): ReadWriteProperty<Fragment, LongArray> = longArray(key, default)
 
 /** @see Bundle.parcelable */
@@ -100,7 +100,7 @@ public fun Bundle?.longArrayNullable(
 @JvmName("parcelableNotNullable")
 public fun <T : Parcelable> Bundle?.parcelableNullable(
     key: String? = null,
-    default: () -> T,
+    default: (key: String) -> T,
 ): ReadWriteProperty<Fragment, T> = parcelable(key, default)
 
 /** @see Bundle.sparseParcelableArray */
@@ -108,7 +108,7 @@ public fun <T : Parcelable> Bundle?.parcelableNullable(
 @JvmName("sparseParcelableArrayNotNullable")
 public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
     key: String? = null,
-    default: () -> SparseArray<T>,
+    default: (key: String) -> SparseArray<T>,
 ): ReadWriteProperty<Fragment, SparseArray<T>> = sparseParcelableArray(key, default)
 
 /** @see Bundle.parcelableList */
@@ -116,7 +116,7 @@ public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
 @JvmName("parcelableListNotNullable")
 public fun <T : Parcelable> Bundle?.parcelableListNullable(
     key: String? = null,
-    default: () -> List<T>,
+    default: (key: String) -> List<T>,
 ): ReadWriteProperty<Fragment, List<T>> = parcelableList(key, default)
 
 /** @see Bundle.serializable */
@@ -124,7 +124,7 @@ public fun <T : Parcelable> Bundle?.parcelableListNullable(
 @JvmName("serializableNotNullable")
 public fun <T : Serializable> Bundle?.serializableNullable(
     key: String? = null,
-    default: () -> T,
+    default: (key: String) -> T,
 ): ReadWriteProperty<Fragment, T> = serializable(key, default)
 
 /** @see Bundle.serializableList */
@@ -132,7 +132,7 @@ public fun <T : Serializable> Bundle?.serializableNullable(
 @JvmName("serializableListNotNullable")
 public fun <T : Serializable> Bundle?.serializableListNullable(
     key: String? = null,
-    default: () -> List<T>,
+    default: (key: String) -> List<T>,
 ): ReadWriteProperty<Fragment, List<T>> = serializableList(key, default)
 
 /** @see Bundle.shortArray */
@@ -140,7 +140,7 @@ public fun <T : Serializable> Bundle?.serializableListNullable(
 @JvmName("shortArrayNotNullable")
 public fun Bundle?.shortArrayNullable(
     key: String? = null,
-    default: () -> ShortArray,
+    default: (key: String) -> ShortArray,
 ): ReadWriteProperty<Fragment, ShortArray> = shortArray(key, default)
 
 /** @see Bundle.string */
@@ -148,7 +148,7 @@ public fun Bundle?.shortArrayNullable(
 @JvmName("stringNotNullable")
 public fun Bundle?.stringNullable(
     key: String? = null,
-    default: () -> String,
+    default: (key: String) -> String,
 ): ReadWriteProperty<Fragment, String> = string(key, default)
 
 /** @see Bundle.stringArray */
@@ -156,7 +156,7 @@ public fun Bundle?.stringNullable(
 @JvmName("stringArrayNotNullable")
 public fun Bundle?.stringArrayNullable(
     key: String? = null,
-    default: () -> Array<String>,
+    default: (key: String) -> Array<String>,
 ): ReadWriteProperty<Fragment, Array<String>> = stringArray(key, default)
 
 /** @see Bundle.stringList */
@@ -164,5 +164,5 @@ public fun Bundle?.stringArrayNullable(
 @JvmName("stringListNotNullable")
 public fun Bundle?.stringListNullable(
     key: String? = null,
-    default: () -> List<String>,
+    default: (key: String) -> List<String>,
 ): ReadWriteProperty<Fragment, List<String>> = stringList(key, default)

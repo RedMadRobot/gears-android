@@ -13,11 +13,12 @@ import kotlin.properties.ReadWriteProperty
  * Creates a delegate to read and write argument containing [Boolean] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `false`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.boolean(
     key: String? = null,
-    default: () -> Boolean = { false },
+    default: (key: String) -> Boolean = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, Boolean> {
     return delegate(
         key = key,
@@ -30,15 +31,16 @@ public fun Bundle?.boolean(
  * Creates a delegate to read and write argument containing [BooleanArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.booleanArray(
     key: String? = null,
-    default: () -> BooleanArray = { booleanArrayOf() },
+    default: (key: String) -> BooleanArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, BooleanArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getBooleanArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getBooleanArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putBooleanArray(propertyKey, value) },
     )
 }
@@ -61,9 +63,13 @@ public fun Bundle?.booleanArrayNullable(key: String? = null): ReadWriteProperty<
  * Creates a delegate to read and write argument containing [Byte] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadWriteProperty<Fragment, Byte> {
+public fun Bundle?.byte(
+    key: String? = null,
+    default: (key: String) -> Byte = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Byte> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getByte(it) }, orElse = default) },
@@ -75,15 +81,16 @@ public fun Bundle?.byte(key: String? = null, default: () -> Byte = { 0 }): ReadW
  * Creates a delegate to read and write argument containing [ByteArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.byteArray(
     key: String? = null,
-    default: () -> ByteArray = { byteArrayOf() },
+    default: (key: String) -> ByteArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, ByteArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getByteArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getByteArray(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putByteArray,
     )
 }
@@ -106,9 +113,13 @@ public fun Bundle?.byteArrayNullable(key: String? = null): ReadWriteProperty<Fra
  * Creates a delegate to read and write argument containing [Char] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' }): ReadWriteProperty<Fragment, Char> {
+public fun Bundle?.char(
+    key: String? = null,
+    default: (key: String) -> Char = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Char> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getChar(it) }, orElse = default) },
@@ -120,15 +131,16 @@ public fun Bundle?.char(key: String? = null, default: () -> Char = { '\u0000' })
  * Creates a delegate to read and write argument containing [CharArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.charArray(
     key: String? = null,
-    default: () -> CharArray = { charArrayOf() },
+    default: (key: String) -> CharArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, CharArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getCharArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getCharArray(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putCharArray,
     )
 }
@@ -151,15 +163,16 @@ public fun Bundle?.charArrayNullable(key: String? = null): ReadWriteProperty<Fra
  * Creates a delegate to read and write argument containing [CharSequence] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty char sequence.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.charSequence(
     key: String? = null,
-    default: () -> CharSequence = { "" },
+    default: (key: String) -> CharSequence = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, CharSequence> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getCharSequence(propertyKey) ?: default() },
+        getValue = { propertyKey -> getCharSequence(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putCharSequence,
     )
 }
@@ -182,15 +195,16 @@ public fun Bundle?.charSequenceNullable(key: String? = null): ReadWriteProperty<
  * Creates a delegate to read and write argument containing array of [CharSequence] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.charSequenceArray(
     key: String? = null,
-    default: () -> Array<CharSequence> = { emptyArray() },
+    default: (key: String) -> Array<CharSequence> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, Array<CharSequence>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getCharSequenceArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getCharSequenceArray(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putCharSequenceArray,
     )
 }
@@ -213,15 +227,16 @@ public fun Bundle?.charSequenceArrayNullable(key: String? = null): ReadWriteProp
  * Creates a delegate to read and write argument containing list of [CharSequence] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.charSequenceList(
     key: String? = null,
-    default: () -> List<CharSequence> = ::emptyList,
+    default: (key: String) -> List<CharSequence> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<CharSequence>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getCharSequenceArrayList(propertyKey) ?: default() },
+        getValue = { propertyKey -> getCharSequenceArrayList(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putCharSequenceArrayList(propertyKey, ArrayList(value)) },
     )
 }
@@ -244,9 +259,13 @@ public fun Bundle?.charSequenceListNullable(key: String? = null): ReadWritePrope
  * Creates a delegate to read and write argument containing [Double] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }): ReadWriteProperty<Fragment, Double> {
+public fun Bundle?.double(
+    key: String? = null,
+    default: (key: String) -> Double = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Double> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getDouble(it) }, orElse = default) },
@@ -258,15 +277,16 @@ public fun Bundle?.double(key: String? = null, default: () -> Double = { 0.0 }):
  * Creates a delegate to read and write argument containing [DoubleArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.doubleArray(
     key: String? = null,
-    default: () -> DoubleArray = { doubleArrayOf() },
+    default: (key: String) -> DoubleArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, DoubleArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getDoubleArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getDoubleArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putDoubleArray(propertyKey, value) },
     )
 }
@@ -289,9 +309,13 @@ public fun Bundle?.doubleArrayNullable(key: String? = null): ReadWriteProperty<F
  * Creates a delegate to read and write argument containing [Float] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0.0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): ReadWriteProperty<Fragment, Float> {
+public fun Bundle?.float(
+    key: String? = null,
+    default: (key: String) -> Float = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Float> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getFloat(propertyKey) }, orElse = default) },
@@ -303,15 +327,16 @@ public fun Bundle?.float(key: String? = null, default: () -> Float = { 0f }): Re
  * Creates a delegate to read and write argument containing [FloatArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.floatArray(
     key: String? = null,
-    default: () -> FloatArray = { floatArrayOf() },
+    default: (key: String) -> FloatArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, FloatArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getFloatArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getFloatArray(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putFloatArray,
     )
 }
@@ -334,9 +359,13 @@ public fun Bundle?.floatArrayNullable(key: String? = null): ReadWriteProperty<Fr
  * Creates a delegate to read and write argument containing [Int] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWriteProperty<Fragment, Int> {
+public fun Bundle?.int(
+    key: String? = null,
+    default: (key: String) -> Int = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Int> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getInt(it) }, orElse = default) },
@@ -348,15 +377,16 @@ public fun Bundle?.int(key: String? = null, default: () -> Int = { 0 }): ReadWri
  * Creates a delegate to read and write argument containing [IntArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.intArray(
     key: String? = null,
-    default: () -> IntArray = { intArrayOf() },
+    default: (key: String) -> IntArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, IntArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getIntArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getIntArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putIntArray(propertyKey, value) },
     )
 }
@@ -379,15 +409,16 @@ public fun Bundle?.intArrayNullable(key: String? = null): ReadWriteProperty<Frag
  * Creates a delegate to read and write argument containing list of [Int] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.intList(
     key: String? = null,
-    default: () -> List<Int> = ::emptyList,
+    default: (key: String) -> List<Int> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<Int>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getIntegerArrayList(propertyKey) ?: default() },
+        getValue = { propertyKey -> getIntegerArrayList(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putIntegerArrayList(propertyKey, ArrayList(value)) },
     )
 }
@@ -410,9 +441,13 @@ public fun Bundle?.intListNullable(key: String? = null): ReadWriteProperty<Fragm
  * Creates a delegate to read and write argument containing [Long] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadWriteProperty<Fragment, Long> {
+public fun Bundle?.long(
+    key: String? = null,
+    default: (key: String) -> Long = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Long> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getLong(it) }, orElse = default) },
@@ -424,15 +459,16 @@ public fun Bundle?.long(key: String? = null, default: () -> Long = { 0 }): ReadW
  * Creates a delegate to read and write argument containing [LongArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.longArray(
     key: String? = null,
-    default: () -> LongArray = { longArrayOf() },
+    default: (key: String) -> LongArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, LongArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getLongArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getLongArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putLongArray(propertyKey, value) },
     )
 }
@@ -455,15 +491,16 @@ public fun Bundle?.longArrayNullable(key: String? = null): ReadWriteProperty<Fra
  * Creates a delegate to read and write argument containing [Parcelable] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is undefined.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun <T : Parcelable> Bundle?.parcelable(
     key: String? = null,
-    default: () -> T = ::noDefaultValue,
+    default: (key: String) -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getParcelable(propertyKey) ?: default() },
+        getValue = { propertyKey -> getParcelable(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putParcelable,
     )
 }
@@ -486,15 +523,16 @@ public fun <T : Parcelable> Bundle?.parcelableNullable(key: String? = null): Rea
  * Creates a delegate to read and write argument containing sparse array of [Parcelable] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun <T : Parcelable> Bundle?.sparseParcelableArray(
     key: String? = null,
-    default: () -> SparseArray<T> = { SparseArray() },
+    default: (key: String) -> SparseArray<T> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, SparseArray<T>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getSparseParcelableArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getSparseParcelableArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) },
     )
 }
@@ -519,15 +557,16 @@ public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
  * Creates a delegate to read and write argument containing list of [Parcelable] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun <T : Parcelable> Bundle?.parcelableList(
     key: String? = null,
-    default: () -> List<T> = ::emptyList,
+    default: (key: String) -> List<T> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<T>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getParcelableArrayList(propertyKey) ?: default() },
+        getValue = { propertyKey -> getParcelableArrayList(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, ArrayList(value)) },
     )
 }
@@ -550,16 +589,17 @@ public fun <T : Parcelable> Bundle?.parcelableListNullable(key: String? = null):
  * Creates a delegate to read and write argument containing [Serializable] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is undefined.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun <T : Serializable> Bundle?.serializable(
     key: String? = null,
-    default: () -> T = ::noDefaultValue,
+    default: (key: String) -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as T },
+        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default(propertyKey)) as T },
         setValue = Bundle::putSerializable,
     )
 }
@@ -583,16 +623,17 @@ public fun <T : Serializable> Bundle?.serializableNullable(key: String? = null):
  * Creates a delegate to read and write argument containing list of [Serializable] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun <T : Serializable> Bundle?.serializableList(
     key: String? = null,
-    default: () -> List<T> = ::emptyList,
+    default: (key: String) -> List<T> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<T>> {
     @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default()) as List<T> },
+        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default(propertyKey)) as List<T> },
         setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) },
     )
 }
@@ -618,9 +659,13 @@ public fun <T : Serializable> Bundle?.serializableListNullable(
  * Creates a delegate to read and write argument containing [Short] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is `0`.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): ReadWriteProperty<Fragment, Short> {
+public fun Bundle?.short(
+    key: String? = null,
+    default: (key: String) -> Short = ::noDefaultValue,
+): ReadWriteProperty<Fragment, Short> {
     return delegate(
         key = key,
         getValue = { propertyKey -> getOrElse(propertyKey, getter = { getShort(it) }, orElse = default) },
@@ -632,15 +677,16 @@ public fun Bundle?.short(key: String? = null, default: () -> Short = { 0 }): Rea
  * Creates a delegate to read and write argument containing [ShortArray] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.shortArray(
     key: String? = null,
-    default: () -> ShortArray = { shortArrayOf() },
+    default: (key: String) -> ShortArray = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, ShortArray> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getShortArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getShortArray(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putShortArray,
     )
 }
@@ -663,12 +709,16 @@ public fun Bundle?.shortArrayNullable(key: String? = null): ReadWriteProperty<Fr
  * Creates a delegate to read and write argument containing [String] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty string.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun Bundle?.string(key: String? = null, default: () -> String = { "" }): ReadWriteProperty<Fragment, String> {
+public fun Bundle?.string(
+    key: String? = null,
+    default: (key: String) -> String = ::noDefaultValue,
+): ReadWriteProperty<Fragment, String> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getString(propertyKey) ?: default() },
+        getValue = { propertyKey -> getString(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putString(propertyKey, value) },
     )
 }
@@ -691,15 +741,16 @@ public fun Bundle?.stringNullable(key: String? = null): ReadWriteProperty<Fragme
  * Creates a delegate to read and write argument containing array of [String] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty array.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.stringArray(
     key: String? = null,
-    default: () -> Array<String> = ::emptyArray,
+    default: (key: String) -> Array<String> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, Array<String>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getStringArray(propertyKey) ?: default() },
+        getValue = { propertyKey -> getStringArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putStringArray(propertyKey, value) },
     )
 }
@@ -722,15 +773,16 @@ public fun Bundle?.stringArrayNullable(key: String? = null): ReadWriteProperty<F
  * Creates a delegate to read and write argument containing list of [String] for the given [key].
  *
  * If the key is `null`, uses name of the property as the key.
- * Returns result of [default] function if there is no argument for the given key. Default value is empty list.
+ * Returns result of [default] function if there is no argument for the given key,
+ * or throws [IllegalStateException] if [default] is not specified.
  */
 public fun Bundle?.stringList(
     key: String? = null,
-    default: () -> List<String> = ::emptyList,
+    default: (key: String) -> List<String> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<String>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getStringArrayList(propertyKey) ?: default() },
+        getValue = { propertyKey -> getStringArrayList(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putStringArrayList(propertyKey, ArrayList(value)) },
     )
 }
@@ -752,9 +804,10 @@ public fun Bundle?.stringListNullable(key: String? = null): ReadWriteProperty<Fr
 private inline fun <T> Bundle.getOrElse(
     key: String,
     crossinline getter: BundleGetter<T>,
-    crossinline orElse: () -> T,
+    crossinline orElse: (key: String) -> T,
 ): T {
-    return if (containsKey(key)) getter(key) else orElse()
+    return if (containsKey(key)) getter(key) else orElse(key)
 }
 
-private fun noDefaultValue(): Nothing = error("No default value specified")
+private fun noDefaultValue(key: String): Nothing =
+    error("Value for the key '$key' is not assigned and default is not set.")

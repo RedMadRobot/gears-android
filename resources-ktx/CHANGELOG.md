@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changed
+
+- **Text**: added abstract methods `equals`, `hashCode`
+
 ## [1.3.1-0] (2021-10-03)
 
 ### Added

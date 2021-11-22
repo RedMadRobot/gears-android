@@ -24,6 +24,9 @@ public sealed class Text {
     /** Retrieves [String] using given [context]. */
     public abstract fun get(context: Context): String
 
+    abstract override fun equals(other: Any?): Boolean
+    abstract override fun hashCode(): Int
+
     /** Plain string. */
     public data class Plain(public val string: String) : Text() {
         override fun get(context: Context): String = string

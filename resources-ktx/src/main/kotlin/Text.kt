@@ -19,21 +19,21 @@ import androidx.fragment.app.Fragment
  *  val messageText = getString(message)
  * ```
  */
-public sealed class Text {
+public sealed interface Text {
 
     /** Retrieves [String] using given [context]. */
-    public abstract fun get(context: Context): String
+    public fun get(context: Context): String
 
-    abstract override fun equals(other: Any?): Boolean
-    abstract override fun hashCode(): Int
+    override fun equals(other: Any?): Boolean
+    override fun hashCode(): Int
 
     /** Plain string. */
-    public data class Plain(public val string: String) : Text() {
+    public data class Plain(public val string: String) : Text {
         override fun get(context: Context): String = string
     }
 
     /** String resource, requires [Context] to get [String]. */
-    public data class Resource(@StringRes public val resourceId: Int) : Text() {
+    public data class Resource(@StringRes public val resourceId: Int) : Text {
         override fun get(context: Context): String = context.getString(resourceId)
     }
 }

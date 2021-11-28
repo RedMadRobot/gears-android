@@ -1,5 +1,9 @@
 ## Unreleased
 
+- **Text**: changed from sealed class to sealed interface
+- **Dimensions**: added wrapper to work with dimensions and px values
+- **Image**: added wrapper to work with remote and local images
+
 ### Changed
 
 - **Text**: added abstract methods `equals`, `hashCode`

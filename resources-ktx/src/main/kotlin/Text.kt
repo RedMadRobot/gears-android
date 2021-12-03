@@ -3,6 +3,8 @@
 package com.redmadrobot.extensions.resources
 
 import android.content.Context
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
@@ -19,7 +21,7 @@ import androidx.fragment.app.Fragment
  *  val messageText = getString(message)
  * ```
  */
-public sealed class Text {
+public sealed class Text : Parcelable {
 
     /** Retrieves [String] using given [context]. */
     public abstract fun get(context: Context): String
@@ -29,12 +31,44 @@ public sealed class Text {
 
     /** Plain string. */
     public data class Plain(public val string: String) : Text() {
+
+        private constructor(parcel: Parcel) : this(parcel.readString().orEmpty())
+
         override fun get(context: Context): String = string
+
+        override fun writeToParcel(parcel: Parcel, flags: Int) {
+            parcel.writeString(string)
+        }
+
+        override fun describeContents(): Int = 0
+
+        public companion object CREATOR : Parcelable.Creator<Plain> {
+
+            override fun createFromParcel(parcel: Parcel): Plain = Plain(parcel)
+
+            override fun newArray(size: Int): Array<Plain?> = arrayOfNulls(size)
+        }
     }
 
     /** String resource, requires [Context] to get [String]. */
     public data class Resource(@StringRes public val resourceId: Int) : Text() {
+
+        private constructor(parcel: Parcel) : this(parcel.readInt())
+
         override fun get(context: Context): String = context.getString(resourceId)
+
+        override fun writeToParcel(parcel: Parcel, flags: Int) {
+            parcel.writeInt(resourceId)
+        }
+
+        override fun describeContents(): Int = 0
+
+        public companion object CREATOR : Parcelable.Creator<Resource> {
+
+            override fun createFromParcel(parcel: Parcel): Resource = Resource(parcel)
+
+            override fun newArray(size: Int): Array<Resource?> = arrayOfNulls(size)
+        }
     }
 }
 

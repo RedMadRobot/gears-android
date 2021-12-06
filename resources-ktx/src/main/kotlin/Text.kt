@@ -3,7 +3,6 @@
 package com.redmadrobot.extensions.resources
 
 import android.content.Context
-import android.os.Parcel
 import android.os.Parcelable
 import android.view.View
 import androidx.annotation.StringRes

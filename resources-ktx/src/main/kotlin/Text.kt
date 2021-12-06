@@ -33,14 +33,12 @@ public sealed class Text : Parcelable {
     /** Plain string. */
     @Parcelize
     public data class Plain(public val string: String) : Text() {
-
         override fun get(context: Context): String = string
     }
 
     /** String resource, requires [Context] to get [String]. */
     @Parcelize
     public data class Resource(@StringRes public val resourceId: Int) : Text() {
-
         override fun get(context: Context): String = context.getString(resourceId)
     }
 }

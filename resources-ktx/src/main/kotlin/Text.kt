@@ -8,6 +8,7 @@ import android.os.Parcelable
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import kotlinx.parcelize.Parcelize
 
 /**
  * Wrapper to make it possible to work with plain [String] and [StringRes] in the same way.
@@ -30,45 +31,17 @@ public sealed class Text : Parcelable {
     abstract override fun hashCode(): Int
 
     /** Plain string. */
+    @Parcelize
     public data class Plain(public val string: String) : Text() {
 
-        private constructor(parcel: Parcel) : this(parcel.readString().orEmpty())
-
         override fun get(context: Context): String = string
-
-        override fun writeToParcel(parcel: Parcel, flags: Int) {
-            parcel.writeString(string)
-        }
-
-        override fun describeContents(): Int = 0
-
-        public companion object CREATOR : Parcelable.Creator<Plain> {
-
-            override fun createFromParcel(parcel: Parcel): Plain = Plain(parcel)
-
-            override fun newArray(size: Int): Array<Plain?> = arrayOfNulls(size)
-        }
     }
 
     /** String resource, requires [Context] to get [String]. */
+    @Parcelize
     public data class Resource(@StringRes public val resourceId: Int) : Text() {
 
-        private constructor(parcel: Parcel) : this(parcel.readInt())
-
         override fun get(context: Context): String = context.getString(resourceId)
-
-        override fun writeToParcel(parcel: Parcel, flags: Int) {
-            parcel.writeInt(resourceId)
-        }
-
-        override fun describeContents(): Int = 0
-
-        public companion object CREATOR : Parcelable.Creator<Resource> {
-
-            override fun createFromParcel(parcel: Parcel): Resource = Resource(parcel)
-
-            override fun newArray(size: Int): Array<Resource?> = arrayOfNulls(size)
-        }
     }
 }
 

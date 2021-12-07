@@ -4,6 +4,7 @@ import com.redmadrobot.build.dependencies.jetbrains
 plugins {
     id("redmadrobot.android-library")
     id("redmadrobot.publish")
+    id("kotlin-parcelize")
 }
 
 version = "1.3.1-0"

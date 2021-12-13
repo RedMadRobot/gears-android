@@ -4,6 +4,7 @@
 
 - **Text**: added abstract methods `equals`, `hashCode`
 - **Text**: added `Parcelable` implementation
+- **Text**: added `Companion object` and `Text.EMPTY` implementation
 
 ## [1.3.1-0] (2021-10-03)
 

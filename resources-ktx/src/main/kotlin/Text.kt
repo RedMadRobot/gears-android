@@ -41,7 +41,7 @@ public sealed class Text : Parcelable {
         override fun get(context: Context): String = context.getString(resourceId)
     }
 
-    public companion object{
+    public companion object {
         public val EMPTY: Plain = Plain("")
     }
 }

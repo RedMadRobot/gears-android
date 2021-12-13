@@ -42,7 +42,9 @@ public sealed class Text : Parcelable {
     }
 
     public companion object {
-        public val EMPTY: Plain = Plain("")
+
+        /** Empty [Text] */
+        public val EMPTY: Text = Plain("")
     }
 }
 

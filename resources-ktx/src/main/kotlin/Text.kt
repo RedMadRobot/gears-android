@@ -40,6 +40,12 @@ public sealed class Text : Parcelable {
     public data class Resource(@StringRes public val resourceId: Int) : Text() {
         override fun get(context: Context): String = context.getString(resourceId)
     }
+
+    public companion object {
+
+        /** Empty [Text] */
+        public val EMPTY: Text = Plain("")
+    }
 }
 
 /**

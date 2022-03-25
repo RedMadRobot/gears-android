@@ -1,5 +1,7 @@
 ## Unreleased
 
+- fix gradle dependencies from api to implementation 
+
 ### Dependencies
 
 - androidx.fragment 1.3.5 -> 1.3.6

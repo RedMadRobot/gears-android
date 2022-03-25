@@ -14,9 +14,9 @@ android {
 }
 
 dependencies {
-    api(jetbrains.kotlin.stdlib)
-    api(androidx.viewbinding)
-    api(androidx.fragment) // For ViewBindingDelegate
+    implementation(jetbrains.kotlin.stdlib)
+    implementation(androidx.viewbinding)
+    implementation(androidx.fragment) // For ViewBindingDelegate
     implementation(androidx.lifecycle.common)
     implementation(androidx.lifecycle.livedata_core)
 }

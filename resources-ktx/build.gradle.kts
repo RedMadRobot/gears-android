@@ -1,5 +1,4 @@
 import com.redmadrobot.build.dependencies.androidx
-import com.redmadrobot.build.dependencies.jetbrains
 
 plugins {
     id("com.redmadrobot.android-library")
@@ -7,12 +6,13 @@ plugins {
     id("kotlin-parcelize")
 }
 
-version = "1.3.1-0"
-description = "A set of Kotlin extensions for accessing resources"
+allprojects {
+    version = "1.3.1-0"
+    description = "A set of Kotlin extensions for accessing resources"
+}
 
 dependencies {
-    api(jetbrains.kotlin.stdlib)
-    api(androidx.annotation)
+    api(projects.resourcesKtx.resourcesCommon)
     api(androidx.fragment)
     implementation(androidx.core)
     implementation(androidx.appcompat.resources)

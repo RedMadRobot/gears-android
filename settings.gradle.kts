@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google()
@@ -13,5 +15,6 @@ include(
     "fragment-args-ktx",
     "lifecycle-livedata-ktx",
     "resources-ktx",
+    "resources-ktx:resources-common",
     "viewbinding-ktx",
 )

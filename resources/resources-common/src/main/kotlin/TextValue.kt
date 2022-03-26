@@ -13,7 +13,7 @@ import kotlinx.parcelize.Parcelize
  *
  * ```
  *  // in some place where we can't access Context
- *  val errorMessage = exception.message?.let(Text::Plain) ?: Text.Resource(R.string.unknown_error)
+ *  val errorMessage = TextValue(exception.message, defaultResourceId= R.string.unknown_error)
  *  showMessage(errorMessage)
  *
  *  // in Activity, Fragment or View
@@ -43,8 +43,19 @@ public sealed class TextValue : Parcelable {
     public companion object {
 
         /** Empty [TextValue]. */
-        public val EMPTY: TextValue = TextValue.Plain("")
+        public val EMPTY: TextValue = TextValue("")
     }
+}
+
+/** Creates [TextValue] from the given [resourceId]. */
+public inline fun TextValue(@StringRes resourceId: Int): TextValue = TextValue.Resource(resourceId)
+
+/** Creates [TextValue] from the given [string]. */
+public inline fun TextValue(string: String): TextValue = TextValue.Plain(string)
+
+/** Creates [TextValue] from the given [string], or from the [defaultResourceId] if string is `null`. */
+public inline fun TextValue(string: String?, @StringRes defaultResourceId: Int): TextValue {
+    return if (string != null) TextValue.Plain(string) else TextValue.Resource(defaultResourceId)
 }
 
 /**
@@ -63,9 +74,9 @@ public inline fun View.getString(text: TextValue): String = context.getString(te
 public typealias Text = TextValue
 
 @Suppress("FunctionName")
-@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue.Resource(resourceId)"))
+@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue(resourceId)"))
 public fun TextValue.Companion.Resource(@StringRes resourceId: Int): TextValue.Resource = TextValue.Resource(resourceId)
 
 @Suppress("FunctionName")
-@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue.Plain(string)"))
+@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue(string)"))
 public fun TextValue.Companion.Plain(string: String): TextValue.Plain = TextValue.Plain(string)

@@ -14,7 +14,7 @@ include(
     "fragment-ktx",
     "fragment-args-ktx",
     "lifecycle-livedata-ktx",
-    "resources-ktx",
-    "resources-ktx:resources-common",
+    "resources:resources-common",
+    "resources:resources-ktx",
     "viewbinding-ktx",
 )

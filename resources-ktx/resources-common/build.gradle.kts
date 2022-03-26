@@ -4,6 +4,7 @@ import com.redmadrobot.build.dependencies.jetbrains
 plugins {
     id("com.redmadrobot.android-library")
     id("com.redmadrobot.publish")
+    id("kotlin-parcelize")
 }
 
 dependencies {

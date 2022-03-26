@@ -6,7 +6,6 @@ import android.content.Context
 import android.os.Parcelable
 import android.view.View
 import androidx.annotation.StringRes
-import androidx.fragment.app.Fragment
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -53,12 +52,6 @@ public sealed class Text : Parcelable {
  * @see Text
  */
 public inline fun Context.getString(text: Text): String = text.get(this)
-
-/**
- * Unwraps and returns a string for the given [text].
- * @see Text
- */
-public inline fun Fragment.getString(text: Text): String = requireContext().getString(text)
 
 /**
  * Unwraps and returns a string for the given [text].

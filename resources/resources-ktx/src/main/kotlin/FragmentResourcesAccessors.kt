@@ -85,6 +85,6 @@ public inline fun Fragment.getQuantityString(@PluralsRes resId: Int, quantity: I
 
 /**
  * Unwraps and returns a string for the given [text].
- * @see Text
+ * @see TextValue
  */
-public inline fun Fragment.getString(text: Text): String = requireContext().getString(text)
+public inline fun Fragment.getString(text: TextValue): String = requireContext().getString(text)

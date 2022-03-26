@@ -1,12 +1,12 @@
 import com.redmadrobot.build.dsl.*
 
 plugins {
-    id("redmadrobot.root-project") version "0.12.1"
+    id("com.redmadrobot.android-config") version "0.15"
+    id("com.redmadrobot.publish-config") version "0.15"
+    id("com.redmadrobot.detekt") version "0.15"
     id("com.github.ben-manes.versions") version "0.39.0"
     `maven-publish`
 }
-
-apply(plugin = "redmadrobot.detekt")
 
 redmadrobot {
     android.minSdk.set(14)
@@ -28,7 +28,7 @@ redmadrobot {
 }
 
 subprojects {
-    apply(plugin = "redmadrobot.detekt")
+    apply(plugin = "io.gitlab.arturbosch.detekt")
     group = "com.redmadrobot.extensions"
 
     kotlinCompile {

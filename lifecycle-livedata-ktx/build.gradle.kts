@@ -4,8 +4,8 @@ import com.redmadrobot.build.dependencies.jetbrains
 import com.redmadrobot.build.dependencies.junit
 
 plugins {
-    id("redmadrobot.android-library")
-    id("redmadrobot.publish")
+    id("com.redmadrobot.android-library")
+    id("com.redmadrobot.publish")
 }
 
 version = "2.3.1-0"

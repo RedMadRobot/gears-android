@@ -11,3 +11,7 @@ dependencies {
     implementation(androidx.core)
     implementation(androidx.appcompat.resources)
 }
+
+android {
+    namespace = "com.redmadrobot.extensions.resources"
+}

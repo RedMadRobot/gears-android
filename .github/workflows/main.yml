@@ -27,7 +27,7 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: check
-          wrapper-cache-enabled: true
+          distributions-cache-enabled: true
           dependencies-cache-enabled: true
 
       - name: Run Detekt
@@ -60,7 +60,7 @@ jobs:
         uses: eskatos/gradle-command-action@v1
         with:
           arguments: :${{ steps.get-module-name.outputs.result }}:publish
-          wrapper-cache-enabled: true
+          distributions-cache-enabled: true
           dependencies-cache-enabled: true
         env:
           ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}

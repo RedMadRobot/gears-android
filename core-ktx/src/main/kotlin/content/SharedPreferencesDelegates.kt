@@ -169,6 +169,7 @@ private inline fun <T> SharedPreferences.delegate(
             }
         }
 
+        @Suppress("CommitPrefEdits") // False-positive: https://issuetracker.google.com/issues/202172883
         override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
             edit().setValue(key ?: property.name, value).apply()
         }

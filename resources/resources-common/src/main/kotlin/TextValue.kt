@@ -3,6 +3,7 @@
 package com.redmadrobot.extensions.resources
 
 import android.content.Context
+import android.content.res.Resources
 import android.os.Parcelable
 import android.view.View
 import androidx.annotation.StringRes
@@ -22,8 +23,12 @@ import kotlinx.parcelize.Parcelize
  */
 public sealed class TextValue : Parcelable {
 
-    /** Retrieves [String] using given [context]. */
-    public abstract fun get(context: Context): String
+    /** Retrieves [String] using the given [context]. */
+    @Deprecated("Use get with Resources instead.", ReplaceWith("this.get(context.resources)"))
+    public fun get(context: Context): String = get(context.resources)
+
+    /** Retrieves [String] using the given [resources]. */
+    public abstract fun get(resources: Resources): String
 
     abstract override fun equals(other: Any?): Boolean
     abstract override fun hashCode(): Int
@@ -31,13 +36,13 @@ public sealed class TextValue : Parcelable {
     /** Plain string. */
     @Parcelize
     public data class Plain(public val string: String) : TextValue() {
-        override fun get(context: Context): String = string
+        override fun get(resources: Resources): String = string
     }
 
-    /** String resource, requires [Context] to get [String]. */
+    /** String resource, requires [Resources] to get [String]. */
     @Parcelize
     public data class Resource(@StringRes public val resourceId: Int) : TextValue() {
-        override fun get(context: Context): String = context.getString(resourceId)
+        override fun get(resources: Resources): String = resources.getString(resourceId)
     }
 
     public companion object {
@@ -62,13 +67,19 @@ public inline fun TextValue(string: String?, @StringRes defaultResourceId: Int):
  * Unwraps and returns a string for the given [text].
  * @see TextValue
  */
-public inline fun Context.getString(text: TextValue): String = text.get(this)
+public inline fun Context.getString(text: TextValue): String = resources.getString(text)
 
 /**
  * Unwraps and returns a string for the given [text].
  * @see TextValue
  */
-public inline fun View.getString(text: TextValue): String = context.getString(text)
+public inline fun View.getString(text: TextValue): String = resources.getString(text)
+
+/**
+ * Unwraps and returns a string for the given [text].
+ * @see TextValue
+ */
+public inline fun Resources.getString(text: TextValue): String = text.get(this)
 
 @Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue"))
 public typealias Text = TextValue

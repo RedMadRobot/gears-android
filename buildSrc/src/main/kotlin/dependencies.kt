@@ -22,6 +22,11 @@ object androidx {
         val resources by this
     }
 
+    object compose {
+        const val version = "1.1.1"
+        const val ui = "androidx.compose.ui:ui:$version"
+    }
+
     object core : Group("androidx.core", version = "1.6.0") {
         val ktx by this
     }

@@ -15,6 +15,7 @@ include(
     "fragment-args-ktx",
     "lifecycle-livedata-ktx",
     "resources:resources-common",
+    "resources:resources-compose",
     "resources:resources-ktx",
     "viewbinding-ktx",
 )

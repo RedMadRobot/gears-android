@@ -55,7 +55,7 @@ For major changes, please open a [discussion][discussions] first to discuss what
 [fragment-ktx]: fragment-ktx
 [fragment-args-ktx]: fragment-args-ktx
 [lifecycle-livedata-ktx]: lifecycle-livedata-ktx
-[resources-ktx]: resources-ktx
+[resources-ktx]: resources
 [viewbinding-ktx]: viewbinding-ktx
 [ci]: https://github.com/RedMadRobot/redmadrobot-android-ktx/actions
 [discussions]: https://github.com/RedMadRobot/redmadrobot-android-ktx/discussions

@@ -25,6 +25,7 @@ object androidx {
     object compose {
         const val version = "1.1.1"
         const val ui = "androidx.compose.ui:ui:$version"
+        const val runtime = "androidx.compose.runtime:runtime:$version"
     }
 
     object core : Group("androidx.core", version = "1.6.0") {

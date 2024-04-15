@@ -10,6 +10,7 @@ plugins {
 dependencies {
     api(jetbrains.kotlin.stdlib)
     api(androidx.annotation)
+    compileOnly(androidx.compose.runtime)
 }
 
 android {

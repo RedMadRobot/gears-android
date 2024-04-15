@@ -7,6 +7,7 @@ import android.content.res.Resources
 import android.os.Parcelable
 import android.view.View
 import androidx.annotation.StringRes
+import androidx.compose.runtime.Immutable
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -21,6 +22,7 @@ import kotlinx.parcelize.Parcelize
  *  val messageText = getString(message)
  * ```
  */
+@Immutable
 public sealed class TextValue : Parcelable {
 
     /** Retrieves [String] using the given [context]. */

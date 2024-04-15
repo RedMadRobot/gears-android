@@ -9,7 +9,7 @@ A set of Kotlin extensions for accessing resources.
 
 - [Installation](#installation)
 - [Extensions](#extensions)
-  - [Wrapper `Text`](#wrapper-text)
+  - [Wrapper `TextValue`](#wrapper-textvalue)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -24,7 +24,11 @@ repositories {
 }
 
 dependencies {
+    // Views version
     implementation("com.redmadrobot.extensions:resources-ktx:1.3.1-0")
+
+    // Compose version
+    implementation("com.redmadrobot.extensions:resources-compose:1.3.1-0")
 }
 ```
 
@@ -80,30 +84,30 @@ Dimension converters for `Context` (the same available for `Resources`):
 - `Context.pxToDp(px: Int): Float`
 - `Context.pxToDp(px: Float): Float`
 
-### Wrapper `Text` 
+### Wrapper `TextValue`
 
-**Text** is a wrapper to make it possible to work with plain `String` and `StringRes` in the same way.
+**TextValue** is a wrapper to make it possible to work with plain `String` and `StringRes` in the same way.
 It may be useful for cases when you want to fallback to `StringRes` if desired string value is `null`.
 
-You can wrap `String` and `StringRes` into `Text` using `Text.Plain(String)` and `Text.Resource(Int)`, accordingly and use method `Text.get(Context)` to retrieve `String`:
+You can wrap `String` and `StringRes` with `TextValue` using `TextValue(String)`, `TextValue(Int)` or `TextValue(String?, Int))`, and use method `TextValue.get(Resource)` to retrieve `String`:
 
 ```kotlin
 // in some place where we can't access Context
-val errorMessage = exception.message?.let(Text::Plain) ?: Text.Resource(R.string.unknown_error)
+val errorMessage = TextValue(exception.message, defaultResourceId = R.string.unknown_error)
 showMessage(errorMessage)
 
 // in Activity, Fragment or View
-fun showMessage(text: Text) {
-    val messageText = text.get(context)
+fun showMessage(text: TextValue) {
+    val messageText = text.get(resources)
     //...
 }
 ```
 
-There are extensions to work with `Text` like with `StringRes`:
+There are extensions to work with `TextValue` like with `StringRes`:
 
-- `Context.getString(text: Text): String`
-- `Fragment.getString(text: Text): String`
-- `View.getString(text: Text): String`
+- `Context.getString(text: TextValue): String`
+- `View.getString(text: TextValue): String`
+- `Resources.getString(text: TextValue): String`
 
 ## Contributing
 

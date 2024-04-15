@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalContext
  * @see TextValue
  */
 @Composable
+@ReadOnlyComposable
 public fun stringResource(text: TextValue): String {
     val resources = resources()
     return resources.getString(text)

@@ -1,4 +1,4 @@
-package com.redmadrobot.extensions.resources
+package com.redmadrobot.textvalue
 
 import android.content.res.Resources
 import androidx.compose.runtime.Composable

@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.redmadrobot.extensions.resources
+package com.redmadrobot.textvalue
 
 import android.content.Context
 import android.content.res.Resources
@@ -82,14 +82,3 @@ public inline fun View.getString(text: TextValue): String = resources.getString(
  * @see TextValue
  */
 public inline fun Resources.getString(text: TextValue): String = text.get(this)
-
-@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue"))
-public typealias Text = TextValue
-
-@Suppress("FunctionName")
-@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue(resourceId)"))
-public fun TextValue.Companion.Resource(@StringRes resourceId: Int): TextValue.Resource = TextValue.Resource(resourceId)
-
-@Suppress("FunctionName")
-@Deprecated("Text renamed to TextValue for compatibility with compose", ReplaceWith("TextValue(string)"))
-public fun TextValue.Companion.Plain(string: String): TextValue.Plain = TextValue.Plain(string)

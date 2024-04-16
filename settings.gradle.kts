@@ -14,8 +14,11 @@ include(
     "fragment-ktx",
     "fragment-args-ktx",
     "lifecycle-livedata-ktx",
-    "resources:resources-common",
-    "resources:resources-compose",
-    "resources:resources-ktx",
+    "resources-ktx",
     "viewbinding-ktx",
+    "textvalue",
+    "textvalue-compose",
 )
+
+project(":textvalue").projectDir = File("textvalue/textvalue")
+project(":textvalue-compose").projectDir = File("textvalue/textvalue-compose")

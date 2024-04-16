@@ -7,6 +7,9 @@ plugins {
     id("kotlin-parcelize")
 }
 
+version = "1.3.1-0"
+description = "TextValue is an abstraction over Android text"
+
 dependencies {
     api(jetbrains.kotlin.stdlib)
     api(androidx.annotation)
@@ -14,5 +17,5 @@ dependencies {
 }
 
 android {
-    namespace = "com.redmadrobot.extensions.resources.common"
+    namespace = "com.redmadrobot.textvalue"
 }

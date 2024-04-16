@@ -9,7 +9,6 @@ A set of Kotlin extensions for accessing resources.
 
 - [Installation](#installation)
 - [Extensions](#extensions)
-  - [Wrapper `TextValue`](#wrapper-textvalue)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -24,11 +23,7 @@ repositories {
 }
 
 dependencies {
-    // Views version
     implementation("com.redmadrobot.extensions:resources-ktx:1.3.1-0")
-
-    // Compose version
-    implementation("com.redmadrobot.extensions:resources-compose:1.3.1-0")
 }
 ```
 
@@ -83,31 +78,6 @@ Dimension converters for `Context` (the same available for `Resources`):
 - `Context.dpToPxPrecisely(dp: Float): Float`
 - `Context.pxToDp(px: Int): Float`
 - `Context.pxToDp(px: Float): Float`
-
-### Wrapper `TextValue`
-
-**TextValue** is a wrapper to make it possible to work with plain `String` and `StringRes` in the same way.
-It may be useful for cases when you want to fallback to `StringRes` if desired string value is `null`.
-
-You can wrap `String` and `StringRes` with `TextValue` using `TextValue(String)`, `TextValue(Int)` or `TextValue(String?, Int))`, and use method `TextValue.get(Resource)` to retrieve `String`:
-
-```kotlin
-// in some place where we can't access Context
-val errorMessage = TextValue(exception.message, defaultResourceId = R.string.unknown_error)
-showMessage(errorMessage)
-
-// in Activity, Fragment or View
-fun showMessage(text: TextValue) {
-    val messageText = text.get(resources)
-    //...
-}
-```
-
-There are extensions to work with `TextValue` like with `StringRes`:
-
-- `Context.getString(text: TextValue): String`
-- `View.getString(text: TextValue): String`
-- `Resources.getString(text: TextValue): String`
 
 ## Contributing
 

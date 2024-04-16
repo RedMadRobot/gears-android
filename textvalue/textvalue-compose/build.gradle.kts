@@ -5,13 +5,16 @@ plugins {
     id("com.redmadrobot.publish")
 }
 
+version = "1.3.1-0"
+description = "Compose extensions for TextValue"
+
 dependencies {
-    api(projects.resources.resourcesCommon)
+    api(projects.textvalue)
     api(androidx.compose.ui)
 }
 
 android {
-    namespace = "com.redmadrobot.extensions.resources.compose"
+    namespace = "com.redmadrobot.textvalue.compose"
 
     buildFeatures {
         compose = true

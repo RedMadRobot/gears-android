@@ -9,6 +9,8 @@ import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.redmadrobot.textvalue.TextValue
+import com.redmadrobot.textvalue.getString
 
 /**
  * Returns a color associated with given [resId].

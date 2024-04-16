@@ -5,6 +5,9 @@
 - **Text**: added abstract methods `equals`, `hashCode`
 - **Text**: added `Parcelable` implementation
 - **Text**: added `companion object` and `Text.EMPTY` implementation
+- **Text**: renamed to TextValue
+- **TextValue**: added Immutable annotation
+- **TextValue**: moved to a separate module
 
 ## [1.3.1-0] (2021-10-03)
 

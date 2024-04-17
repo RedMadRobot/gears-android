@@ -1,5 +1,7 @@
 package com.redmadrobot.extensions.fragment
 
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.SparseArray
@@ -494,13 +496,13 @@ public fun Bundle?.longArrayNullable(key: String? = null): ReadWriteProperty<Fra
  * Returns result of [default] function if there is no argument for the given key,
  * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun <T : Parcelable> Bundle?.parcelable(
+public inline fun <reified T : Parcelable> Bundle?.parcelable(
     key: String? = null,
-    default: (key: String) -> T = ::noDefaultValue,
+    crossinline default: (key: String) -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getParcelable(propertyKey) ?: default(propertyKey) },
+        getValue = { propertyKey -> parcelable(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putParcelable,
     )
 }
@@ -511,10 +513,12 @@ public fun <T : Parcelable> Bundle?.parcelable(
  * If the key is `null`, uses name of the property as the key.
  * Returns `null` if there is no argument associated with the given key.
  */
-public fun <T : Parcelable> Bundle?.parcelableNullable(key: String? = null): ReadWriteProperty<Fragment, T?> {
+public inline fun <reified T : Parcelable> Bundle?.parcelableNullable(
+    key: String? = null
+): ReadWriteProperty<Fragment, T?> {
     return delegate(
         key = key,
-        getValue = Bundle::getParcelable,
+        getValue = Bundle::parcelable,
         setValue = Bundle::putParcelable,
     )
 }
@@ -526,13 +530,13 @@ public fun <T : Parcelable> Bundle?.parcelableNullable(key: String? = null): Rea
  * Returns result of [default] function if there is no argument for the given key,
  * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun <T : Parcelable> Bundle?.sparseParcelableArray(
+public inline fun <reified T : Parcelable> Bundle?.sparseParcelableArray(
     key: String? = null,
-    default: (key: String) -> SparseArray<T> = ::noDefaultValue,
+    crossinline default: (key: String) -> SparseArray<T> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, SparseArray<T>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getSparseParcelableArray(propertyKey) ?: default(propertyKey) },
+        getValue = { propertyKey -> parcelableSparseArray(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) },
     )
 }
@@ -543,12 +547,12 @@ public fun <T : Parcelable> Bundle?.sparseParcelableArray(
  * If the key is `null`, uses name of the property as the key.
  * Returns `null` if there is no argument associated with the given key.
  */
-public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
+public inline fun <reified T : Parcelable> Bundle?.sparseParcelableArrayNullable(
     key: String? = null,
 ): ReadWriteProperty<Fragment, SparseArray<T>?> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getSparseParcelableArray(propertyKey) },
+        getValue = { propertyKey -> parcelableSparseArray(propertyKey) },
         setValue = { propertyKey, value -> putSparseParcelableArray(propertyKey, value) },
     )
 }
@@ -560,13 +564,13 @@ public fun <T : Parcelable> Bundle?.sparseParcelableArrayNullable(
  * Returns result of [default] function if there is no argument for the given key,
  * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun <T : Parcelable> Bundle?.parcelableList(
+public inline fun <reified T : Parcelable> Bundle?.parcelableList(
     key: String? = null,
-    default: (key: String) -> List<T> = ::noDefaultValue,
+    crossinline default: (key: String) -> List<T> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<T>> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getParcelableArrayList(propertyKey) ?: default(propertyKey) },
+        getValue = { propertyKey -> parcelableArrayList(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, ArrayList(value)) },
     )
 }
@@ -577,10 +581,12 @@ public fun <T : Parcelable> Bundle?.parcelableList(
  * If the key is `null`, uses name of the property as the key.
  * Returns `null` if there is no argument associated with the given key.
  */
-public fun <T : Parcelable> Bundle?.parcelableListNullable(key: String? = null): ReadWriteProperty<Fragment, List<T>?> {
+public inline fun <reified T : Parcelable> Bundle?.parcelableListNullable(
+    key: String? = null
+): ReadWriteProperty<Fragment, List<T>?> {
     return delegate(
         key = key,
-        getValue = Bundle::getParcelableArrayList,
+        getValue = Bundle::parcelableArrayList,
         setValue = { propertyKey, value -> putParcelableArrayList(propertyKey, value?.let { ArrayList(it) }) },
     )
 }
@@ -592,14 +598,13 @@ public fun <T : Parcelable> Bundle?.parcelableListNullable(key: String? = null):
  * Returns result of [default] function if there is no argument for the given key,
  * or throws [IllegalStateException] if [default] is not specified.
  */
-public fun <T : Serializable> Bundle?.serializable(
+public inline fun <reified T : Serializable> Bundle?.serializable(
     key: String? = null,
-    default: (key: String) -> T = ::noDefaultValue,
+    crossinline default: (key: String) -> T = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, T> {
-    @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default(propertyKey)) as T },
+        getValue = { propertyKey -> serializable(propertyKey) ?: default(propertyKey) },
         setValue = Bundle::putSerializable,
     )
 }
@@ -610,11 +615,12 @@ public fun <T : Serializable> Bundle?.serializable(
  * If the key is `null`, uses name of the property as the key.
  * Returns `null` if there is no argument associated with the given key.
  */
-public fun <T : Serializable> Bundle?.serializableNullable(key: String? = null): ReadWriteProperty<Fragment, T?> {
-    @Suppress("UNCHECKED_CAST")
+public inline fun <reified T : Serializable> Bundle?.serializableNullable(
+    key: String? = null
+): ReadWriteProperty<Fragment, T?> {
     return delegate(
         key = key,
-        getValue = { propertyKey -> getSerializable(propertyKey) as? T },
+        getValue = { propertyKey -> serializable(propertyKey) },
         setValue = Bundle::putSerializable,
     )
 }
@@ -630,10 +636,9 @@ public fun <T : Serializable> Bundle?.serializableList(
     key: String? = null,
     default: (key: String) -> List<T> = ::noDefaultValue,
 ): ReadWriteProperty<Fragment, List<T>> {
-    @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> (getSerializable(propertyKey) ?: default(propertyKey)) as List<T> },
+        getValue = { propertyKey -> serializable(propertyKey) ?: default(propertyKey) },
         setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) },
     )
 }
@@ -647,10 +652,9 @@ public fun <T : Serializable> Bundle?.serializableList(
 public fun <T : Serializable> Bundle?.serializableListNullable(
     key: String? = null,
 ): ReadWriteProperty<Fragment, List<T>?> {
-    @Suppress("UNCHECKED_CAST")
     return delegate(
         key = key,
-        getValue = { propertyKey -> getSerializable(propertyKey) as? List<T> },
+        getValue = { propertyKey -> serializable(propertyKey) },
         setValue = { propertyKey, value -> putSerializable(propertyKey, value as Serializable) },
     )
 }
@@ -809,5 +813,42 @@ private inline fun <T> Bundle.getOrElse(
     return if (containsKey(key)) getter(key) else orElse(key)
 }
 
-private fun noDefaultValue(key: String): Nothing =
+@PublishedApi
+internal fun noDefaultValue(key: String): Nothing =
     error("Value for the key '$key' is not assigned and default is not set.")
+
+@PublishedApi
+internal inline fun <reified T : Serializable> Bundle.serializable(key: String): T? {
+    return if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getSerializable(key, T::class.java)
+    } else {
+        @Suppress("DEPRECATION") getSerializable(key) as? T
+    }
+}
+
+@PublishedApi
+internal inline fun <reified T : Parcelable> Bundle.parcelable(key: String): T? {
+    return if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getParcelable(key, T::class.java)
+    } else {
+        @Suppress("DEPRECATION") getParcelable(key)
+    }
+}
+
+@PublishedApi
+internal inline fun <reified T : Parcelable> Bundle.parcelableSparseArray(key: String): SparseArray<T>? {
+    return if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getSparseParcelableArray(key, T::class.java)
+    } else {
+        @Suppress("DEPRECATION") getSparseParcelableArray(key)
+    }
+}
+
+@PublishedApi
+internal inline fun <reified T : Parcelable> Bundle.parcelableArrayList(key: String): java.util.ArrayList<T>? {
+    return if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getParcelableArrayList(key, T::class.java)
+    } else {
+        @Suppress("DEPRECATION") getParcelableArrayList(key)
+    }
+}

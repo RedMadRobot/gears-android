@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **Bundle**: Removed nullable accessors with default parameter
+- **Bundle**: Accessors for `Serializable` and `Parcelizable` are turned into inline-functions
+
 ## [1.3.6-1] (2021-11-16)
 
 ### Changes

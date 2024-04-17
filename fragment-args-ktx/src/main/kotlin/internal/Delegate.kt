@@ -10,7 +10,8 @@ internal typealias BundleSetter<T> = Bundle.(propertyKey: String, value: T) -> U
 
 /** Creates a delegate to work with arguments. */
 // Bundle needed to define extension scope.
-@Suppress("unused")
+@Suppress("UnusedReceiverParameter")
+@PublishedApi
 internal inline fun <T> Bundle?.delegate(
     key: String?,
     crossinline getValue: BundleGetter<T>,

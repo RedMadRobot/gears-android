@@ -1,5 +1,7 @@
 ## Unreleased
 
+- **SharedPreferences**: Removed NullableDelegatesMigration
+
 ## [1.6.0-2] (2021-11-16)
 
 ### Fixed

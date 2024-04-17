@@ -1,5 +1,7 @@
 ## Unreleased
 
+- **Bundle?**: Removed NullableArgsMigration
+
 ## [1.3.6-1] (2021-11-16)
 
 ### Changes

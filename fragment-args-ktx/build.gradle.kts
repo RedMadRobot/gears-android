@@ -1,6 +1,5 @@
 plugins {
-    id("com.redmadrobot.android-library")
-    id("com.redmadrobot.publish")
+    convention.library.android
 }
 
 version = "1.3.6-1"

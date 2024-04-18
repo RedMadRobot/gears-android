@@ -5,5 +5,5 @@ plugins {
 }
 
 redmadrobot {
-    android.minSdk = 19
+    android.minSdk = 21
 }

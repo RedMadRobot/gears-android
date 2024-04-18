@@ -36,6 +36,7 @@ include(
     "lifecycle-livedata-ktx",
     "resources-ktx",
     "viewbinding-ktx",
+    "compose-ktx",
     "textvalue",
     "textvalue-compose",
     "eventqueue-common",

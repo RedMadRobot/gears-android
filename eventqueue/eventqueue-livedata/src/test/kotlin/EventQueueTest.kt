@@ -1,5 +1,7 @@
-package com.redmadrobot.extensions.lifecycle
+package com.redmadrobot.eventQueue
 
+import com.redmadrobot.eventqueue.Event
+import com.redmadrobot.eventqueue.livedata.EventQueue
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.extension.ExtendWith
 import kotlin.test.Test

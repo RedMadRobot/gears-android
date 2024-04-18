@@ -1,4 +1,4 @@
-package com.redmadrobot.extensions.lifecycle
+package com.redmadrobot.eventqueue.livedata
 
 import androidx.activity.ComponentActivity
 import androidx.annotation.MainThread
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.redmadrobot.eventqueue.Event
 import java.util.*
 
 /**
@@ -53,9 +54,6 @@ public class EventQueue {
         while (events.isNotEmpty()) consumeEvent(events.remove())
     }
 }
-
-/** Marker interface for entities that can be put to the [EventQueue]. */
-public interface Event
 
 /**
  * Shorter way to observe [LiveData] changes in a fragment using view lifecycle owner.

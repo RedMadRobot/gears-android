@@ -1,5 +1,7 @@
 ## Unreleased
 
+- **EventQueue** - moved to separate package eventqueue-livedata
+
 ### Dependencies
 
 - androidx.activity 1.2.3 -> 1.3.1

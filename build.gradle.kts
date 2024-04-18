@@ -1,10 +1,13 @@
 import com.redmadrobot.build.dsl.*
 
 plugins {
-    id("com.redmadrobot.android-config") version "0.15"
-    id("com.redmadrobot.publish-config") version "0.15"
-    id("com.redmadrobot.detekt") version "0.15"
-    id("com.github.ben-manes.versions") version "0.39.0"
+    alias(libs.plugins.gradle.android) apply false
+    alias(stack.plugins.kotlin.android) apply false
+
+    alias(rmr.plugins.android.config)
+    alias(rmr.plugins.publish.config)
+    alias(rmr.plugins.detekt)
+    alias(stack.plugins.versions)
     `maven-publish`
 }
 

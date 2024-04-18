@@ -34,4 +34,5 @@ include(
     ":ktx:lifecycle-livedata-ktx",
     ":ktx:resources-ktx",
     ":ktx:viewbinding-ktx",
+    ":gears:gears-compose",
 )

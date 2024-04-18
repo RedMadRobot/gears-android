@@ -5,6 +5,6 @@ import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
 
 /** Sequentially calls [map] and [distinctUntilChanged]. */
-public inline fun <X, Y> LiveData<X>.mapDistinct(crossinline transform: (X) -> Y): LiveData<Y> {
+public fun <X, Y> LiveData<X>.mapDistinct(transform: (X) -> Y): LiveData<Y> {
     return map(transform).distinctUntilChanged()
 }

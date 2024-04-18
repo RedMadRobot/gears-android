@@ -1,5 +1,3 @@
-import com.redmadrobot.build.dependencies.androidx
-
 plugins {
     id("com.redmadrobot.android-library")
     id("com.redmadrobot.publish")
@@ -21,6 +19,6 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = androidx.compose.version
+        kotlinCompilerExtensionVersion = androidx.versions.compose.compiler.get()
     }
 }

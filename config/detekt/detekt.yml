@@ -433,6 +433,7 @@ naming:
     active: true
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
     functionPattern: '([a-z][a-zA-Z0-9]*)|(`.*`)'
+    ignoreAnnotated: ['Composable']
     excludeClassPattern: '$^'
   FunctionParameterNaming:
     active: true

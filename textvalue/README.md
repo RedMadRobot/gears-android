@@ -62,5 +62,5 @@ There are extensions to work with `TextValue` like with `StringRes`:
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/resources-ktx
+[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/textvalue
 [license]: ../LICENSE

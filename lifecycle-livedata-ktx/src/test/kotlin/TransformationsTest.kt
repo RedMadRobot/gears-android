@@ -11,7 +11,7 @@ internal class TransformationsTest {
 
     private val liveData = MutableLiveData(42)
 
-    private val isOdd = liveData.mapDistinct { it % 2 != 0 }
+    private val isOdd by lazy { liveData.mapDistinct { it % 2 != 0 } }
     private val values = mutableListOf<Boolean>()
 
     @BeforeTest

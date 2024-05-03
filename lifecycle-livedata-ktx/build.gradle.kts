@@ -1,26 +1,21 @@
-import com.redmadrobot.build.dependencies.androidx
-import com.redmadrobot.build.dependencies.assertj
-import com.redmadrobot.build.dependencies.jetbrains
-import com.redmadrobot.build.dependencies.junit
-
 plugins {
-    id("com.redmadrobot.android-library")
-    id("com.redmadrobot.publish")
+    convention.library.android
 }
 
 version = "2.3.1-0"
 description = "Extended set of extensions for dealing with LiveData"
 
 dependencies {
-    api(jetbrains.kotlin.stdlib)
-    api(androidx.lifecycle.livedata_ktx)
-    api(androidx.lifecycle.livedata_core_ktx)
+    api(kotlin("stdlib"))
+    api(androidx.lifecycle.common)
+    api(androidx.lifecycle.livedata.core)
     api(androidx.activity)
     api(androidx.annotation)
     api(androidx.fragment)
-    testImplementation(jetbrains.kotlin.test_junit5)
-    testImplementation(junit.jupiter.api)
-    testImplementation(assertj.core)
-    testImplementation(androidx.arch_core.testing)
-    testRuntimeOnly(junit.jupiter.engine)
+
+    testImplementation(stack.kotlin.test.junit5)
+    testImplementation(stack.junit.jupiter.api)
+    testImplementation(libs.assertj.core)
+    testImplementation(libs.androidx.arch.core.testing)
+    testRuntimeOnly(stack.junit.jupiter.engine)
 }

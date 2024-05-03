@@ -1,5 +1,8 @@
 ## Unreleased
 
+- **SharedPreferences**: Removed nullable accessors with default parameter
+- **Context**: Added `Context.findActivity()` and `Context.findWindow()` extensions
+
 ## [1.6.0-2] (2021-11-16)
 
 ### Fixed

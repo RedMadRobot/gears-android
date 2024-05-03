@@ -8,7 +8,9 @@ import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.redmadrobot.extensions.core.findWindow
 
 /** Returns `true` if keyboard is visible. Always returns `false` if View is detached.  */
 @get:RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -24,15 +26,19 @@ public inline val Activity.isKeyboardVisible: Boolean
 /** Requests focus and shows keyboard for [this] view if it is possible. */
 @RequiresApi(Build.VERSION_CODES.KITKAT_WATCH)
 public inline fun View.showKeyboard() {
-    ViewCompat.getWindowInsetsController(this)
-        ?.show(WindowInsetsCompat.Type.ime())
+    val window = context.findWindow() ?: return
+
+    WindowCompat.getInsetsController(window, this)
+        .show(WindowInsetsCompat.Type.ime())
 }
 
 /** Hides keyboard for [this] view if it is open. */
 @RequiresApi(Build.VERSION_CODES.KITKAT_WATCH)
 public inline fun View.hideKeyboard() {
-    ViewCompat.getWindowInsetsController(this)
-        ?.hide(WindowInsetsCompat.Type.ime())
+    val window = context.findWindow() ?: return
+
+    WindowCompat.getInsetsController(window, this)
+        .hide(WindowInsetsCompat.Type.ime())
 }
 
 /** Hides keyboard for [this] activity if it is open. */

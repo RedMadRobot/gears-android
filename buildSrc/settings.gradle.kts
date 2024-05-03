@@ -1,14 +1,26 @@
 pluginManagement {
     repositories {
-        google()
         gradlePluginPortal()
+        google()
+        mavenCentral()
     }
 }
 
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
     repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+
         mavenCentral()
+        gradlePluginPortal()
     }
 
     versionCatalogs {
@@ -16,22 +28,13 @@ dependencyResolutionManagement {
         create("rmr") {
             from("com.redmadrobot.versions:versions-redmadrobot:$version")
         }
-        create("androidx") {
-            from("com.redmadrobot.versions:versions-androidx:$version")
-        }
+
         create("stack") {
             from("com.redmadrobot.versions:versions-stack:$version")
         }
+
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
     }
 }
-
-rootProject.name = "ktx"
-
-include(
-    "core-ktx",
-    "fragment-ktx",
-    "fragment-args-ktx",
-    "lifecycle-livedata-ktx",
-    "resources-ktx",
-    "viewbinding-ktx",
-)

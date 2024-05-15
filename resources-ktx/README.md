@@ -80,31 +80,6 @@ Dimension converters for `Context` (the same available for `Resources`):
 - `Context.pxToDp(px: Int): Float`
 - `Context.pxToDp(px: Float): Float`
 
-### Wrapper `Text` 
-
-**Text** is a wrapper to make it possible to work with plain `String` and `StringRes` in the same way.
-It may be useful for cases when you want to fallback to `StringRes` if desired string value is `null`.
-
-You can wrap `String` and `StringRes` into `Text` using `Text.Plain(String)` and `Text.Resource(Int)`, accordingly and use method `Text.get(Context)` to retrieve `String`:
-
-```kotlin
-// in some place where we can't access Context
-val errorMessage = exception.message?.let(Text::Plain) ?: Text.Resource(R.string.unknown_error)
-showMessage(errorMessage)
-
-// in Activity, Fragment or View
-fun showMessage(text: Text) {
-    val messageText = text.get(context)
-    //...
-}
-```
-
-There are extensions to work with `Text` like with `StringRes`:
-
-- `Context.getString(text: Text): String`
-- `Fragment.getString(text: Text): String`
-- `View.getString(text: Text): String`
-
 ## Contributing
 
 Merge requests are welcome.

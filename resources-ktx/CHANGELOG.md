@@ -2,9 +2,7 @@
 
 ### Changed
 
-- **Text**: added abstract methods `equals`, `hashCode`
-- **Text**: added `Parcelable` implementation
-- **Text**: added `companion object` and `Text.EMPTY` implementation
+- **Breaking change**: `Text` moved to a separate library [com.redmadrobot.textvalue](https://github.com/RedMadRobot/TextValue).
 
 ## [1.3.1-0] (2021-10-03)
 

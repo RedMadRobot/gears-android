@@ -53,7 +53,7 @@
 First release
 
 
-[1.6.0-2]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/core-ktx-v1.6.0-1...ec4d0fb8
-[1.6.0-1]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/resources-ktx-v1.3.1-0...core-ktx-v1.6.0-1
-[1.6.0-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/viewbinding-ktx-v4.2.1-0...core-ktx-v1.6.0-0
-[1.5.0-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/e6b11af4...core-ktx-v1.5.0-0
+[1.6.0-2]: https://github.com/RedMadRobot/gears-android/compare/core-ktx-v1.6.0-1...ec4d0fb8
+[1.6.0-1]: https://github.com/RedMadRobot/gears-android/compare/resources-ktx-v1.3.1-0...core-ktx-v1.6.0-1
+[1.6.0-0]: https://github.com/RedMadRobot/gears-android/compare/viewbinding-ktx-v4.2.1-0...core-ktx-v1.6.0-0
+[1.5.0-0]: https://github.com/RedMadRobot/gears-android/compare/e6b11af4...core-ktx-v1.5.0-0

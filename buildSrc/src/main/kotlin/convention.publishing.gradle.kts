@@ -11,7 +11,7 @@ redmadrobot {
     publishing {
         signArtifacts = !isRunningOnCi
         pom {
-            setGitHubProject("RedMadRobot/redmadrobot-android-ktx")
+            setGitHubProject("RedMadRobot/gears-android")
 
             licenses {
                 mit()
@@ -27,7 +27,7 @@ redmadrobot {
 
 publishing {
     repositories {
-        if (isRunningOnCi) githubPackages("RedMadRobot/redmadrobot-android-ktx")
+        if (isRunningOnCi) githubPackages("RedMadRobot/gears-android")
         if (isReleaseVersion && credentialsExist("ossrh")) ossrh()
     }
 }

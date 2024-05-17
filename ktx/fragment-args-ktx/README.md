@@ -1,6 +1,6 @@
-# fragment-args-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/fragment-args-ktx"/>
+# fragment-args-ktx <GitHub path="RedMadRobot/gears-android/tree/main/ktx/fragment-args-ktx"/>
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/fragment-args-ktx?style=flat-square)][mavenCentral]
-[![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 
 Delegates for safe dealing with fragments' arguments.
 

@@ -53,5 +53,5 @@
 First release
 
 
-[1.3.1-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/fragment-ktx-v1.3.6-0...resources-ktx-v1.3.1-0
-[1.3.0-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/lifecycle-livedata-ktx-v2.3.1-0...resources-ktx-v1.3.0-0
+[1.3.1-0]: https://github.com/RedMadRobot/gears-android/compare/fragment-ktx-v1.3.6-0...resources-ktx-v1.3.1-0
+[1.3.0-0]: https://github.com/RedMadRobot/gears-android/compare/lifecycle-livedata-ktx-v2.3.1-0...resources-ktx-v1.3.0-0

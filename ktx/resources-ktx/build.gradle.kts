@@ -1,5 +1,5 @@
 plugins {
-    convention.library.android
+    convention.library.ktx
     id("kotlin-parcelize")
 }
 

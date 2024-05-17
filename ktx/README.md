@@ -1,5 +1,6 @@
 # Redmadrobot Android KTX
- [![Build Status](https://img.shields.io/github/workflow/status/RedMadRobot/redmadrobot-android-ktx/CI/main?style=flat-square)][ci] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+ [![Build Status](https://img.shields.io/github/workflow/status/RedMadRobot/redmadrobot-android-ktx/CI/main?style=flat-square)][ci]
+ [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Missing Android KTX extensions.
 
@@ -59,4 +60,4 @@ For major changes, please open a [discussion][discussions] first to discuss what
 [viewbinding-ktx]: viewbinding-ktx
 [ci]: https://github.com/RedMadRobot/redmadrobot-android-ktx/actions
 [discussions]: https://github.com/RedMadRobot/redmadrobot-android-ktx/discussions
-[license]: LICENSE
+[license]: ../LICENSE

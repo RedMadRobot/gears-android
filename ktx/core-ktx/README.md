@@ -1,5 +1,6 @@
 # core-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/core-ktx"/>
-[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/core-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/core-ktx?style=flat-square)][mavenCentral]
+[![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Kotlin extensions in addition to androidx core-ktx.
 
@@ -117,4 +118,4 @@ Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
 [mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/core-ktx
-[license]: ../LICENSE
+[license]: ../../LICENSE

@@ -5,6 +5,10 @@ plugins {
 version = "2.3.1-0"
 description = "Extended set of extensions for dealing with LiveData"
 
+android {
+    namespace = "$group.lifecycle.livedata"
+}
+
 dependencies {
     api(kotlin("stdlib"))
     api(androidx.lifecycle.common)

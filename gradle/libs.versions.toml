@@ -1,8 +1,8 @@
 [versions]
-androidGradlePlugin = "7.4.2"
+androidGradlePlugin = "8.4.0"
 assertj-core = "3.25.1"
 androidx-arch-core = "2.2.0"
-viewbinding = "8.3.2"
+viewbinding = "8.4.0"
 
 [libraries]
 androidx-viewbinding = { module = "androidx.databinding:viewbinding", version.ref = "viewbinding" }

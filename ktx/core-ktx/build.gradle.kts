@@ -1,5 +1,5 @@
 plugins {
-    convention.library.android
+    convention.library.ktx
 }
 
 version = "1.6.0-2"

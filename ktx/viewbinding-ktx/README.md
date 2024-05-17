@@ -1,5 +1,6 @@
 # viewbinding-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/viewbinding-ktx"/>
-[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/viewbinding-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/viewbinding-ktx?style=flat-square)][mavenCentral]
+[![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 A set of Kotlin extensions for dealing with ViewBinding.
 
@@ -133,4 +134,4 @@ Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
 [mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/viewbinding-ktx
-[license]: ../LICENSE
+[license]: ../../LICENSE

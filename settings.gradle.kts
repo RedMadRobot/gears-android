@@ -25,13 +25,13 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ktx"
+rootProject.name = "gears"
 
 include(
-    "core-ktx",
-    "fragment-ktx",
-    "fragment-args-ktx",
-    "lifecycle-livedata-ktx",
-    "resources-ktx",
-    "viewbinding-ktx",
+    ":ktx:core-ktx",
+    ":ktx:fragment-ktx",
+    ":ktx:fragment-args-ktx",
+    ":ktx:lifecycle-livedata-ktx",
+    ":ktx:resources-ktx",
+    ":ktx:viewbinding-ktx",
 )

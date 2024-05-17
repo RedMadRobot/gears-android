@@ -1,5 +1,6 @@
 # fragment-args-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/fragment-args-ktx"/>
-[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/fragment-args-ktx?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/fragment-args-ktx?style=flat-square)][mavenCentral]
+[![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
 
 Delegates for safe dealing with fragments' arguments.
 
@@ -94,4 +95,4 @@ Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
 [mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.extensions/fragment-args-ktx
-[license]: ../LICENSE
+[license]: ../../LICENSE

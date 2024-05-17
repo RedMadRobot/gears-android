@@ -1,6 +1,6 @@
-# lifecycle-livedata-ktx <GitHub path="RedMadRobot/redmadrobot-android-ktx/tree/main/lifecycle-livedata-ktx"/>
+# lifecycle-livedata-ktx <GitHub path="RedMadRobot/gears-android/tree/main/ktx/lifecycle-livedata-ktx"/>
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/lifecycle-livedata-ktx?style=flat-square)][mavenCentral]
-[![License](https://img.shields.io/github/license/RedMadRobot/redmadrobot-android-ktx?style=flat-square)][license]
+[![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 
 Extended set of extensions for dealing with `LiveData`.
 

@@ -39,4 +39,4 @@
 First release
 
 
-[4.2.1-0]: https://github.com/RedMadRobot/redmadrobot-android-ktx/compare/resources-ktx-v1.3.0-0...viewbinding-ktx-v4.2.1-0
+[4.2.1-0]: https://github.com/RedMadRobot/gears-android/compare/resources-ktx-v1.3.0-0...viewbinding-ktx-v4.2.1-0

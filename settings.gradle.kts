@@ -35,4 +35,5 @@ include(
     ":ktx:resources-ktx",
     ":ktx:viewbinding-ktx",
     ":gears:gears-compose",
+    ":gears:gears-kotlin",
 )

@@ -3,9 +3,11 @@ name: CI
 on:
   push:
     branches: [main]
-    # Release tag format is [module-name]-v[androidx-version]-[ktx-version]
-    # For example: fragment-ktx-v1.3.5-0
-    tags: ['*-ktx-v*-[0-9]+']
+    # Release tag format is [module-name]-[namespace-name]-v[version]-[sub-version]
+    # For example: fragment-ktx-v1.3.5-0, compose-gears-v.1.1.1-1
+    tags:
+      - '*-ktx-v*-[0-9]+'
+      - '*-gears-v*-[0-9]+'
   pull_request:
     branches: [main]
 
@@ -34,7 +36,7 @@ jobs:
         run: ./gradlew detektAll detektReleaseAll
 
   publish:
-    name: Publish KTX
+    name: Publish gears
     needs: check
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.ref, 'refs/tags/') }}
@@ -49,17 +51,24 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Get module name from tag
-        id: get-module-name
+      - name: Get namespace and module name from tag
+        id: parse-tag
         run: |
           tag=${GITHUB_REF#refs/tags/}
-          echo "result=${tag/-v*}" >> "$GITHUB_OUTPUT"
+          module=$(echo "${tag%-*-v*}")
+          namespace=$(echo "${tag/-v*}" | rev | cut -d '-' -f 1 | rev)
+          echo "module=$module" >> "$GITHUB_OUTPUT"
+          echo "namespace=$namespace" >> "$GITHUB_OUTPUT"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
       - name: Run Publish
-        run: ./gradlew :ktx:${{ steps.get-module-name.outputs.result }}:publish
+        run: ./gradlew :${{ steps.parse-tag.outputs.namespace }}:${{ steps.parse-tag.outputs.module }}:publish
         env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
           ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
           ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}

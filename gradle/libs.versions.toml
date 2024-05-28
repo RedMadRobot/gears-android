@@ -1,11 +1,13 @@
 [versions]
-androidGradlePlugin = "8.4.0"
+androidGradlePlugin = "8.4.1"
 assertj-core = "3.25.1"
 androidx-arch-core = "2.2.0"
-viewbinding = "8.4.0"
+viewbinding = "8.4.1"
+publish-plugin = "0.28.0"
 
 [libraries]
 androidx-viewbinding = { module = "androidx.databinding:viewbinding", version.ref = "viewbinding" }
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-core" }
 androidx-arch-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidx-arch-core"}
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+publish-gradlePlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "publish-plugin" }

@@ -19,6 +19,11 @@ Gears could be used together or alone.
 
 ## Libraries
 
+### :gear: **[gears](gears/)**
+
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-compose?style=flat-square)][compose-gears] - A set of gears for Jetpack Compose
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][kotlin-gears] - A set of gears for Kotlin
+
 ### :hammer_and_wrench: **[red_mad_robot Android KTX](ktx/)**
 
 - [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/core-ktx?style=flat-square&label=core-ktx)][core-ktx] - Extensions in addition to androidx core-ktx
@@ -52,6 +57,9 @@ For major changes, please open a [discussion][discussions] first to discuss what
 [resources-ktx]: ktx/resources-ktx/
 [viewbinding-ktx]: ktx/viewbinding-ktx/
 [license]: LICENSE
+
+[compose-gears]: gears/gears-compose
+[kotlin-gears]: gears/gears-kotlin
 
 [ci]: https://github.com/RedMadRobot/gears-android/actions?query=branch%3Amain++
 [discussions]: https://github.com/RedMadRobot/gears-android/discussions

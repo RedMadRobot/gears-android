@@ -1,4 +1,4 @@
-# kotlin <GitHub path="RedMadRobot/gears-android/tree/main/gears/kotlin"/>
+# gears-kotlin <GitHub path="RedMadRobot/gears-android/tree/main/gears/kotlin"/>
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][mavenCentral]
 [![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 

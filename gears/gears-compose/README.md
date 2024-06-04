@@ -1,4 +1,4 @@
-# compose <GitHub path="RedMadRobot/gears-android/tree/main/gears/compose"/>
+# gears-compose <GitHub path="RedMadRobot/gears-android/tree/main/gears/compose"/>
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-compose?style=flat-square)][mavenCentral]
 [![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 

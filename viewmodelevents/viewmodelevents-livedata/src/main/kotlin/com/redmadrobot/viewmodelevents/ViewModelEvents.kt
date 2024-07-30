@@ -1,4 +1,4 @@
-package com.redmadrobot.extensions.lifecycle
+package com.redmadrobot.viewmodelevents
 
 import androidx.activity.ComponentActivity
 import androidx.annotation.MainThread
@@ -9,13 +9,13 @@ import androidx.lifecycle.MutableLiveData
 import java.util.*
 
 /**
- * Queue to handle one-time events.
+ * ViewModel events queue to handle one-time events.
  *
- * It buffers events and emits them when you start to observe [EventQueue].
- * Events queue can be used to show messages or errors to a user once.
+ * It buffers events and emits them when you start to observe [ViewModelEvents].
+ * Can be used to show messages or errors to a user once.
  * @see Event
  */
-public class EventQueue {
+public class ViewModelEvents {
 
     private val liveData = MutableLiveData<Queue<Event>>()
 
@@ -23,7 +23,7 @@ public class EventQueue {
     public val events: List<Event>
         get() = liveData.value?.toList().orEmpty()
 
-    /** Adds given [event] to the queue. */
+    /** Adds the given [event] to the queue. */
     @MainThread
     public fun offerEvent(event: Event) {
         val queue = liveData.value ?: LinkedList()
@@ -32,8 +32,8 @@ public class EventQueue {
     }
 
     /**
-     * Observes this `EventQueue` within given [lifecycleOwner] lifespan.
-     * Events will be consumed by specified function [onEvent].
+     * Observes this `ViewModelEvents` within the given [lifecycleOwner] lifespan.
+     * Events will be consumed by the specified function [onEvent].
      * @see LiveData.observe
      */
     public fun observe(lifecycleOwner: LifecycleOwner, onEvent: (Event) -> Unit) {
@@ -41,8 +41,8 @@ public class EventQueue {
     }
 
     /**
-     * Observes this `EventQueue`.
-     * Events will be consumed by specified function [onEvent].
+     * Observes this `ViewModelEvents`.
+     * Events will be consumed by the specified function [onEvent].
      * @see LiveData.observeForever
      */
     public fun observeForever(onEvent: (Event) -> Unit) {
@@ -54,23 +54,18 @@ public class EventQueue {
     }
 }
 
-/** Marker interface for entities that can be put to the [EventQueue]. */
-public interface Event
-
 /**
  * Shorter way to observe [LiveData] changes in a fragment using view lifecycle owner.
  * @see LiveData.observe
  */
-@Suppress("NOTHING_TO_INLINE")
-public inline fun Fragment.observe(eventQueue: EventQueue, noinline onEvent: (Event) -> Unit) {
-    eventQueue.observe(viewLifecycleOwner, onEvent)
+public fun Fragment.observe(viewModelEvents: ViewModelEvents, onEvent: (Event) -> Unit) {
+    viewModelEvents.observe(viewLifecycleOwner, onEvent)
 }
 
 /**
  * Shorter way to observe [LiveData] changes in an activity.
  * @see LiveData.observe
  */
-@Suppress("NOTHING_TO_INLINE")
-public inline fun ComponentActivity.observe(eventQueue: EventQueue, noinline onEvent: (Event) -> Unit) {
-    eventQueue.observe(this, onEvent)
+public fun ComponentActivity.observe(viewModelEvents: ViewModelEvents, onEvent: (Event) -> Unit) {
+    viewModelEvents.observe(this, onEvent)
 }

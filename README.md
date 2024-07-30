@@ -33,6 +33,12 @@ Gears could be used together or alone.
 - [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/resources-ktx?style=flat-square&label=resources-ktx)][resources-ktx] - A set of extensions for accessing resources
 - [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.extensions/viewbinding-ktx?style=flat-square&label=viewbinding-ktx)][viewbinding-ktx] - A set of extensions for dealing with ViewBinding
 
+### :mag_right: **[ViewModelEvents](viewmodelevents/)**
+
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-compose] - A set of extensions for dealing with ViewModelEvents inside `@Composable` functions
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-flow] - An implementation of ViewModelEvents via `Flow`
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-livedata] - An implementation of ViewModelEvents via `LiveData`
+
 ## Why Gears?
 
 The goal of this monorepository is to simplify creation and publication of libraries.
@@ -60,6 +66,10 @@ For major changes, please open a [discussion][discussions] first to discuss what
 
 [compose-gears]: gears/gears-compose
 [kotlin-gears]: gears/gears-kotlin
+
+[viewmodelevents-compose]: viewmodelevents/viewmodelevents-compose/
+[viewmodelevents-flow]: viewmodelevents/viewmodelevents-flow/
+[viewmodelevents-livedata]: viewmodelevents/viewmodelevents-livedata/
 
 [ci]: https://github.com/RedMadRobot/gears-android/actions?query=branch%3Amain++
 [discussions]: https://github.com/RedMadRobot/gears-android/discussions

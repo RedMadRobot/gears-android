@@ -13,7 +13,6 @@ Extended set of extensions for dealing with `LiveData`.
 - [Installation](#installation)
 - [Usage](#usage)
   - [`LiveData` delegate](#livedata-delegate)
-  - [ViewModelEvents](#viewmodelevents)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -59,36 +58,6 @@ import com.redmadrobot.extensions.lifecycle.provideDelegate
 val liveData = MutableLiveData<SomeViewState>(initialState)
 var state: SomeViewState by liveData
 ```
-
-### ViewModelEvents
-
-`LiveData` stores only last value, so it is unusable for storing events.
-All events should be added to some kind of buffer and emitted on call `LiveData.observe`.
-`ViewModelEvents` implemented via `LiveData` fits these needs.
-
-You can observe it like a normal `LiveData` and it will add to buffer all events you passed into:
-
-```kotlin
-data class MessageEvent(val message: String) : Event
-
-val viewModelEvents = ViewModelEvents()
-
-viewModelEvents.offerEvent(MessageEvent("A"))
-viewModelEvents.offerEvent(MessageEvent("B"))
-viewModelEvents.observeForever { println(it) }
-viewModelEvents.offerEvent(MessageEvent("C"))
-```
-
-```kotlin
-MessageEvent(message="A")
-MessageEvent(message="B")
-MessageEvent(message="C")
-```
-
-| Extension | Description |
-|-----------|-------------|
-| <pre><code>Fragment.observe(<br>    liveData: EventQueue,<br>    onEvent: (Event) -> Unit<br>)</code></pre> | Shorter way to observe `LiveData` in a fragment |
-| <pre><code>ComponentActivity.observe(<br>    liveData: EventQueue,<br>    onEvent: (Event) -> Unit<br>)</code></pre> | Shorter way to observe `LiveData` in an activity |
 
 ## Contributing
 

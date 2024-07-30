@@ -36,8 +36,8 @@ include(
     ":ktx:viewbinding-ktx",
     ":gears:gears-compose",
     ":gears:gears-kotlin",
-    ":viewmodel-events:common",
-    ":viewmodel-events:compose",
-    ":viewmodel-events:flow",
-    ":viewmodel-events:livedata",
+    ":viewmodelevents:viewmodelevents-common",
+    ":viewmodelevents:viewmodelevents-compose",
+    ":viewmodelevents:viewmodelevents-flow",
+    ":viewmodelevents:viewmodelevents-livedata",
 )

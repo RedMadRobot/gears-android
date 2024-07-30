@@ -10,11 +10,10 @@ Extended set of extensions for dealing with `LiveData`.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
 - [Usage](#usage)
   - [`LiveData` delegate](#livedata-delegate)
-  - [Events Queue](#events-queue)
+  - [ViewModelEvents](#viewmodelevents)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -61,27 +60,29 @@ val liveData = MutableLiveData<SomeViewState>(initialState)
 var state: SomeViewState by liveData
 ```
 
-### Events Queue
+### ViewModelEvents
 
 `LiveData` stores only last value, so it is unusable for storing events.
 All events should be added to some kind of buffer and emitted on call `LiveData.observe`.
-`EventQueue` fits these needs.
+`ViewModelEvents` implemented via `LiveData` fits these needs.
 
 You can observe it like a normal `LiveData` and it will add to buffer all events you passed into:
+
 ```kotlin
 data class MessageEvent(val message: String) : Event
 
-val eventQueue = EventQueue()
+val viewModelEvents = ViewModelEvents()
 
-eventQueue.offerEvent(MessageEvent("A"))
-eventQueue.offerEvent(MessageEvent("B"))
-eventQueue.observeForever { println(it) }
-eventQueue.offerEvent(MessageEvent("C"))
+viewModelEvents.offerEvent(MessageEvent("A"))
+viewModelEvents.offerEvent(MessageEvent("B"))
+viewModelEvents.observeForever { println(it) }
+viewModelEvents.offerEvent(MessageEvent("C"))
 ```
-```
-MessageEvent(message=A)
-MessageEvent(message=B)
-MessageEvent(message=C)
+
+```kotlin
+MessageEvent(message="A")
+MessageEvent(message="B")
+MessageEvent(message="C")
 ```
 
 | Extension | Description |

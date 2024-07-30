@@ -39,6 +39,10 @@ Gears could be used together or alone.
 - [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-flow] - An implementation of ViewModelEvents via `Flow`
 - [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-livedata] - An implementation of ViewModelEvents via `LiveData`
 
+### :hourglass_flowing_sand: **[Result Flow](resultflow/)** [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/resultflow?style=flat-square)]
+
+A couple of extensions to convert long operations into `Flow<Result<T>>`.
+
 ## Why Gears?
 
 The goal of this monorepository is to simplify creation and publication of libraries.

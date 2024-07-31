@@ -40,4 +40,5 @@ include(
     ":viewmodelevents:viewmodelevents-compose",
     ":viewmodelevents:viewmodelevents-flow",
     ":viewmodelevents:viewmodelevents-livedata",
+    ":resultflow",
 )

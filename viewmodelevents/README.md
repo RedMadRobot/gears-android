@@ -1,6 +1,6 @@
-# ViewModelEvents <GitHub path="RedMadRobot/gears-android/tree/main/ktx/viewmodel-events-ktx"/>
-[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.eventqueue/eventqueue-livedata?style=flat-square)][mavenCentral]
-[![License](https://img.shields.io/github/license/RedMadRobot/EventQueue?style=flat-square)][license]
+# ViewModelEvents
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.viewmodelevents/viewmodelevents-common?style=flat-square)][mavenCentral]
+[![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 
 The entity to handle one-time viewModel events.
 
@@ -190,5 +190,5 @@ fun EventsDispatcher.showError(message: String) {
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.eventqueue/eventqueue-livedata
+[mavenCentral]: https://central.sonatype.com/artifact/com.redmadrobot.viewmodelevents/viewmodelevents-common
 [license]: ../LICENSE

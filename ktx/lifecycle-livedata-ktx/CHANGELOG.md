@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changes
+
+- **Breaking change!** `EventQueue` has been moved to a separate module and renamed to `ViewModelEvents`. See the appropriate [documentation](../../viewmodelevents/README.md)
+
 ### Dependencies
 
 - androidx.activity 1.2.3 -> 1.3.1

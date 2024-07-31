@@ -2,6 +2,6 @@
 
 *No changes*
 
-## 1.0.0 - 2024.05.14
+## 1.0.0
 
 - Public release viewModelEvents libraries

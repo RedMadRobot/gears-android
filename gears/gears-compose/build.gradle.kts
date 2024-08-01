@@ -1,5 +1,6 @@
 plugins {
     convention.library.android
+    alias(stack.plugins.kotlin.compose)
 }
 
 version = "0.1.0"
@@ -9,14 +10,6 @@ android {
     namespace = "$group.compose"
 
     defaultConfig.minSdk = 21
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = androidx.versions.compose.compiler.get()
-    }
 }
 
 dependencies {

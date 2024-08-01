@@ -13,5 +13,5 @@ dependencies {
     implementation(stack.gradle.android.cacheFixGradlePlugin)
     implementation(stack.kotlin.gradlePlugin)
     implementation(stack.detekt.gradlePlugin)
-    implementation(libs.android.gradlePlugin)
+    implementation(stack.android.tools.build.gradle)
 }

@@ -1,19 +1,12 @@
 plugins {
     convention.library.android
+    alias(stack.plugins.kotlin.compose)
 }
 
 description = "ViewModelEvents extensions for compose"
 
 android {
     namespace = "$group.compose"
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = androidx.versions.compose.compiler.get()
-    }
 }
 
 dependencies {

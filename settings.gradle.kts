@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage", "StringLiteralDuplication")
+
 pluginManagement {
     repositories {
         google {
@@ -11,7 +13,10 @@ pluginManagement {
     }
 }
 
-@Suppress("UnstableApiUsage")
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
+
 dependencyResolutionManagement {
     repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
 
@@ -27,7 +32,7 @@ dependencyResolutionManagement {
     }
 
     versionCatalogs {
-        val version = "2024.04.10"
+        val version = "2024.08.01"
         create("rmr") {
             from("com.redmadrobot.versions:versions-redmadrobot:$version")
         }

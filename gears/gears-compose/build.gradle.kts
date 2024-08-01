@@ -5,12 +5,10 @@ plugins {
 version = "0.1.0"
 description = "A set of gears for compose"
 
-redmadrobot {
-    android.minSdk = 21
-}
-
 android {
     namespace = "$group.compose"
+
+    defaultConfig.minSdk = 21
 
     buildFeatures {
         compose = true

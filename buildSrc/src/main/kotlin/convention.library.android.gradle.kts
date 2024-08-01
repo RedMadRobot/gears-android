@@ -9,7 +9,7 @@ plugins {
 
 android {
     compileSdk = 34
-    defaultConfig.minSdk = 19
+    defaultConfig.minSdk = 21
 }
 
 kotlin {

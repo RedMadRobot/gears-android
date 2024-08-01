@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changes
+
+- `minSdk` version changed 19 → 21
+
 ## [1.3.6-0] (2021-10-02)
 
 ### Dependencies

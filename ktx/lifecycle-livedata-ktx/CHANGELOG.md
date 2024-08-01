@@ -2,6 +2,7 @@
 
 ### Changes
 
+- `minSdk` version changed 19 → 21
 - **Breaking change!** `EventQueue` has been moved to a separate module and renamed to `ViewModelEvents`. See the appropriate [documentation](../../viewmodelevents/README.md)
 
 ### Dependencies

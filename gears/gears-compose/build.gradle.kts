@@ -8,8 +8,6 @@ description = "A set of gears for compose"
 
 android {
     namespace = "$group.compose"
-
-    defaultConfig.minSdk = 21
 }
 
 dependencies {

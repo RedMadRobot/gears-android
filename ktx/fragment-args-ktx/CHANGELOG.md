@@ -1,5 +1,8 @@
 ## Unreleased
 
+### Changes
+
+- `minSdk` version changed 19 → 21
 - **Bundle**: Removed nullable accessors with default parameter
 - **Bundle**: Accessors for `Serializable` and `Parcelizable` are turned into inline-functions
 

@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Changes
+
+- `minSdk` version changed 19 → 21
+
 ### Dependencies
 
 - androidx.fragment 1.3.5 -> 1.3.6

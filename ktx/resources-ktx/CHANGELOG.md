@@ -2,6 +2,7 @@
 
 ### Changed
 
+- `minSdk` version changed 19 → 21
 - **Breaking change**: `Text` moved to a separate library [com.redmadrobot.textvalue](https://github.com/RedMadRobot/TextValue).
 
 ## [1.3.1-0] (2021-10-03)

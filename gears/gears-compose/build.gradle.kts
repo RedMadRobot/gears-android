@@ -1,24 +1,13 @@
 plugins {
     convention.library.android
+    alias(stack.plugins.kotlin.compose)
 }
 
 version = "0.1.0"
-description = "A set of gears for compose"
-
-redmadrobot {
-    android.minSdk = 21
-}
+description = "A set of gears for Jetpack Compose"
 
 android {
     namespace = "$group.compose"
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = androidx.versions.compose.compiler.get()
-    }
 }
 
 dependencies {

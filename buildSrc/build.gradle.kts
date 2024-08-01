@@ -2,13 +2,8 @@ plugins {
     `kotlin-dsl`
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
-}
-
-java {
-    targetCompatibility = JavaVersion.VERSION_11
-    sourceCompatibility = JavaVersion.VERSION_11
+kotlin {
+    jvmToolchain(11)
 }
 
 dependencies {
@@ -18,5 +13,5 @@ dependencies {
     implementation(stack.gradle.android.cacheFixGradlePlugin)
     implementation(stack.kotlin.gradlePlugin)
     implementation(stack.detekt.gradlePlugin)
-    implementation(libs.android.gradlePlugin)
+    implementation(stack.android.tools.build.gradle)
 }

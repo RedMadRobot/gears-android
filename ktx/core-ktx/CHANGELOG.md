@@ -1,5 +1,8 @@
 ## Unreleased
 
+### Changes
+
+- `minSdk` version changed 19 → 21
 - **SharedPreferences**: Removed nullable accessors with default parameter
 - **Context**: Added `Context.findActivity()` and `Context.findWindow()` extensions
 

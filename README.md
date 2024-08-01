@@ -21,8 +21,8 @@ Gears could be used together or alone.
 
 ### :gear: **[Gears](gears/)**
 
-- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-compose?style=flat-square)][gears-compose] — A set of gears for Jetpack Compose
-- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][gears-kotlin] — A set of gears for Kotlin
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-compose?style=flat-square&label=gears-compose)][gears-compose] — A set of gears for Jetpack Compose
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=gears-kotlin)][gears-kotlin] — A set of gears for Kotlin
 
 ### :hammer_and_wrench: **[red_mad_robot Android KTX](ktx/)**
 
@@ -35,9 +35,9 @@ Gears could be used together or alone.
 
 ### :mag_right: **[ViewModelEvents](viewmodelevents/)**
 
-- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-compose] - A set of extensions for dealing with ViewModelEvents inside `@Composable` functions
-- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-flow] - An implementation of ViewModelEvents via `Flow`
-- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][viewmodelevents-livedata] - An implementation of ViewModelEvents via `LiveData`
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=viewmodelevents-compose)][viewmodelevents-compose] — A set of extensions for dealing with ViewModelEvents inside `@Composable` functions
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=viewmodelevents-flow)][viewmodelevents-flow] — An implementation of ViewModelEvents via `Flow`
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=viewmodelevents-livedata)][viewmodelevents-livedata] — An implementation of ViewModelEvents via `LiveData`
 
 ### :hourglass_flowing_sand: **[Result Flow](resultflow/)** ![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/resultflow?style=flat-square)
 

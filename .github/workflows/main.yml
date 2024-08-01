@@ -54,7 +54,11 @@ jobs:
         run: |
           tag=${GITHUB_REF#refs/tags/}
           module=$(./scripts/get-module-name.sh "$tag")
+          module_path=${module#:}
+          module_path=${module_path//://}
           echo "module=$module" >> "$GITHUB_OUTPUT"
+          echo "module_path=$module_path" >> "$GITHUB_OUTPUT"
+          echo "name=${tag/-v/ }" >> "$GITHUB_OUTPUT"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
@@ -68,3 +72,15 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
           ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
           ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract release notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          changelog_file: ${{ steps.parse-tag.outputs.module_path }}/CHANGELOG.md
+          release_notes_file: RELEASE_NOTES.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ steps.parse-tag.outputs.name }}
+          body_path: RELEASE_NOTES.md

@@ -118,8 +118,6 @@ if [[ "$input" != "yes" ]]; then
   exit 0
 fi
 
-
-
 # 5. Push changes, trigger release on CI, and give a link to open PR
 echo
 echo "⏳ Pushing the changes to the remote repository..."

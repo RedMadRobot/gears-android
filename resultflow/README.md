@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.gears:resultflow:<version>")
+    implementation("com.redmadrobot.gears:resultflow:0.1.0")
 }
 ```
 
@@ -89,5 +89,5 @@ Merge requests are welcome.
 For major changes, open an issue first to discuss what you would like to change.
 
 
-[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.gears/resultflow
+[mavenCentral]: https://central.sonatype.com/artifact/com.redmadrobot.gears/resultflow
 [license]: ../LICENSE

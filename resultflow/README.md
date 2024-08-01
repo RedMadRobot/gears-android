@@ -3,6 +3,9 @@
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/resultflow?style=flat-square)][mavenCentral]
 [![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 
+A couple of extensions to convert long operations into `Flow<Result<T>>`.
+Allows handling such operations in functional way and provides single point to handle `Pending`, `Success` and `Failure` states.
+
 ---
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -13,9 +16,6 @@
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-A couple of extensions to convert long operations into `Flow<Result<T>>`.
-Allows handling such operations in functional way and provides single point to handle `Pending`, `Success` and `Failure` states.
 
 ## Installation
 

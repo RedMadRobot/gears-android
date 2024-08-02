@@ -22,7 +22,7 @@ Gears could be used together or alone.
 ### :gear: **[Gears](gears/)**
 
 - [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-compose?style=flat-square&label=gears-compose)][gears-compose] — A set of gears for Jetpack Compose
-- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=gears-kotlin)][gears-kotlin] — A set of gears for Kotlin
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-kotlin?style=flat-square&label=gears-kotlin)][gears-kotlin] — A set of gears for Kotlin
 
 ### :hammer_and_wrench: **[red_mad_robot Android KTX](ktx/)**
 

@@ -21,7 +21,6 @@ Add the dependency:
 ```groovy
 repositories {
     mavenCentral()
-    google()
 }
 
 dependencies {
@@ -29,12 +28,7 @@ dependencies {
 }
 ```
 
-The library was developed and tested using:
-
-> - `kotlin` [1.9.23](https://github.com/JetBrains/kotlin/releases/tag/v1.9.23)
-
-> [!NOTE]
-> These dependencies will be transiently included in your project.
+The library was developed and tested with Kotlin [2.0.0](https://github.com/JetBrains/kotlin/releases/tag/v2.0.0)
 
 ## Usage
 

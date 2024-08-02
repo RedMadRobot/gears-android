@@ -1,6 +1,6 @@
-# gears-kotlin <GitHub path="RedMadRobot/gears-android/tree/main/gears/kotlin"/>
+# gears-kotlin
 
-[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square)][mavenCentral]
+[![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-kotlin?style=flat-square)][mavenCentral]
 [![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 
 A set of gears for Kotlin.
@@ -43,5 +43,5 @@ Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
 
-[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.gears/gears-kotlin
-[license]: ../LICENSE
+[mavenCentral]: https://central.sonatype.com/artifact/com.redmadrobot.gears/gears-kotlin
+[license]: ../../LICENSE

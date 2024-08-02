@@ -1,4 +1,4 @@
-# gears-compose <GitHub path="RedMadRobot/gears-android/tree/main/gears/compose"/>
+# gears-compose
 
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/gears-compose?style=flat-square)][mavenCentral]
 [![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
@@ -29,14 +29,13 @@ dependencies {
 }
 ```
 
-
-The library was developed and tested using:
-
-> - `compose-runtime` [1.6.5](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.6.5)
-> - `compose-ui` [1.6.5](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.6.5)
-
 > [!NOTE]
-> These dependencies will be transiently included in your project.
+>
+> Dependencies:
+> - `compose-ui` [1.6.8](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.6.8)
+> - `compose-runtime` [1.6.8](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.6.8)
+>
+> These dependencies will be transitively added to your project.
 
 ## Usage
 
@@ -50,5 +49,5 @@ Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
 
-[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.gears/compose
-[license]: ../LICENSE
+[mavenCentral]: https://central.sonatype.com/artifact/com.redmadrobot.gears/gears-compose
+[license]: ../../LICENSE

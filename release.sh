@@ -35,6 +35,11 @@ function error() {
   return 1
 }
 
+function skip() {
+  echo "👌 SKIPPED."
+  exit 0
+}
+
 function get_current_version() {
   local version=""
   if [[ -f $properties ]]; then
@@ -66,6 +71,12 @@ function replace() {
 function diff_link() {
   echo -n "$github_repository_url/compare/${1}...${2}"
 }
+
+function wait_confirmation() {
+  local input
+  read -p " Enter 'yes' to continue: " -r input
+  [[ $input == "yes" ]]
+}
 #endregion
 
 # Check if the module exists
@@ -74,8 +85,8 @@ function diff_link() {
 # 0. Fetch remote changes
 echo "️⏳ Creating release branch..."
 release_branch="release/$release"
-git checkout --quiet -b "$release_branch"
-git pull --quiet --rebase origin main
+git checkout --quiet -B "$release_branch"
+git pull --quiet --rebase origin main || wait_confirmation || skip
 echo "✅ Branch '$release_branch' created"
 echo
 
@@ -84,7 +95,7 @@ last_version=$(get_current_version)
 version=${release##*-v} # library-v1.0.0 -> 1.0.0
 if [[ "$last_version" == "$version" ]]; then
   echo "🤔 Version $version is already set."
-  exit 0
+  wait_confirmation || skip
 fi
 echo "🚀 [$module] Update $last_version → $version"
 echo
@@ -112,16 +123,12 @@ echo "✅ Updated CHANGELOG.md header"
 echo
 echo "Do you want to commit the changes and push the release branch and tag?"
 echo "The release tag push triggers a release workflow on CI."
-read -p " Enter 'yes' to continue: " -r input
-if [[ "$input" != "yes" ]]; then
-  echo "👌 SKIPPED."
-  exit 0
-fi
+wait_confirmation || skip
 
 # 5. Push changes, trigger release on CI, and give a link to open PR
 echo
 echo "⏳ Pushing the changes to the remote repository..."
-git add "$readme" "$changelog" "$properties" "$build_script"
+git add "$module_path"
 git commit --quiet --message "$library: $version"
 git tag "$release"
 git push --quiet origin HEAD "$release"

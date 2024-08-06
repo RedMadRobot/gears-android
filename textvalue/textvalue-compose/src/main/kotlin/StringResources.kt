@@ -1,12 +1,10 @@
-package com.redmadrobot.textvalue.compose
+package com.redmadrobot.textvalue
 
 import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
-import com.redmadrobot.textvalue.TextValue
-import com.redmadrobot.textvalue.getString
 
 /**
  * Unwraps and returns a string for the given [text].

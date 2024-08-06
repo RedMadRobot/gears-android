@@ -61,4 +61,6 @@ include(
     ":viewmodelevents:viewmodelevents-flow",
     ":viewmodelevents:viewmodelevents-livedata",
     ":resultflow",
+    ":textvalue:textvalue-common",
+    ":textvalue:textvalue-compose"
 )

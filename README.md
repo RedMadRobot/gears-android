@@ -43,6 +43,11 @@ Gears could be used together or alone.
 
 A couple of extensions to convert long operations into `Flow<Result<T>>`.
 
+### :speech_balloon: **[TextValue](textvalue/)**
+
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=textvalue-common)][textvalue-common] - An implementation of the TextValue - an abstraction over Android text
+- [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.gears/kotlin?style=flat-square&label=textvalue-compose)][textvalue-compose] - A set of handy tools for dealing with TextValue inside `@Composable` functions
+
 ## Why Gears?
 
 The goal of this mono-repository is to simplify the creation and publication of libraries.
@@ -74,6 +79,9 @@ For major changes, open a [discussion][discussions] first to discuss what you wo
 [viewmodelevents-compose]: viewmodelevents/viewmodelevents-compose/
 [viewmodelevents-flow]: viewmodelevents/viewmodelevents-flow/
 [viewmodelevents-livedata]: viewmodelevents/viewmodelevents-livedata/
+
+[textvalue-common]: textvalue/textvalue-common/
+[textvalue-compose]: textvalue/textvalue-compose/
 
 [ci]: https://github.com/RedMadRobot/gears-android/actions?query=branch%3Amain++
 [discussions]: https://github.com/RedMadRobot/gears-android/discussions

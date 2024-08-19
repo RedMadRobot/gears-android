@@ -1,6 +1,7 @@
-# TextValue <GitHub path="RedMadRobot/textvalue/tree/main/"/>
+# TextValue
+
 [![Version](https://img.shields.io/maven-central/v/com.redmadrobot.textvalue/textvalue?style=flat-square)][mavenCentral]
-[![License](https://img.shields.io/github/license/RedMadRobot/textvalue?style=flat-square)][license]
+[![License](https://img.shields.io/github/license/RedMadRobot/gears-android?style=flat-square)][license]
 
 TextValue is an abstraction allowing to work with a `String` and a string resource ID the same way.
 
@@ -25,7 +26,7 @@ repositories {
 
 dependencies {
     // Views version
-    implementation("com.redmadrobot.textvalue:textvalue-common:<version>")
+    implementation("com.redmadrobot.textvalue:textvalue:<version>")
 
     // Compose extensions for textvalue
     implementation("com.redmadrobot.textvalue:textvalue-compose:<version>")
@@ -73,5 +74,5 @@ There are extensions to work with `TextValue` like with `StringRes`:
 Merge requests are welcome.
 For major changes, please open an issue first to discuss what you would like to change.
 
-[mavenCentral]: https://search.maven.org/artifact/com.redmadrobot.textvalue/textvalue
-[license]: LICENSE
+[mavenCentral]: https://central.sonatype.com/artifact/com.redmadrobot.textvalue/textvalue
+[license]: ../LICENSE

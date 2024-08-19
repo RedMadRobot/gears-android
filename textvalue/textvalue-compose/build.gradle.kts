@@ -6,7 +6,7 @@ plugins {
 description = "Compose extensions for TextValue"
 
 dependencies {
-    api(project(":textvalue:textvalue-common"))
+    api(project(":textvalue:textvalue"))
     api(androidx.compose.ui)
 }
 

@@ -13,8 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 @ReadOnlyComposable
 public fun stringResource(text: TextValue): String {
-    val resources = resources()
-    return resources.getString(text)
+    return resources().getString(text)
 }
 
 /**

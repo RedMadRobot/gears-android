@@ -6,7 +6,7 @@ plugins {
 description = "TextValue is an abstraction over Android text"
 
 android {
-    namespace = "$group.common"
+    namespace = "$group"
 }
 
 dependencies {

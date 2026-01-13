@@ -7,6 +7,7 @@ import android.view.View
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Immutable
 import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 
 /**
  * Wrapper to make it possible to work with plain [String] and [StringRes] in the same way.
@@ -37,8 +38,32 @@ public sealed interface TextValue : Parcelable {
 
     /** String resource, requires [Resources] to get [String]. */
     @Parcelize
-    public data class Resource(@StringRes public val resourceId: Int) : TextValue {
-        override fun get(resources: Resources): String = resources.getString(resourceId)
+    public data class Resource(
+        @StringRes public val resourceId: Int,
+        public val formatArgs: @RawValue Array<out Any> = emptyArray()
+    ) : TextValue {
+        @Suppress("SpreadOperator")
+        override fun get(resources: Resources): String {
+            return resources.getString(resourceId, *formatArgs)
+        }
+
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (javaClass != other?.javaClass) return false
+
+            other as Resource
+
+            if (resourceId != other.resourceId) return false
+            if (!formatArgs.contentEquals(other.formatArgs)) return false
+
+            return true
+        }
+
+        override fun hashCode(): Int {
+            var result = resourceId
+            result = 31 * result + formatArgs.contentHashCode()
+            return result
+        }
     }
 
     public companion object {
@@ -48,15 +73,21 @@ public sealed interface TextValue : Parcelable {
     }
 }
 
-/** Creates [TextValue] from the given [resourceId]. */
-public fun TextValue(@StringRes resourceId: Int): TextValue = TextValue.Resource(resourceId)
+/** Creates [TextValue] from the given [resourceId] and [formatArgs]. */
+public fun TextValue(@StringRes resourceId: Int, vararg formatArgs: Any): TextValue {
+    return TextValue.Resource(resourceId, formatArgs)
+}
 
 /** Creates [TextValue] from the given [string]. */
 public fun TextValue(string: String): TextValue = TextValue.Plain(string)
 
 /** Creates [TextValue] from the given [string], or from the [defaultResourceId] if string is `null`. */
-public fun TextValue(string: String?, @StringRes defaultResourceId: Int): TextValue {
-    return if (string != null) TextValue.Plain(string) else TextValue.Resource(defaultResourceId)
+public fun TextValue(string: String?, @StringRes defaultResourceId: Int, vararg formatArgs: Any): TextValue {
+    return if (string != null) {
+        TextValue.Plain(string)
+    } else {
+        TextValue.Resource(defaultResourceId, formatArgs)
+    }
 }
 
 /**

@@ -33,16 +33,27 @@ dependencies {
 
 ## Usage
 
-Use `resultFlow` function to turn long operations into `Flow<Result<T>>`:
+Use `resultFlow` to turn a long operation that returns a raw value (and may throw) into `Flow<Result<T>>`. Exceptions thrown from the block are caught and emitted as `Result.failure`:
 
 ```kotlin
-resultFlow { respository.fetchData() }
+// repository.fetchData(): Data (may throw)
+resultFlow { repository.fetchData() }
+```
+
+If your operation **already returns `Result<T>`**, unwrap it inside the block — otherwise it binds to the raw-value overload above and is silently double-wrapped into `Flow<Result<Result<T>>>` (there is no compile-time error for this):
+
+```kotlin
+// repository.fetchData(): Result<Data>
+resultFlow { repository.fetchData().getOrThrow() }
+
+// Or, if you need to emit the pre-built Result as-is without catching:
+flow { emit(repository.fetchData()) }
 ```
 
 Use `foldEach` to map result value or handle both `Success` and `Failure`:
 
 ```kotlin
-resultFlow { respository.fetchData() }
+resultFlow { repository.fetchData() }
     .foldEach(
         onSuccess = { handleContent(it) },
         onFailure = { showError(it) },

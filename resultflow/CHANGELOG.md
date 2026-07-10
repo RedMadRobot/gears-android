@@ -1,5 +1,9 @@
 ## Unreleased
 
+- *No changes*
+
+## 0.2.0 (2026-07-10)
+
 ### Breaking changes
 
 - `resultFlow(block: suspend () -> Result<T>)` is no longer available from source code.

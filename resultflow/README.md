@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.redmadrobot.gears:resultflow:0.1.0")
+    implementation("com.redmadrobot.gears:resultflow:0.2.0")
 }
 ```
 

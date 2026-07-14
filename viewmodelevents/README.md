@@ -42,7 +42,7 @@ dependencies {
 ## Usage
 
 One-time events (or single events) are a common pattern to display messages or errors in UI.
-`ViewModelEvents` addresses the challenge of buffering and consuming one-time events:
+`ViewModelEvents` addresses the challenge of buffering and consuming one-time events.
 
 - **Buffering:** When there are no subscribers to `ViewModelEvents`, emitted events are stored in a buffer.
   All buffered events are then delivered sequentially as soon as you subscribe to the ViewModelEvents
